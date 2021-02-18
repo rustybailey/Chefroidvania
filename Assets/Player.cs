@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 8.0f;
-    [SerializeField] float jumpSpeed = 8.0f;
+    [SerializeField] float jumpForce = 8.0f;
 
     private Rigidbody2D rigidBody;
     private InputManager inputManager;
@@ -54,7 +54,8 @@ public class Player : MonoBehaviour
         Debug.Log(movement);
         if (movement.x != 0)
         {
-            rigidBody.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, rigidBody.velocity.y);
+            float moveX = movement.x > 0 ? moveSpeed : -moveSpeed;
+            rigidBody.velocity = new Vector2(moveX * Time.fixedDeltaTime, rigidBody.velocity.y);
         }
     }
 
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
         Debug.Log(jumpIsPressedDown);
         if (jumpIsPressedDown)
         {
-            rigidBody.AddForce(new Vector2(rigidBody.velocity.x, jumpSpeed * Time.fixedDeltaTime), ForceMode2D.Impulse);
+            rigidBody.AddForce(new Vector2(0, jumpForce * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
     }
 }
