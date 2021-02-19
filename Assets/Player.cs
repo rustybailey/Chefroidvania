@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 8.0f;
     [SerializeField] float jumpForce = 8.0f;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float groundCheckRadius = 0.2f;
     [SerializeField] LayerMask groundLayer;
 
     private Rigidbody2D rigidBody;
@@ -19,8 +21,6 @@ public class Player : MonoBehaviour
     private bool isGrounded = false;
     private bool isJumping = false;
 
-    private bool started = false;
-
     private void Awake()
     {
         inputManager = new InputManager();
@@ -32,8 +32,6 @@ public class Player : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-
-        started = true;
     }
 
     // Update is called once per frame
@@ -42,17 +40,15 @@ public class Player : MonoBehaviour
         movement = inputManager.Player.Move.ReadValue<Vector2>();
         jumpIsPressedDown = Mathf.Abs(inputManager.Player.Jump.ReadValue<float>()) > 0;
 
-        isGrounded = Physics2D.OverlapBox(new Vector2(boxCollider.bounds.center.x, boxCollider.bounds.center.y - boxCollider.bounds.size.y / 2), new Vector2(boxCollider.bounds.size.x, boxCollider.bounds.size.y * .2f), 0f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         Debug.Log("Grounded: " + isGrounded);
     }
 
     //Draw the Box Overlap as a gizmo to show where it currently is testing. Click the Gizmos button to see this
     void OnDrawGizmos()
     {
-        if (!started) { return; }
         Gizmos.color = Color.red;
-        //Draw a cube where the OverlapBox is
-        Gizmos.DrawWireCube(new Vector2(boxCollider.bounds.center.x, boxCollider.bounds.center.y - boxCollider.bounds.size.y / 2), new Vector2(boxCollider.bounds.size.x, boxCollider.bounds.size.y * .2f));
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 
     void FixedUpdate()
@@ -74,20 +70,19 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        Debug.Log(movement);
-        if (movement.x != 0)
-        {
-            float moveX = movement.x > 0 ? moveSpeed : -moveSpeed;
-            rigidBody.velocity = new Vector2(moveX * Time.fixedDeltaTime, rigidBody.velocity.y);
-        }
+        //Debug.Log(movement);
+        //Debug.Log((int)(movement * Vector2.right).normalized.x);
+
+        int normalizedMoveX = (int)(movement * Vector2.right).normalized.x;
+        rigidBody.velocity = new Vector2(normalizedMoveX * moveSpeed * Time.fixedDeltaTime, rigidBody.velocity.y);
     }
 
     private void Jump()
     {
-        Debug.Log(jumpIsPressedDown);
-        if (jumpIsPressedDown && isGrounded)
+        //Debug.Log(jumpIsPressedDown);
+        if (jumpIsPressedDown && isGrounded && rigidBody.velocity.y == 0)
         {
-            rigidBody.AddForce(new Vector2(0, jumpForce * Time.fixedDeltaTime), ForceMode2D.Impulse);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce * Time.fixedDeltaTime);
         }
     }
 }
