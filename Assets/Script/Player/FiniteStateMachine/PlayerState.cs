@@ -8,6 +8,8 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected int normalizedMoveX;
     protected int normalizedMoveY;
+    protected bool jumpIsPressedDown;
+    protected bool isGrounded;
 
     private string animationBooleanName;
 
@@ -33,9 +35,12 @@ public class PlayerState
         Vector2 movement = player.InputManager.Player.Move.ReadValue<Vector2>();
         normalizedMoveX = (int)(movement * Vector2.right).normalized.x;
         normalizedMoveY = (int)(movement * Vector2.up).normalized.y;
+        jumpIsPressedDown = Mathf.Abs(player.InputManager.Player.Jump.ReadValue<float>()) > 0;
     }
 
     public virtual void PhysicsUpdate()
     {
+        isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer)
+            && player.CurrentVelocity.y == 0;
     }
 }

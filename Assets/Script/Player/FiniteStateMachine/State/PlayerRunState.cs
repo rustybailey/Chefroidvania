@@ -8,16 +8,6 @@ public class PlayerRunState : PlayerState
     {
     }
 
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void LogicUpdate()
     {
         base.LogicUpdate();
@@ -35,5 +25,10 @@ public class PlayerRunState : PlayerState
         base.PhysicsUpdate();
 
         player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
+
+        if (jumpIsPressedDown && isGrounded)
+        {
+            stateMachine.ChangeState(player.jumpState);
+        }
     }
 }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+public class PlayerJumpState : PlayerState
 {
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animationBooleanName) : base(player, stateMachine, animationBooleanName)
+    public PlayerJumpState(Player player, PlayerStateMachine stateMachine, string animationBooleanName) : base(player, stateMachine, animationBooleanName)
     {
     }
 
@@ -12,7 +12,7 @@ public class PlayerIdleState : PlayerState
     {
         base.Enter();
 
-        player.SetVelocityX(0.0f);
+        player.SetVelocityY(player.GetJumpForce() * Time.fixedDeltaTime);
     }
 
     public override void LogicUpdate()
@@ -29,9 +29,9 @@ public class PlayerIdleState : PlayerState
     {
         base.PhysicsUpdate();
 
-        if (jumpIsPressedDown && isGrounded)
+        if (isGrounded)
         {
-            stateMachine.ChangeState(player.jumpState);
+            stateMachine.ChangeState(player.idleState);
         }
     }
 }
