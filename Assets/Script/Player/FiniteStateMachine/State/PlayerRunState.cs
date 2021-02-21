@@ -18,6 +18,10 @@ public class PlayerRunState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+        else if (jumpIsPressedDown && isGrounded && player.CurrentVelocity.y == 0)
+        {
+            stateMachine.ChangeState(player.jumpState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -25,10 +29,5 @@ public class PlayerRunState : PlayerState
         base.PhysicsUpdate();
 
         player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
-
-        if (jumpIsPressedDown && isGrounded)
-        {
-            stateMachine.ChangeState(player.jumpState);
-        }
     }
 }

@@ -39,12 +39,12 @@ public class PlayerState
         normalizedMoveX = (int)(movement * Vector2.right).normalized.x;
         normalizedMoveY = (int)(movement * Vector2.up).normalized.y;
         jumpIsPressedDown = Mathf.Abs(player.InputManager.Player.Jump.ReadValue<float>()) > 0;
+
+        isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer);
     }
 
     public virtual void PhysicsUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer)
-            && player.CurrentVelocity.y == 0;
     }
 
     public virtual void AnimationFinished()

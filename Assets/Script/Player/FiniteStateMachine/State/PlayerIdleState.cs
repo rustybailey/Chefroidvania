@@ -23,13 +23,7 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.runState);
         }
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-
-        if (jumpIsPressedDown && isGrounded)
+        else if (jumpIsPressedDown && isGrounded && player.CurrentVelocity.y == 0)
         {
             stateMachine.ChangeState(player.jumpState);
         }

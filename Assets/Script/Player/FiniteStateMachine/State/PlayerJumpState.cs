@@ -20,22 +20,20 @@ public class PlayerJumpState : PlayerState
         base.LogicUpdate();
 
         player.FlipIfNeeded(normalizedMoveX);
+
+        if (isGrounded && player.CurrentVelocity.y == 0)
+        {
+            stateMachine.ChangeState(player.landState);
+        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
 
-        if (isGrounded)
-        {
-            stateMachine.ChangeState(player.landState);
-        }
-        else
-        {
-            // Allow the player to move in the air
-            player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
+        // Allow the player to move in the air
+        player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
 
-            player.Animator.SetFloat("yVelocity", player.CurrentVelocity.y);
-        }
+        player.Animator.SetFloat("yVelocity", player.CurrentVelocity.y);
     }
 }
