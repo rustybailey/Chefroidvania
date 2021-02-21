@@ -123,7 +123,6 @@ public class Player : MonoBehaviour
 
     public void StateAnimationFinished()
     {
-        Debug.Log("StateAnimationFinished");
         StateMachine.CurrentState.AnimationFinished();
     }
 }
