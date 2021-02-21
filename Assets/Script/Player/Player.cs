@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public PlayerIdleState idleState;
     public PlayerRunState runState;
     public PlayerJumpState jumpState;
+    public PlayerLandState landState;
     #endregion
 
     #region Movement Variables
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
         idleState = new PlayerIdleState(this, StateMachine, "idle");
         runState = new PlayerRunState(this, StateMachine, "run");
         jumpState = new PlayerJumpState(this, StateMachine, "jump");
+        landState = new PlayerLandState(this, StateMachine, "land");
     }
 
     // Start is called before the first frame update
@@ -117,5 +119,11 @@ public class Player : MonoBehaviour
     {
         facingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+    public void StateAnimationFinished()
+    {
+        Debug.Log("StateAnimationFinished");
+        StateMachine.CurrentState.AnimationFinished();
     }
 }

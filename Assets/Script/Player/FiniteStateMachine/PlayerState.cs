@@ -10,6 +10,7 @@ public class PlayerState
     protected int normalizedMoveY;
     protected bool jumpIsPressedDown;
     protected bool isGrounded;
+    protected bool isAnimationFinished;
 
     private string animationBooleanName;
 
@@ -22,12 +23,14 @@ public class PlayerState
 
     public virtual void Enter()
     {
+        isAnimationFinished = false;
         player.Animator.SetBool(animationBooleanName, true);
     }
 
     public virtual void Exit()
     {
         player.Animator.SetBool(animationBooleanName, false);
+        isAnimationFinished = true;
     }
 
     public virtual void LogicUpdate()
@@ -42,5 +45,10 @@ public class PlayerState
     {
         isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer)
             && player.CurrentVelocity.y == 0;
+    }
+
+    public virtual void AnimationFinished()
+    {
+        isAnimationFinished = true;
     }
 }
