@@ -13,12 +13,13 @@ public class PlayerRunState : PlayerState
         base.LogicUpdate();
 
         player.FlipIfNeeded(normalizedMoveX);
+        Debug.Log(jumpIsPressedDown.ToString() + " " + isGrounded.ToString() + " " + player.CurrentVelocity.y);
 
         if (normalizedMoveX == 0)
         {
             stateMachine.ChangeState(player.idleState);
         }
-        else if (jumpIsPressedDown && isGrounded && player.CurrentVelocity.y == 0)
+        else if (jumpIsPressedDown && isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.jumpState);
         }

@@ -21,7 +21,7 @@ public class PlayerJumpState : PlayerState
 
         player.FlipIfNeeded(normalizedMoveX);
 
-        if (isGrounded && player.CurrentVelocity.y == 0)
+        if (isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.landState);
         }

@@ -11,6 +11,7 @@ public class PlayerState
     protected bool jumpIsPressedDown;
     protected bool isGrounded;
     protected bool isAnimationFinished;
+    protected bool isYVelocityNearlyZero;
 
     private string animationBooleanName;
 
@@ -41,6 +42,12 @@ public class PlayerState
         jumpIsPressedDown = Mathf.Abs(player.InputManager.Player.Jump.ReadValue<float>()) > 0;
 
         isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer);
+
+        // Apparently tilemaps affect the player's velocity an infinitesimal amount for reasons
+        // This thread (https://forum.unity.com/threads/2d-movement-velocity-y-mysteriously-changes.712142/)
+        // suggested using Mathf.Approximately to see if the velocity is close enough to zero,
+        // but that didn't work, so we're calculating it here
+        isYVelocityNearlyZero = Mathf.Abs(player.CurrentVelocity.y) < 0.001f;
     }
 
     public virtual void PhysicsUpdate()

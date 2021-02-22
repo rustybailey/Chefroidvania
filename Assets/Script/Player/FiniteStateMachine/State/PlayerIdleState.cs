@@ -23,7 +23,7 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.runState);
         }
-        else if (jumpIsPressedDown && isGrounded && player.CurrentVelocity.y == 0)
+        else if (jumpIsPressedDown && isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.jumpState);
         }
