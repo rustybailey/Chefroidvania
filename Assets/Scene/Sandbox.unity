@@ -3608,7 +3608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1711294338
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3851,7 +3851,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9150131050543248737, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: groundCheckRadius
-      value: 0.67
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 9150131050543248738, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_Camera
