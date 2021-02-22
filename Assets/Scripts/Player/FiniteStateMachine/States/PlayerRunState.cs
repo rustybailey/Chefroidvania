@@ -13,7 +13,6 @@ public class PlayerRunState : PlayerState
         base.LogicUpdate();
 
         player.FlipIfNeeded(normalizedMoveX);
-        Debug.Log(jumpIsPressedDown.ToString() + " " + isGrounded.ToString() + " " + player.CurrentVelocity.y);
 
         if (normalizedMoveX == 0)
         {
@@ -22,6 +21,10 @@ public class PlayerRunState : PlayerState
         else if (jumpIsPressedDown && isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.jumpState);
+        }
+        else if (!isGrounded && player.CurrentVelocity.y < 0)
+        {
+            stateMachine.ChangeState(player.inAirState);
         }
     }
 

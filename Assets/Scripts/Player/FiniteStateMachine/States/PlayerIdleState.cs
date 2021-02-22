@@ -27,5 +27,9 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.jumpState);
         }
+        else if (!isGrounded && player.CurrentVelocity.y < 0)
+        {
+            stateMachine.ChangeState(player.inAirState);
+        }
     }
 }

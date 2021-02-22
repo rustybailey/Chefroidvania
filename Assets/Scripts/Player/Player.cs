@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public PlayerRunState runState;
     public PlayerJumpState jumpState;
     public PlayerLandState landState;
+    public PlayerInAirState inAirState;
     #endregion
 
     #region Movement Variables
@@ -39,8 +40,9 @@ public class Player : MonoBehaviour
         StateMachine = new PlayerStateMachine();
         idleState = new PlayerIdleState(this, StateMachine, "idle");
         runState = new PlayerRunState(this, StateMachine, "run");
-        jumpState = new PlayerJumpState(this, StateMachine, "jump");
+        jumpState = new PlayerJumpState(this, StateMachine, "inAir");
         landState = new PlayerLandState(this, StateMachine, "land");
+        inAirState = new PlayerInAirState(this, StateMachine, "inAir");
     }
 
     // Start is called before the first frame update
