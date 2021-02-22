@@ -207,7 +207,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -285,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.333711, y: 1.1802065, z: -10}
+  m_LocalPosition: {x: -1.3337889, y: 1.1802065, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 760507112}
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
@@ -709,7 +709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1245096811
 Transform:
   m_ObjectHideFlags: 0
@@ -718,7 +718,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245096810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.333711, y: 1.1802065, z: -10}
+  m_LocalPosition: {x: -1.3337889, y: 1.1802065, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 939696852}
@@ -3900,6 +3900,22 @@ PrefabInstance:
     - target: {fileID: 9150131050543248739, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150131050543248749, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2682047
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150131050543248749, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6866304
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150131050543248749, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04058981
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150131050543248749, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.42825943
       objectReference: {fileID: 0}
     - target: {fileID: 9150131050543248751, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_Name
