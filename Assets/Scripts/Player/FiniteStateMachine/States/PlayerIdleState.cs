@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animationBooleanName) : base(player, stateMachine, animationBooleanName)
+    public PlayerIdleState(Player player, string animationBooleanName) : base(player, animationBooleanName)
     {
     }
 
@@ -23,13 +23,19 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.runState);
         }
-        else if (jumpIsPressedDown && isGrounded && isYVelocityNearlyZero)
+        else if (isJumpButtonPressedDown && isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.jumpState);
         }
         else if (!isGrounded && player.CurrentVelocity.y < 0)
         {
             stateMachine.ChangeState(player.inAirState);
+        }
+        // @TODO Check for frying pan ability
+        // @TODO Check for frying pan already deployed
+        else if (isFryingPanButtonPressedDown)
+        {
+            stateMachine.ChangeState(player.throwFryingPanState);
         }
     }
 }

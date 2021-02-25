@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform groundCheck;
     [SerializeField] public float groundCheckRadius = 0.2f;
     [SerializeField] public LayerMask groundLayer;
+    [SerializeField] GameObject throwLocation;
     #endregion
 
     #region Component Variables
@@ -20,12 +21,14 @@ public class Player : MonoBehaviour
     #endregion
 
     #region State Variables
-    public PlayerStateMachine StateMachine { get; private set; }
+    //public PlayerStateMachine StateMachine { get; private set; }
+    public StateMachine StateMachine { get; private set; }
     public PlayerIdleState idleState;
     public PlayerRunState runState;
     public PlayerJumpState jumpState;
     public PlayerLandState landState;
     public PlayerInAirState inAirState;
+    public PlayerThrowFryingPanState throwFryingPanState;
     #endregion
 
     #region Movement Variables
@@ -37,12 +40,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         InputManager = new InputManager();
-        StateMachine = new PlayerStateMachine();
-        idleState = new PlayerIdleState(this, StateMachine, "idle");
-        runState = new PlayerRunState(this, StateMachine, "run");
-        jumpState = new PlayerJumpState(this, StateMachine, "inAir");
-        landState = new PlayerLandState(this, StateMachine, "land");
-        inAirState = new PlayerInAirState(this, StateMachine, "inAir");
+        StateMachine = new StateMachine();
     }
 
     // Start is called before the first frame update
@@ -51,6 +49,12 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         facingDirection = 1;
         Animator = GetComponent<Animator>();
+        idleState = new PlayerIdleState(this, "idle");
+        runState = new PlayerRunState(this, "run");
+        jumpState = new PlayerJumpState(this, "inAir");
+        landState = new PlayerLandState(this, "land");
+        inAirState = new PlayerInAirState(this, "inAir");
+        throwFryingPanState = new PlayerThrowFryingPanState(this, "throw");
         StateMachine.Initialize(idleState);
     }
 
@@ -126,5 +130,16 @@ public class Player : MonoBehaviour
     public void StateAnimationFinished()
     {
         StateMachine.CurrentState.AnimationFinished();
+    }
+
+    public void MoveFryingPanToHand()
+    {
+        FryingPan fryingPan = FindObjectOfType<FryingPan>();
+        fryingPan.transform.position = throwLocation.transform.position;
+    }
+
+    public void ThrowFryingPan()
+    {
+
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerRunState : PlayerState
 {
-    public PlayerRunState(Player player, PlayerStateMachine stateMachine, string animationBooleanName) : base(player, stateMachine, animationBooleanName)
+    public PlayerRunState(Player player, string animationBooleanName) : base(player, animationBooleanName)
     {
     }
 
@@ -18,7 +18,7 @@ public class PlayerRunState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
-        else if (jumpIsPressedDown && isGrounded && isYVelocityNearlyZero)
+        else if (isJumpButtonPressedDown && isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.jumpState);
         }

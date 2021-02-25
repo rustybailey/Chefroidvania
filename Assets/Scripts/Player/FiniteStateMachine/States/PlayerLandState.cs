@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLandState : PlayerState
 {
-    public PlayerLandState(Player player, PlayerStateMachine stateMachine, string animationBooleanName) : base(player, stateMachine, animationBooleanName)
+    public PlayerLandState(Player player, string animationBooleanName) : base(player, animationBooleanName)
     {
     }
 

@@ -285,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.647992, y: -1.3297935, z: -10}
+  m_LocalPosition: {x: -10.653671, y: -1.3297935, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 760507112}
@@ -321,6 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745984744}
   - component: {fileID: 745984743}
+  - component: {fileID: 745984745}
   m_Layer: 7
   m_Name: Frying Pan
   m_TagString: Untagged
@@ -355,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745984742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.88, y: -3.52, z: 0}
+  m_LocalPosition: {x: -12.76, y: -11.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1200003437}
@@ -363,6 +364,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &745984745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745984742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6d6c75878e3491d97acd9eb35d47c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &760507111
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245096810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.647992, y: -1.3297935, z: -10}
+  m_LocalPosition: {x: -10.653671, y: -1.3297935, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 939696852}
@@ -4180,6 +4193,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2029534909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 183404887, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+  m_PrefabInstance: {fileID: 9150131050806374187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &697795589485127835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4415,6 +4433,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9150131050543248737, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+      propertyPath: throwLocation
+      value: 
+      objectReference: {fileID: 2029534909}
     - target: {fileID: 9150131050543248738, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_Camera
       value: 

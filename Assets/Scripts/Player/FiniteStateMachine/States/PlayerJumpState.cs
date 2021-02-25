@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerInAirState
 {
-    public PlayerJumpState(Player player, PlayerStateMachine stateMachine, string animationBooleanName) : base(player, stateMachine, animationBooleanName)
+    public PlayerJumpState(Player player, string animationBooleanName) : base(player, animationBooleanName)
     {
     }
 
