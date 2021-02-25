@@ -12,9 +12,7 @@ public class PlayerThrowFryingPanState : PlayerState
     {
         base.Enter();
 
-        // @TODO Move frying pan to player
-        player.MoveFryingPanToHand();
-        // @TODO Call frying pan throwToLocation
+        player.FryingPan.ThrowFromLocation(player.GetThrowPosition());
     }
 
     public override void LogicUpdate()
@@ -24,6 +22,7 @@ public class PlayerThrowFryingPanState : PlayerState
         if (isAnimationFinished)
         {
             stateMachine.ChangeState(player.idleState);
+            // @TODO Throw the frying pan
         }
     }
 }

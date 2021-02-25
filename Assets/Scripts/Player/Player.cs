@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     #endregion
 
     #region State Variables
-    //public PlayerStateMachine StateMachine { get; private set; }
     public StateMachine StateMachine { get; private set; }
     public PlayerIdleState idleState;
     public PlayerRunState runState;
@@ -35,6 +34,10 @@ public class Player : MonoBehaviour
     private Vector2 workspace;
     private int facingDirection;
     public Vector2 CurrentVelocity { get; private set; }
+    #endregion
+
+    #region Ability Objects
+    public FryingPan FryingPan { get; private set; }
     #endregion
 
     private void Awake()
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour
         inAirState = new PlayerInAirState(this, "inAir");
         throwFryingPanState = new PlayerThrowFryingPanState(this, "throw");
         StateMachine.Initialize(idleState);
+        FryingPan = FindObjectOfType<FryingPan>();
     }
 
     // Update is called once per frame
@@ -132,14 +136,8 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.AnimationFinished();
     }
 
-    public void MoveFryingPanToHand()
+    public Vector3 GetThrowPosition()
     {
-        FryingPan fryingPan = FindObjectOfType<FryingPan>();
-        fryingPan.transform.position = throwLocation.transform.position;
-    }
-
-    public void ThrowFryingPan()
-    {
-
+        return throwLocation.transform.position;
     }
 }
