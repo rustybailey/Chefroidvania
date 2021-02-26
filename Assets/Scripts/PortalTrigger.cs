@@ -5,7 +5,6 @@ using UnityEngine;
 public class PortalTrigger : MonoBehaviour
 {
     [SerializeField] Animator refrigeratorAnimator;
-    [SerializeField] Transform target;
 
     private bool hasOpened;
 
@@ -16,25 +15,23 @@ public class PortalTrigger : MonoBehaviour
         var player = collision.gameObject.GetComponent<Player>();
         if (player)
         {
-            StartCoroutine(AnimatePortalScene());
+            StartCoroutine(AnimatePortalScene(collision.gameObject));
             hasOpened = true;
         }
     }
 
-    private IEnumerator AnimatePortalScene()
+    private IEnumerator AnimatePortalScene(GameObject player)
     {
-
         refrigeratorAnimator.SetBool("shouldOpen", true);
+
+        yield return new WaitForSeconds(1f);
+
+        player.GetComponent<Player>().StartPortalSucking();
 
         yield return new WaitForSeconds(2f);
 
-        // Rotate the player and move towards portal
-        // Should this be an animation?
-        // Scale to zero or use one of the sparkles to blink him away
-        // Close the fridge
-        //var player = FindObjectOfType<Player>();
-        //player.transform.position = Vector2.MoveTowards(player.transform.position, target.position, 0.5f);
+        refrigeratorAnimator.SetBool("shouldOpen", false);
 
-        //return null;
+        // TODO: Then load "Main Scene"
     }
 }

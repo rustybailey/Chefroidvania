@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7843657361748294834}
   - component: {fileID: 7843657361748294845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1916643109
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7697783705222893931, guid: bb85a123eed2afe41931eee6b30b74f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,8 +93,7 @@ GameObject:
   - component: {fileID: 7843657362599060841}
   - component: {fileID: 7843657362599060846}
   - component: {fileID: 7843657362599060847}
-  - component: {fileID: 7843657362599060840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Refrigerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,10 +144,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.952197, y: 0.5544033}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -159,17 +158,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.4691687, y: 3.1621728}
   m_EdgeRadius: 0
---- !u!114 &7843657362599060840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7843657362599060844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5f90da38530e646b383ba2b27fba8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

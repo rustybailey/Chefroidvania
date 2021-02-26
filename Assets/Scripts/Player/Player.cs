@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public PlayerLandState landState;
     public PlayerInAirState inAirState;
     public PlayerThrowFryingPanState throwFryingPanState;
+    public PlayerPortalState portalState;
     #endregion
 
     #region Movement Variables
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
         landState = new PlayerLandState(this, "land");
         inAirState = new PlayerInAirState(this, "inAir");
         throwFryingPanState = new PlayerThrowFryingPanState(this, "throw");
+        portalState = new PlayerPortalState(this, "rotate");
         StateMachine.Initialize(idleState);
         FryingPan = FindObjectOfType<FryingPan>();
     }
@@ -139,5 +141,10 @@ public class Player : MonoBehaviour
     public Vector3 GetThrowPosition()
     {
         return throwLocation.transform.position;
+    }
+
+    public void StartPortalSucking()
+    {
+        StateMachine.ChangeState(portalState);
     }
 }

@@ -238,11 +238,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7843657362599060846, guid: 637af801b0fbffb479187394fc484a58, type: 3}
   m_PrefabInstance: {fileID: 7843657363204896581}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &477038268 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7843657362599060841, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-  m_PrefabInstance: {fileID: 7843657363204896581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refrigeratorAnimator: {fileID: 477038267}
-  target: {fileID: 1580419198}
 --- !u!1 &1550895594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2786,36 +2780,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1 &1580419197
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1580419198}
-  m_Layer: 6
-  m_Name: Gravitational Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1580419198
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580419197}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 0.29, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 477038268}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1949937680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3542,18 +3506,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7843657361748294835, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657361748294835, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657361748294845, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7843657362599060841, guid: 637af801b0fbffb479187394fc484a58, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3602,34 +3554,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Refrigerator
       objectReference: {fileID: 0}
-    - target: {fileID: 7843657362599060844, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657362599060844, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657362599060847, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_Size.x
-      value: 2.4691687
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657362599060847, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_Size.y
-      value: 3.1621728
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657362599060847, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_Offset.x
-      value: 2.952197
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657362599060847, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.5544033
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843657362599060847, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 637af801b0fbffb479187394fc484a58, type: 3}
 --- !u!1001 &9150131050806374187
@@ -3639,25 +3563,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9150131050543248738, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
     - target: {fileID: 9150131050543248739, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9150131050543248739, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9150131050543248739, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9150131050543248739, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.06
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 9150131050543248739, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_LocalPosition.y
