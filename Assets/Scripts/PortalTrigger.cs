@@ -32,6 +32,8 @@ public class PortalTrigger : MonoBehaviour
 
         refrigeratorAnimator.SetBool("shouldOpen", false);
 
-        // TODO: Then load "Main Scene"
+        yield return new WaitForSeconds(1.5f);
+
+        FindObjectOfType<LevelLoader>().LoadNextLevelWithTransition();
     }
 }
