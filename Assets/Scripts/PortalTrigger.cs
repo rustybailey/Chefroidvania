@@ -24,11 +24,11 @@ public class PortalTrigger : MonoBehaviour
     {
         refrigeratorAnimator.SetBool("shouldOpen", true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
 
         player.GetComponent<Player>().StartPortalSucking();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         refrigeratorAnimator.SetBool("shouldOpen", false);
 

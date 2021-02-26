@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         landState = new PlayerLandState(this, "land");
         inAirState = new PlayerInAirState(this, "inAir");
         throwFryingPanState = new PlayerThrowFryingPanState(this, "throw");
-        portalState = new PlayerPortalState(this, "rotate");
+        portalState = new PlayerPortalState(this, "inAir");
         StateMachine.Initialize(idleState);
         FryingPan = FindObjectOfType<FryingPan>();
     }

@@ -31,6 +31,7 @@ public class PlayerPortalState : PlayerState
         player.transform.position = Vector3.MoveTowards(player.transform.position, target, 2f * Time.deltaTime);
         if (player.transform.localScale.x > 0)
         {
+            player.transform.Rotate(0, 0, 720f * Time.deltaTime);
             player.transform.localScale -= Vector3.one * .5f * Time.deltaTime;
         }
     }
