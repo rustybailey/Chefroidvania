@@ -213,6 +213,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  throwLocation: {fileID: 183404887}
 --- !u!95 &9150131050543248736
 Animator:
   serializedVersion: 3

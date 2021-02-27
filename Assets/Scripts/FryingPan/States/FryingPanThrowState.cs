@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FryingPanThrowState : FryingPanState
 {
-    public FryingPanThrowState(FryingPan fryingPan, string animationBooleanName) : base(fryingPan, animationBooleanName)
+    private Vector3 target;
+
+    public FryingPanThrowState(FryingPan fryingPan, Player player, string animationBooleanName) : base(fryingPan, player, animationBooleanName)
     {
     }
 
@@ -12,11 +14,21 @@ public class FryingPanThrowState : FryingPanState
     {
         base.Enter();
 
-        //transform.position = position;
+        fryingPan.FlipIfNeeded(player.FacingDirection);
+        fryingPan.transform.position = player.GetThrowLocation().transform.position;
+        target = new Vector3(fryingPan.transform.position.x + (fryingPan.GetThrowDistance() * fryingPan.FacingDirection), fryingPan.transform.position.y, fryingPan.transform.position.z);
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        float step = fryingPan.GetThrowSpeed() * Time.deltaTime;
+        fryingPan.transform.position = Vector3.MoveTowards(fryingPan.transform.position, target, step);
+
+        if (Vector3.Distance(fryingPan.transform.position, target) < 0.001f)
+        {
+            fryingPan.StateMachine.ChangeState(fryingPan.idleState);
+        }
     }
 }

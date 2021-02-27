@@ -40,6 +40,9 @@ public class Player : MonoBehaviour
 
     #region Ability Objects
     public FryingPan FryingPan { get; private set; }
+    public bool CanThrowFryingPan { get; private set; }
+    public bool HasThrownFryingPan { get; private set; }
+    public bool IsReturningFryingPan { get; private set; }
     #endregion
 
     private void Awake()
@@ -53,6 +56,8 @@ public class Player : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         FacingDirection = 1;
+        CanThrowFryingPan = true;
+        HasThrownFryingPan = false;
         Animator = GetComponent<Animator>();
         idleState = new PlayerIdleState(this, "idle");
         runState = new PlayerRunState(this, "run");
@@ -140,9 +145,27 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.AnimationFinished();
     }
 
-    public Vector3 GetThrowPosition()
+    public GameObject GetThrowLocation()
     {
-        return throwLocation.transform.position;
+        return throwLocation;
+    }
+
+    public void ThrowFryingPan()
+    {
+        CanThrowFryingPan = false;
+        HasThrownFryingPan = true;
+    }
+
+    public void BeginReturningFryingPan()
+    {
+        IsReturningFryingPan = true;
+    }
+
+    public void ReturnFryingPan()
+    {
+        CanThrowFryingPan = true;
+        HasThrownFryingPan = false;
+        IsReturningFryingPan = false;
     }
 
     public void StartPortalSucking()
