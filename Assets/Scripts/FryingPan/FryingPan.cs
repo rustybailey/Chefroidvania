@@ -15,9 +15,11 @@ public class FryingPan : MonoBehaviour
 
     #region State Variables
     public StateMachine StateMachine { get; private set; }
-    public FryingPanState idleState;
+    public FryingPanHiddenState hiddenState;
     public FryingPanThrowState throwState;
     public FryingPanReturnState returnState;
+    public FryingPanHoverState hoverState;
+    public bool isHovering;
     #endregion
 
     #region Movement Variables
@@ -35,10 +37,11 @@ public class FryingPan : MonoBehaviour
         Player player = FindObjectOfType<Player>();
         Animator = GetComponent<Animator>();
         FacingDirection = 1;
-        idleState = new FryingPanState(this, player, "idle");
+        hiddenState = new FryingPanHiddenState(this, player, "hover");
         throwState = new FryingPanThrowState(this, player, "throw");
         returnState = new FryingPanReturnState(this, player, "throw");
-        StateMachine.Initialize(idleState);
+        hoverState = new FryingPanHoverState(this, player, "hover");
+        StateMachine.Initialize(hiddenState);
     }
 
     // Update is called once per frame

@@ -20,6 +20,8 @@ public class PlayerState : State
 
     public override void LogicUpdate()
     {
+        base.LogicUpdate();
+
         Vector2 movement = player.InputManager.Player.Move.ReadValue<Vector2>();
         normalizedMoveX = (int)(movement * Vector2.right).normalized.x;
         normalizedMoveY = (int)(movement * Vector2.up).normalized.y;

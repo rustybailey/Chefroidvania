@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public PlayerLandState landState;
     public PlayerInAirState inAirState;
     public PlayerThrowFryingPanState throwFryingPanState;
+    public PlayerReturnFryingPanState returnFryingPanState;
     public PlayerPortalState portalState;
     public PlayerHurtState hurtState;
     #endregion
@@ -40,9 +41,7 @@ public class Player : MonoBehaviour
 
     #region Ability Objects
     public FryingPan FryingPan { get; private set; }
-    public bool CanThrowFryingPan { get; private set; }
-    public bool HasThrownFryingPan { get; private set; }
-    public bool IsReturningFryingPan { get; private set; }
+    public bool isHoldingFryingPan;
     #endregion
 
     private void Awake()
@@ -56,8 +55,7 @@ public class Player : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         FacingDirection = 1;
-        CanThrowFryingPan = true;
-        HasThrownFryingPan = false;
+        isHoldingFryingPan = true;
         Animator = GetComponent<Animator>();
         idleState = new PlayerIdleState(this, "idle");
         runState = new PlayerRunState(this, "run");
@@ -65,6 +63,7 @@ public class Player : MonoBehaviour
         landState = new PlayerLandState(this, "land");
         inAirState = new PlayerInAirState(this, "inAir");
         throwFryingPanState = new PlayerThrowFryingPanState(this, "throw");
+        returnFryingPanState = new PlayerReturnFryingPanState(this, "idle");
         portalState = new PlayerPortalState(this, "inAir");
         hurtState = new PlayerHurtState(this, "hurt");
         StateMachine.Initialize(idleState);
@@ -148,24 +147,6 @@ public class Player : MonoBehaviour
     public GameObject GetThrowLocation()
     {
         return throwLocation;
-    }
-
-    public void ThrowFryingPan()
-    {
-        CanThrowFryingPan = false;
-        HasThrownFryingPan = true;
-    }
-
-    public void BeginReturningFryingPan()
-    {
-        IsReturningFryingPan = true;
-    }
-
-    public void ReturnFryingPan()
-    {
-        CanThrowFryingPan = true;
-        HasThrownFryingPan = false;
-        IsReturningFryingPan = false;
     }
 
     public void StartPortalSucking()

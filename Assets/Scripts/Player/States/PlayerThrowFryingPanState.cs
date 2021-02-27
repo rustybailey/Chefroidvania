@@ -12,8 +12,7 @@ public class PlayerThrowFryingPanState : PlayerState
     {
         base.Enter();
 
-        player.ThrowFryingPan();
-        player.FryingPan.StateMachine.ChangeState(player.FryingPan.throwState);
+        player.isHoldingFryingPan = false;
     }
 
     public override void LogicUpdate()
@@ -22,6 +21,7 @@ public class PlayerThrowFryingPanState : PlayerState
 
         if (isAnimationFinished)
         {
+            player.FryingPan.StateMachine.ChangeState(player.FryingPan.throwState);
             stateMachine.ChangeState(player.idleState);
         }
     }
