@@ -21,7 +21,7 @@ public class PlayerThrowFryingPanState : PlayerState
 
         if (isAnimationFinished)
         {
-            player.FryingPan.StateMachine.ChangeState(player.FryingPan.throwState);
+            player.FryingPan.StateMachine.ChangeState(player.FryingPan.ThrowState);
             stateMachine.ChangeState(player.idleState);
         }
     }

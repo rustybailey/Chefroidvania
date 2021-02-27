@@ -37,9 +37,9 @@ public class PlayerIdleState : PlayerState
             stateMachine.ChangeState(player.throwFryingPanState);
         }
         // @TODO Check for frying pan ability
-        else if (isFryingPanButtonPressedDown && player.FryingPan.isHovering)
+        else if (isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
         {
-            player.FryingPan.StateMachine.ChangeState(player.FryingPan.returnState);
+            player.FryingPan.StateMachine.ChangeState(player.FryingPan.ReturnState);
         }
     }
 }

@@ -21,7 +21,7 @@ public class FryingPanReturnState : FryingPanState
 
         if (Vector3.Distance(fryingPan.transform.position, player.GetThrowLocation().transform.position) < 1.0f)
         {
-            fryingPan.StateMachine.ChangeState(fryingPan.hiddenState);
+            fryingPan.StateMachine.ChangeState(fryingPan.HiddenState);
             player.StateMachine.ChangeState(player.returnFryingPanState);
         }
     }

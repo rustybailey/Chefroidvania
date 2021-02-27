@@ -15,11 +15,11 @@ public class FryingPan : MonoBehaviour
 
     #region State Variables
     public StateMachine StateMachine { get; private set; }
-    public FryingPanHiddenState hiddenState;
-    public FryingPanThrowState throwState;
-    public FryingPanReturnState returnState;
-    public FryingPanHoverState hoverState;
-    public bool isHovering;
+    public FryingPanHiddenState HiddenState { get; private set; }
+    public FryingPanThrowState ThrowState { get; private set; }
+    public FryingPanReturnState ReturnState { get; private set; }
+    public FryingPanHoverState HoverState { get; private set; }
+    public bool IsHovering { get; private set; }
     #endregion
 
     #region Movement Variables
@@ -37,11 +37,11 @@ public class FryingPan : MonoBehaviour
         Player player = FindObjectOfType<Player>();
         Animator = GetComponent<Animator>();
         FacingDirection = 1;
-        hiddenState = new FryingPanHiddenState(this, player, "hover");
-        throwState = new FryingPanThrowState(this, player, "throw");
-        returnState = new FryingPanReturnState(this, player, "throw");
-        hoverState = new FryingPanHoverState(this, player, "hover");
-        StateMachine.Initialize(hiddenState);
+        HiddenState = new FryingPanHiddenState(this, player, "hover");
+        ThrowState = new FryingPanThrowState(this, player, "throw");
+        ReturnState = new FryingPanReturnState(this, player, "throw");
+        HoverState = new FryingPanHoverState(this, player, "hover");
+        StateMachine.Initialize(HiddenState);
     }
 
     // Update is called once per frame
@@ -63,6 +63,16 @@ public class FryingPan : MonoBehaviour
     public float GetThrowDistance()
     {
         return throwDistance;
+    }
+
+    public void StartHovering()
+    {
+        IsHovering = true;
+    }
+
+    public void StopHovering()
+    {
+        IsHovering = false;
     }
 
     public void FlipIfNeeded(int facingDirection)

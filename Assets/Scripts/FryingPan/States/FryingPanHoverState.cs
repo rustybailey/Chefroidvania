@@ -12,13 +12,13 @@ public class FryingPanHoverState : FryingPanState
     {
         base.Enter();
 
-        fryingPan.isHovering = true;
+        fryingPan.StartHovering();
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        fryingPan.isHovering = false;
+        fryingPan.StopHovering();
     }
 }

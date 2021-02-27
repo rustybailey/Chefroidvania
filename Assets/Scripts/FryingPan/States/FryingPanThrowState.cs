@@ -28,7 +28,7 @@ public class FryingPanThrowState : FryingPanState
 
         if (Vector3.Distance(fryingPan.transform.position, target) < 0.001f)
         {
-            fryingPan.StateMachine.ChangeState(fryingPan.hoverState);
+            fryingPan.StateMachine.ChangeState(fryingPan.HoverState);
         }
     }
 }
