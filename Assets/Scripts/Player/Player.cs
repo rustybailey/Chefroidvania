@@ -29,11 +29,12 @@ public class Player : MonoBehaviour
     public PlayerInAirState inAirState;
     public PlayerThrowFryingPanState throwFryingPanState;
     public PlayerPortalState portalState;
+    public PlayerHurtState hurtState;
     #endregion
 
     #region Movement Variables
     private Vector2 workspace;
-    private int facingDirection;
+    public int FacingDirection { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
     #endregion
 
@@ -51,7 +52,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        facingDirection = 1;
+        FacingDirection = 1;
         Animator = GetComponent<Animator>();
         idleState = new PlayerIdleState(this, "idle");
         runState = new PlayerRunState(this, "run");
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
         inAirState = new PlayerInAirState(this, "inAir");
         throwFryingPanState = new PlayerThrowFryingPanState(this, "throw");
         portalState = new PlayerPortalState(this, "inAir");
+        hurtState = new PlayerHurtState(this, "hurt");
         StateMachine.Initialize(idleState);
         FryingPan = FindObjectOfType<FryingPan>();
     }
@@ -121,7 +123,7 @@ public class Player : MonoBehaviour
 
     public void FlipIfNeeded(int normalizedMoveX)
     {
-        if (normalizedMoveX != 0 && normalizedMoveX != facingDirection)
+        if (normalizedMoveX != 0 && normalizedMoveX != FacingDirection)
         {
             Flip();
         }
@@ -129,7 +131,7 @@ public class Player : MonoBehaviour
 
     private void Flip()
     {
-        facingDirection *= -1;
+        FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 
@@ -146,5 +148,11 @@ public class Player : MonoBehaviour
     public void StartPortalSucking()
     {
         StateMachine.ChangeState(portalState);
+    }
+
+    public void CausePain()
+    {
+
+        StateMachine.ChangeState(hurtState);
     }
 }

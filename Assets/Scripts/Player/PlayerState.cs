@@ -10,6 +10,7 @@ public class PlayerState : State
     protected bool isJumpButtonPressedDown;
     protected bool isGrounded;
     protected bool isYVelocityNearlyZero;
+    protected bool isXVelocityNearlyZero;
     protected bool isFryingPanButtonPressedDown;
 
     public PlayerState(Player player, string animationBooleanName) : base(player.StateMachine, player.Animator, animationBooleanName)
@@ -32,5 +33,6 @@ public class PlayerState : State
         // suggested using Mathf.Approximately to see if the velocity is close enough to zero,
         // but that didn't work, so we're calculating it here
         isYVelocityNearlyZero = Mathf.Abs(player.CurrentVelocity.y) < 0.001f;
+        isXVelocityNearlyZero = Mathf.Abs(player.CurrentVelocity.x) < 0.001f;
     }
 }
