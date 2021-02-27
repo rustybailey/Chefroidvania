@@ -13,7 +13,7 @@ public class TotemIdleState : TotemState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("ENTER");
+        
         countDown = 2f;
     }
 
@@ -22,7 +22,6 @@ public class TotemIdleState : TotemState
         base.LogicUpdate();
 
         countDown -= Time.deltaTime;
-        Debug.Log(countDown);
 
         if (countDown < 0f)
         {

@@ -24,7 +24,7 @@ public class PlayerHurtState : PlayerState
 
         // TODO: Reduce health here
 
-        if (isGrounded && Mathf.Abs(player.CurrentVelocity.x) < 3f)       
+        if (hasAppliedForce && isGrounded && Mathf.Abs(player.CurrentVelocity.x) < 3f)       
         {
             // TODO: Implement the landing hurt animation frame
             stateMachine.ChangeState(player.idleState);

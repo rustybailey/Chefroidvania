@@ -6516,9 +6516,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1669504036044432432, guid: 01e176a86b15037468e970e72bca94ec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7949279595479583813, guid: 01e176a86b15037468e970e72bca94ec, type: 3}
       propertyPath: m_Name
       value: Totem Head Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949279595479583813, guid: 01e176a86b15037468e970e72bca94ec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949279595479583814, guid: 01e176a86b15037468e970e72bca94ec, type: 3}
+      propertyPath: direction
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7949279595479583818, guid: 01e176a86b15037468e970e72bca94ec, type: 3}
       propertyPath: m_RootOrder

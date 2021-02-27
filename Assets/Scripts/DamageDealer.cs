@@ -9,7 +9,7 @@ public class DamageDealer : MonoBehaviour
         Player player = collision.GetComponent<Player>();
         if (player && !player.StateMachine.CurrentState.GetType().IsInstanceOfType(player.hurtState))
         {
-            player.CausePain();
+            player.StateMachine.ChangeState(player.hurtState);
         }
     }
 }

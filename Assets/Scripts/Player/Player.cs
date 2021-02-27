@@ -172,10 +172,4 @@ public class Player : MonoBehaviour
     {
         StateMachine.ChangeState(portalState);
     }
-
-    public void CausePain()
-    {
-
-        StateMachine.ChangeState(hurtState);
-    }
 }
