@@ -16,6 +16,10 @@ public class PlayerLandState : PlayerState
         {
             stateMachine.ChangeState(player.runState);
         }
+        else if (isJumpButtonPressedDown && isGrounded && isYVelocityNearlyZero)
+        {
+            stateMachine.ChangeState(player.jumpState);
+        }
         else if (isAnimationFinished)
         {
             stateMachine.ChangeState(player.idleState);
