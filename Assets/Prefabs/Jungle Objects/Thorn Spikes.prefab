@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2380538702542192818
+--- !u!1 &8927530582815307120
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4496977188758356857}
-  - component: {fileID: 3594458126472073025}
-  - component: {fileID: 601843194933131546}
-  - component: {fileID: 938976385339470125}
-  - component: {fileID: 177988347}
-  - component: {fileID: 748654328}
+  - component: {fileID: 8927530582815307122}
+  - component: {fileID: 8927530582815307121}
+  - component: {fileID: 8518264473170415902}
+  - component: {fileID: 7744430588638007722}
+  - component: {fileID: 7972538578543146675}
+  - component: {fileID: 7674956950371585301}
   m_Layer: 0
-  m_Name: Wooden Spikes
+  m_Name: Thorn Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4496977188758356857
+--- !u!4 &8927530582815307122
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380538702542192818}
+  m_GameObject: {fileID: 8927530582815307120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.024076, y: 5.0970535, z: -24.772167}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3594458126472073025
+--- !u!212 &8927530582815307121
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380538702542192818}
+  m_GameObject: {fileID: 8927530582815307120}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1747735380434436097, guid: e443651c9ca0ea54e99d9a19b3385a9b, type: 3}
+  m_Sprite: {fileID: 1642651160154874, guid: e443651c9ca0ea54e99d9a19b3385a9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,17 +86,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &601843194933131546
+--- !u!95 &8518264473170415902
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380538702542192818}
+  m_GameObject: {fileID: 8927530582815307120}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab45fc52915c5b54296085a2db82dc9c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a2440315d41de442b50ae79602a6612, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -105,13 +105,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &938976385339470125
+--- !u!61 &7744430588638007722
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380538702542192818}
+  m_GameObject: {fileID: 8927530582815307120}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -131,25 +131,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &177988347
+--- !u!114 &7972538578543146675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380538702542192818}
+  m_GameObject: {fileID: 8927530582815307120}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 362512927103d5243aade7dbd77b1707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &748654328
+--- !u!114 &7674956950371585301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380538702542192818}
+  m_GameObject: {fileID: 8927530582815307120}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ae0de24d0bf66042865940316a26aef, type: 3}
