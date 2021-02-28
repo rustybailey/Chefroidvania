@@ -7,18 +7,22 @@ public class Player : MonoBehaviour
 {
     #region Serialized Variables
     [SerializeField] float moveSpeed = 8.0f;
+    [SerializeField] float climbSpeed = 200.0f;
     [SerializeField] float jumpForce = 8.0f;
     [SerializeField] public Transform groundCheck;
     [SerializeField] public float groundCheckRadius = 0.2f;
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] GameObject throwLocation;
-    [SerializeField] Transform wallCheck;
-    [SerializeField] float wallCheckWidth;
-    [SerializeField] float wallCheckHeight;
+    [SerializeField] GameObject wallCheckOrigin1;
+    [SerializeField] GameObject wallCheckOrigin2;
+    [SerializeField] GameObject lowCheckOrigin;
+    [SerializeField] GameObject highCheckOrigin;
+    [SerializeField] float wallCheckLength;
+    [SerializeField] LayerMask wallLayer;
     #endregion
 
     #region Component Variables
-    private Rigidbody2D rigidBody;
+    public Rigidbody2D RigidBody { get; private set; }
     public InputManager InputManager { get; private set; }
     public Animator Animator { get; private set; }
     #endregion
@@ -34,6 +38,9 @@ public class Player : MonoBehaviour
     public PlayerReturnFryingPanState returnFryingPanState;
     public PlayerPortalState portalState;
     public PlayerHurtState hurtState;
+    public PlayerWallClimbImpactState wallClimbImpactState;
+    public PlayerWallClimbIdleState wallClimbIdleState;
+    public PlayerWallClimbState wallClimbState;
     #endregion
 
     #region Movement Variables
@@ -56,7 +63,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        RigidBody = GetComponent<Rigidbody2D>();
         FacingDirection = 1;
         isHoldingFryingPan = true;
         Animator = GetComponent<Animator>();
@@ -69,6 +76,9 @@ public class Player : MonoBehaviour
         returnFryingPanState = new PlayerReturnFryingPanState(this, "idle");
         portalState = new PlayerPortalState(this, "inAir");
         hurtState = new PlayerHurtState(this, "hurt");
+        wallClimbImpactState = new PlayerWallClimbImpactState(this, "wallClimbImpact");
+        wallClimbIdleState = new PlayerWallClimbIdleState(this, "wallClimbIdle");
+        wallClimbState = new PlayerWallClimbState(this, "wallClimb");
         StateMachine.Initialize(idleState);
         FryingPan = FindObjectOfType<FryingPan>();
     }
@@ -79,17 +89,24 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.LogicUpdate();
     }
 
-    //Draw the Box Overlap as a gizmo to show where it currently is testing. Click the Gizmos button to see this
     void OnDrawGizmos()
     {
+        // Draw ground check
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        Gizmos.DrawWireCube(wallCheck.position, new Vector3(wallCheckWidth, wallCheckHeight));
+
+        // Draw wall check ray casts
+        Gizmos.color = Color.yellow;
+        Vector3 direction = transform.TransformDirection(Vector3.right) * wallCheckLength;
+        Gizmos.DrawRay(wallCheckOrigin1.transform.position, direction);
+        Gizmos.DrawRay(wallCheckOrigin2.transform.position, direction);
+        Gizmos.DrawRay(lowCheckOrigin.transform.position, direction);
+        Gizmos.DrawRay(highCheckOrigin.transform.position, direction);
     }
 
     void FixedUpdate()
     {
-        CurrentVelocity = rigidBody.velocity;
+        CurrentVelocity = RigidBody.velocity;
 
         StateMachine.CurrentState.PhysicsUpdate();
     }
@@ -107,20 +124,25 @@ public class Player : MonoBehaviour
     public void SetVelocityX(float velocity)
     {
         workspace.Set(velocity, CurrentVelocity.y);
-        rigidBody.velocity = workspace;
+        RigidBody.velocity = workspace;
         CurrentVelocity = workspace;
     }
 
     public void SetVelocityY(float velocity)
     {
         workspace.Set(CurrentVelocity.x, velocity);
-        rigidBody.velocity = workspace;
+        RigidBody.velocity = workspace;
         CurrentVelocity = workspace;
     }
 
     public float GetMovementSpeed()
     {
         return moveSpeed;
+    }
+
+    public float GetClimbingSpeed()
+    {
+        return climbSpeed;
     }
 
     public float GetJumpForce()
@@ -152,18 +174,33 @@ public class Player : MonoBehaviour
         return throwLocation;
     }
 
-    public Transform GetWallCheck()
+    public GameObject GetWallCheckOrigin1()
     {
-        return wallCheck;
+        return wallCheckOrigin1;
     }
 
-    public float GetWallCheckWidth()
+    public GameObject GetWallCheckOrigin2()
     {
-        return wallCheckWidth;
+        return wallCheckOrigin2;
     }
 
-    public float GetWallCheckHeight()
+    public GameObject GetLowCheckOrigin()
     {
-        return wallCheckHeight;
+        return lowCheckOrigin;
+    }
+
+    public GameObject GetHighCheckOrigin()
+    {
+        return highCheckOrigin;
+    }
+
+    public float GetWallCheckLength()
+    {
+        return wallCheckLength;
+    }
+
+    public LayerMask GetWallLayer()
+    {
+        return wallLayer;
     }
 }

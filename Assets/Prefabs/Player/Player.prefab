@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &101589762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 101589763}
-  m_Layer: 7
-  m_Name: Wall Check
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &101589763
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101589762}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.69, y: -0.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 9150131050543248739}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &183404887
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +66,6 @@ Transform:
   - {fileID: 9150131052398444014}
   - {fileID: 9150131052012162688}
   - {fileID: 183404888}
-  - {fileID: 101589763}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -245,9 +214,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   throwLocation: {fileID: 183404887}
-  wallCheck: {fileID: 101589763}
-  wallCheckWidth: 0.5
-  wallCheckHeight: 2
+  wallCheckOrigin1: {fileID: 0}
+  wallCheckOrigin2: {fileID: 0}
+  wallCheckLength: 0
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isHoldingFryingPan: 0
 --- !u!95 &9150131050543248736
 Animator:

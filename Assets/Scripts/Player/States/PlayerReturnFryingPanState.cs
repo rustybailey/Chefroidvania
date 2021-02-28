@@ -13,6 +13,6 @@ public class PlayerReturnFryingPanState : PlayerState
         base.Enter();
 
         player.isHoldingFryingPan = true;
-        player.StateMachine.ChangeState(player.idleState);
+        stateMachine.ChangeState(player.idleState);
     }
 }

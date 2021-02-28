@@ -28,6 +28,19 @@ public class PlayerInAirState : PlayerState
         {
             player.FryingPan.StateMachine.ChangeState(player.FryingPan.ExitHoverState);
         }
+        // @TODO Check for chef knives ability
+        else if (isHeadCollidingWithWall && areFeetCollidingWithWall && !isGrounded && !isXVelocityNearlyZero)
+        {
+            stateMachine.ChangeState(player.wallClimbImpactState);
+        }
+        // If the player is directly next to a wall and jumps they will not move
+        // forward.  In that case, once the player begins to fall, begin the
+        // wall climb.
+        // @TODO Check for chef knives ability
+        else if (isHeadCollidingWithWall && areFeetCollidingWithWall && !isGrounded && player.CurrentVelocity.y < 0)
+        {
+            stateMachine.ChangeState(player.wallClimbImpactState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -35,13 +48,8 @@ public class PlayerInAirState : PlayerState
         base.PhysicsUpdate();
 
         // Allow the player to move in the air as long as they are not hitting
-        // a wall.
-        if (isHittingWall)
-        {
-            // @TODO Wall climb state
-
-        }
-        else
+        // a wall with their feet.
+        if (!areFeetCollidingWithWall)
         {
             player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
         }
