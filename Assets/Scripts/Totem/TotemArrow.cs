@@ -41,7 +41,7 @@ public class TotemArrow : MonoBehaviour
         // Disable the collider after we initiate the destroy animation so that it can't hurt the player
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
 
         Destroy(gameObject);
     }

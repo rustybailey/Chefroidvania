@@ -6,7 +6,6 @@ public class Totem : MonoBehaviour
 {
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] Transform arrowOrigin;
-    [SerializeField] int direction = 1;
 
     public Animator Animator { get; private set; }
 
@@ -23,11 +22,6 @@ public class Totem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (direction == 1)
-        {
-            transform.Rotate(0.0f, 180.0f, 0.0f);
-        }
-
         Animator = GetComponent<Animator>();
         idleState = new TotemIdleState(this, "idle");
         warningState = new TotemWarningState(this, "warning");
@@ -53,6 +47,5 @@ public class Totem : MonoBehaviour
     public void FireArrow()
     {
         GameObject arrow = Instantiate(arrowPrefab, arrowOrigin.transform.position, transform.rotation);
-        //arrow.GetComponent<TotemArrow>().direction = -1;
     }
 }

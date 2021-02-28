@@ -5,6 +5,7 @@ using UnityEngine;
 public class TotemIdleState : TotemState
 {
     private float countDown = 2f;
+    private bool isInitialIdle = true;
 
     public TotemIdleState(Totem totem, string animationBooleanName) : base(totem, animationBooleanName)
     {
@@ -14,7 +15,9 @@ public class TotemIdleState : TotemState
     {
         base.Enter();
         
-        countDown = 2f;
+        // TODO: When we're laying out levels, we may want to be more planned rather than random
+        // If so, we should make the initialWait a SerializeField
+        countDown = isInitialIdle ? Random.Range(1f, 4f) : 2f;
     }
 
     public override void LogicUpdate()
@@ -25,6 +28,7 @@ public class TotemIdleState : TotemState
 
         if (countDown < 0f)
         {
+            isInitialIdle = false;
             stateMachine.ChangeState(totem.warningState);
         }
     }
