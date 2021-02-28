@@ -46,6 +46,6 @@ public class Totem : MonoBehaviour
 
     public void FireArrow()
     {
-        GameObject arrow = Instantiate(arrowPrefab, arrowOrigin.transform.position, transform.rotation);
+        Instantiate(arrowPrefab, arrowOrigin.transform.position, transform.rotation);
     }
 }
