@@ -26,7 +26,6 @@ public class PlayerWallClimbState : PlayerOnWallState
         {
             stateMachine.ChangeState(player.wallClimbIdleState);
         }
-        // @TODO Check for edge of ledge to climb onto and change to ... state
     }
 
     public override void PhysicsUpdate()
