@@ -15,18 +15,18 @@ public class PortalTrigger : MonoBehaviour
         var player = collision.gameObject.GetComponent<Player>();
         if (player)
         {
-            StartCoroutine(AnimatePortalScene(collision.gameObject));
+            StartCoroutine(AnimatePortalScene(player));
             hasOpened = true;
         }
     }
 
-    private IEnumerator AnimatePortalScene(GameObject player)
+    private IEnumerator AnimatePortalScene(Player player)
     {
         refrigeratorAnimator.SetBool("shouldOpen", true);
 
         yield return new WaitForSeconds(.5f);
 
-        player.GetComponent<Player>().StartPortalSucking();
+        player.StateMachine.ChangeState(player.portalState);
 
         yield return new WaitForSeconds(1.5f);
 

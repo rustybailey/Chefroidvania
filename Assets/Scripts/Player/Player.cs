@@ -152,11 +152,6 @@ public class Player : MonoBehaviour
         return throwLocation;
     }
 
-    public void StartPortalSucking()
-    {
-        StateMachine.ChangeState(portalState);
-    }
-
     public Transform GetWallCheck()
     {
         return wallCheck;
