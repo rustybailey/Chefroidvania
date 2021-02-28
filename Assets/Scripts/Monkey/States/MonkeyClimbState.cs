@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,8 @@ public class MonkeyClimbState : MonkeyState
 {
     private float climbDuration = 1.5f;
     private float countDown;
-    private int climbingDirection = 1;
+    private int startingClimbingDirection = 1;
+    private int currentClimbingDirection = 1;
     private float climbSpeed = 2f;
 
     public MonkeyClimbState(Monkey monkey, string animationBooleanName) : base(monkey, animationBooleanName)
@@ -18,6 +20,7 @@ public class MonkeyClimbState : MonkeyState
         base.Enter();
 
         countDown = climbDuration;
+        currentClimbingDirection = startingClimbingDirection;
     }
 
     public override void LogicUpdate()
@@ -26,15 +29,27 @@ public class MonkeyClimbState : MonkeyState
 
         countDown -= Time.deltaTime;
 
-        monkey.transform.Translate(Vector2.up * climbingDirection * climbSpeed * Time.deltaTime);
+        monkey.transform.Translate(Vector2.up * currentClimbingDirection * climbSpeed * Time.deltaTime);
 
         if (countDown < 0f)
         {
-            climbingDirection = -climbingDirection;
+            startingClimbingDirection = -startingClimbingDirection;
             stateMachine.ChangeState(monkey.idleState);
         }
+        else if (ShouldChangeDirection())
+        {
+            currentClimbingDirection = -currentClimbingDirection;
+        }
+    }
 
-        // TODO: Add bottom/top checks and transition to idle if you reach the end of a platform
-        // This way we could put a monkey on any height platform
+    private bool ShouldChangeDirection()
+    {
+        bool isTouchingCeiling = Physics2D.Raycast(monkey.transform.position, Vector3.up, .8f, monkey.groundLayer);
+        bool isTouchingFloor = Physics2D.Raycast(monkey.transform.position, Vector3.down, .6f, monkey.groundLayer);
+        bool isTouchingTopWall = Physics2D.Raycast(new Vector2(monkey.transform.position.x, monkey.transform.position.y + .4f), monkey.transform.right, .6f, monkey.groundLayer);
+        bool isTouchingBottomWall = Physics2D.Raycast(new Vector2(monkey.transform.position.x, monkey.transform.position.y - .5f), monkey.transform.right, .6f, monkey.groundLayer);
+        bool isTouchingWall = isTouchingTopWall && isTouchingBottomWall;
+
+        return isTouchingCeiling || isTouchingFloor || !isTouchingWall;
     }
 }

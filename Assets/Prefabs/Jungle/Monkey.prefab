@@ -69,6 +69,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   bananaPrefab: {fileID: 2487302310534574359, guid: 3ae2a324fef03104091244ff737da2cb, type: 3}
   bananaOrigin: {fileID: 3296525329486798312}
 --- !u!1 &3296525329486798315
