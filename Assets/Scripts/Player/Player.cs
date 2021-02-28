@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] public float groundCheckRadius = 0.2f;
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] GameObject throwLocation;
+    [SerializeField] Transform wallCheck;
+    [SerializeField] float wallCheckWidth;
+    [SerializeField] float wallCheckHeight;
     #endregion
 
     #region Component Variables
@@ -81,6 +84,7 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        Gizmos.DrawWireCube(wallCheck.position, new Vector3(wallCheckWidth, wallCheckHeight));
     }
 
     void FixedUpdate()
@@ -114,7 +118,6 @@ public class Player : MonoBehaviour
         CurrentVelocity = workspace;
     }
 
-    // @TODO Consider using a player data object
     public float GetMovementSpeed()
     {
         return moveSpeed;
@@ -152,5 +155,20 @@ public class Player : MonoBehaviour
     public void StartPortalSucking()
     {
         StateMachine.ChangeState(portalState);
+    }
+
+    public Transform GetWallCheck()
+    {
+        return wallCheck;
+    }
+
+    public float GetWallCheckWidth()
+    {
+        return wallCheckWidth;
+    }
+
+    public float GetWallCheckHeight()
+    {
+        return wallCheckHeight;
     }
 }

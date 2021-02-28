@@ -12,6 +12,7 @@ public class PlayerState : State
     protected bool isYVelocityNearlyZero;
     protected bool isXVelocityNearlyZero;
     protected bool isFryingPanButtonPressedDown;
+    protected bool isHittingWall;
 
     public PlayerState(Player player, string animationBooleanName) : base(player.StateMachine, player.Animator, animationBooleanName)
     {
@@ -27,8 +28,8 @@ public class PlayerState : State
         normalizedMoveY = (int)(movement * Vector2.up).normalized.y;
         isJumpButtonPressedDown = Mathf.Abs(player.InputManager.Player.Jump.ReadValue<float>()) > 0;
         isFryingPanButtonPressedDown = Mathf.Abs(player.InputManager.Player.ThrowFryingPan.ReadValue<float>()) > 0;
-
         isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer);
+        isHittingWall = Physics2D.OverlapBox(player.GetWallCheck().position, new Vector2(player.GetWallCheckWidth(), player.GetWallCheckHeight()), 0.0f, player.groundLayer);
 
         // Apparently tilemaps affect the player's velocity an infinitesimal amount for reasons
         // This thread (https://forum.unity.com/threads/2d-movement-velocity-y-mysteriously-changes.712142/)

@@ -34,8 +34,12 @@ public class PlayerInAirState : PlayerState
     {
         base.PhysicsUpdate();
 
-        // Allow the player to move in the air
-        player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
+        // Allow the player to move in the air as long as they are not hitting
+        // a wall.
+        if (!isHittingWall)
+        {
+            player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
+        }
 
         player.Animator.SetFloat("yVelocity", player.CurrentVelocity.y);
     }
