@@ -18,7 +18,9 @@ public class FryingPan : MonoBehaviour
     public FryingPanHiddenState HiddenState { get; private set; }
     public FryingPanThrowState ThrowState { get; private set; }
     public FryingPanReturnState ReturnState { get; private set; }
+    public FryingPanEnterHoverState EnterHoverState { get; private set; }
     public FryingPanHoverState HoverState { get; private set; }
+    public FryingPanExitHoverState ExitHoverState { get; private set; }
     public bool IsHovering { get; private set; }
     #endregion
 
@@ -40,7 +42,9 @@ public class FryingPan : MonoBehaviour
         HiddenState = new FryingPanHiddenState(this, player, "hover");
         ThrowState = new FryingPanThrowState(this, player, "throw");
         ReturnState = new FryingPanReturnState(this, player, "throw");
+        EnterHoverState = new FryingPanEnterHoverState(this, player, "transition");
         HoverState = new FryingPanHoverState(this, player, "hover");
+        ExitHoverState = new FryingPanExitHoverState(this, player, "transition");
         StateMachine.Initialize(HiddenState);
     }
 
@@ -73,6 +77,11 @@ public class FryingPan : MonoBehaviour
     public void StopHovering()
     {
         IsHovering = false;
+    }
+
+    public void StateAnimationFinished()
+    {
+        StateMachine.CurrentState.AnimationFinished();
     }
 
     public void FlipIfNeeded(int facingDirection)
