@@ -12,7 +12,7 @@ public class PlayerWallClimbImpactState : PlayerOnWallState
     {
         base.LogicUpdate();
 
-        if (isAnimationFinished)
+        if (isAnimationFinished || normalizedMoveY != 0.0f)
         {
             stateMachine.ChangeState(player.wallClimbIdleState);
         }
