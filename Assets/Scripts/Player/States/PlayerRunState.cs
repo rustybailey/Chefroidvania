@@ -26,6 +26,16 @@ public class PlayerRunState : PlayerState
         {
             stateMachine.ChangeState(player.inAirState);
         }
+        // @TODO Check for frying pan ability
+        else if (isFryingPanButtonPressedDown && player.isHoldingFryingPan)
+        {
+            stateMachine.ChangeState(player.throwFryingPanState);
+        }
+        // @TODO Check for frying pan ability
+        else if (isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
+        {
+            player.FryingPan.StateMachine.ChangeState(player.FryingPan.ExitHoverState);
+        }
     }
 
     public override void PhysicsUpdate()

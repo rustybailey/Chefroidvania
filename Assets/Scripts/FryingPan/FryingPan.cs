@@ -10,6 +10,7 @@ public class FryingPan : MonoBehaviour
     #endregion
 
     #region Component Variables
+    public Rigidbody2D RigidBody { get; private set; }
     public Animator Animator { get; private set; }
     #endregion
 
@@ -26,6 +27,7 @@ public class FryingPan : MonoBehaviour
 
     #region Movement Variables
     public int FacingDirection { get; private set; }
+    public Vector2 CurrentVelocity { get; private set; }
     #endregion
 
     private void Awake()
@@ -36,6 +38,7 @@ public class FryingPan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        RigidBody = GetComponent<Rigidbody2D>();
         Player player = FindObjectOfType<Player>();
         Animator = GetComponent<Animator>();
         FacingDirection = 1;
@@ -56,6 +59,8 @@ public class FryingPan : MonoBehaviour
 
     void FixedUpdate()
     {
+        //CurrentVelocity = rigidBody.velocity;
+
         StateMachine.CurrentState.PhysicsUpdate();
     }
 
