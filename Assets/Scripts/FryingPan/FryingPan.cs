@@ -7,6 +7,7 @@ public class FryingPan : MonoBehaviour
     #region Serialized Variables
     [SerializeField] float throwSpeed = 10.0f;
     [SerializeField] float throwDistance = 3.0f;
+    [SerializeField] GameObject playerPlatform;
     #endregion
 
     #region Component Variables
@@ -27,7 +28,7 @@ public class FryingPan : MonoBehaviour
 
     #region Movement Variables
     public int FacingDirection { get; private set; }
-    public Vector2 CurrentVelocity { get; private set; }
+    public bool HasCollided { get; private set; }
     #endregion
 
     private void Awake()
@@ -59,8 +60,6 @@ public class FryingPan : MonoBehaviour
 
     void FixedUpdate()
     {
-        //CurrentVelocity = rigidBody.velocity;
-
         StateMachine.CurrentState.PhysicsUpdate();
     }
 
@@ -101,5 +100,25 @@ public class FryingPan : MonoBehaviour
     {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        HasCollided = true;
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        HasCollided = false;
+    }
+
+    public void EnablePlayerPlatform()
+    {
+        playerPlatform.SetActive(true);
+    }
+
+    public void DisablePlayerPlatform()
+    {
+        playerPlatform.SetActive(false);
     }
 }

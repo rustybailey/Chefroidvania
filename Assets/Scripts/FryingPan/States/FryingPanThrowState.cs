@@ -26,7 +26,7 @@ public class FryingPanThrowState : FryingPanState
         float step = fryingPan.GetThrowSpeed() * Time.deltaTime;
         fryingPan.transform.position = Vector3.MoveTowards(fryingPan.transform.position, target, step);
 
-        if (Vector3.Distance(fryingPan.transform.position, target) < 0.001f)
+        if (Vector3.Distance(fryingPan.transform.position, target) < 0.001f || fryingPan.HasCollided)
         {
             fryingPan.StateMachine.ChangeState(fryingPan.EnterHoverState);
         }

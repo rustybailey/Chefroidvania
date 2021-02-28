@@ -13,6 +13,7 @@ public class FryingPanHoverState : FryingPanState
         base.Enter();
 
         fryingPan.StartHovering();
+        fryingPan.EnablePlayerPlatform();
     }
 
     public override void Exit()
@@ -20,5 +21,6 @@ public class FryingPanHoverState : FryingPanState
         base.Exit();
 
         fryingPan.StopHovering();
+        fryingPan.DisablePlayerPlatform();
     }
 }

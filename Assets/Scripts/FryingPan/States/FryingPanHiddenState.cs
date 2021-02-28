@@ -13,6 +13,7 @@ public class FryingPanHiddenState : FryingPanState
         base.Enter();
 
         fryingPan.gameObject.SetActive(false);
+        fryingPan.DisablePlayerPlatform();
     }
 
     public override void Exit()
