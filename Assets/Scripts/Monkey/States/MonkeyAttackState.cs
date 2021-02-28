@@ -12,9 +12,10 @@ public class MonkeyAttackState : MonkeyState
     {
         base.LogicUpdate();
 
+        // Banana throwing is triggered in the attack animation
         if (isAnimationFinished)
         {
-            stateMachine.ChangeState(monkey.idleState);
+            stateMachine.ChangeState(monkey.climbState);
         }
     }
 }

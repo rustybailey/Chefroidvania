@@ -31,7 +31,7 @@ public class MonkeyIdleState : MonkeyState
             isInitialIdle = false;
             stateMachine.ChangeState(monkey.climbState);
         }
-        else if (canSeePlayer) // TODO: Add some type of buffer so it doesn't continuously throw bananas
+        else if (canSeePlayer)
         {
             isInitialIdle = false;
             stateMachine.ChangeState(monkey.warningState);

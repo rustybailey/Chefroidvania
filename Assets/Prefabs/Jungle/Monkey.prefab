@@ -65,7 +65,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c0b67922fb1dc4c96ceaa611d51965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bananaPrefab: {fileID: 0}
+  playerCheckRadius: 7
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  bananaPrefab: {fileID: 2487302310534574359, guid: 3ae2a324fef03104091244ff737da2cb, type: 3}
   bananaOrigin: {fileID: 3296525329486798312}
 --- !u!1 &3296525329486798315
 GameObject:

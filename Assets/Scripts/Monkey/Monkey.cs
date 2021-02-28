@@ -53,4 +53,9 @@ public class Monkey : MonoBehaviour
     {
         StateMachine.CurrentState.AnimationFinished();
     }
+
+    public void ThrowBanana()
+    {
+        Instantiate(bananaPrefab, bananaOrigin.transform.position, Quaternion.identity);
+    }
 }

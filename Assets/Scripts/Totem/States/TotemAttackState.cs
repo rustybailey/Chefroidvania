@@ -12,7 +12,7 @@ public class TotemAttackState : TotemState
     {
         base.LogicUpdate();
 
-        // TODO: Trigger arrow firing at some point in the animation
+        // Arrow firing is triggered in the attack animation
         if (isAnimationFinished)
         {
             stateMachine.ChangeState(totem.idleState);

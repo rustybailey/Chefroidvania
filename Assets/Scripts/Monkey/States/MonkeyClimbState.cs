@@ -33,12 +33,6 @@ public class MonkeyClimbState : MonkeyState
             climbingDirection = -climbingDirection;
             stateMachine.ChangeState(monkey.idleState);
         }
-        else if (canSeePlayer)
-        {
-            climbingDirection = -climbingDirection;
-            stateMachine.ChangeState(monkey.warningState);
-        }
-
 
         // TODO: Add bottom/top checks and transition to idle if you reach the end of a platform
         // This way we could put a monkey on any height platform
