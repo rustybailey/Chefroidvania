@@ -48,14 +48,14 @@ public class PlayerState : State
         RaycastHit2D lowCheckHit = Physics2D.Raycast(
             player.GetLowCheckOrigin().transform.position,
             player.GetLowCheckOrigin().transform.right,
-            player.GetWallCheckLength(),
-            player.GetWallLayer()
+            player.GetWallCheckLength()
+        //player.GetWallLayer()
         );
         RaycastHit2D highCheckHit = Physics2D.Raycast(
             player.GetHighCheckOrigin().transform.position,
             player.GetHighCheckOrigin().transform.right,
-            player.GetWallCheckLength(),
-            player.GetWallLayer()
+            player.GetWallCheckLength()
+        //player.GetWallLayer()
         );
 
         isHeadCollidingWithWall = wallCheck1Hit.collider != null;
