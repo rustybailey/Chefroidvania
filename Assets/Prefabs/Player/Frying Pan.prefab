@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6d6c75878e3491d97acd9eb35d47c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 13
+  throwSpeed: 15
   throwDistance: 5
   playerPlatform: {fileID: 5913594417579115736}
 --- !u!50 &5913594417898970268

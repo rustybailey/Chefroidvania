@@ -51,6 +51,9 @@ public class Player : MonoBehaviour
     {
         InputManager = new InputManager();
         StateMachine = new StateMachine();
+        // The frying pan immediately sets itself to inactive,
+        // so we need to grab a reference before it does that
+        FryingPan = FindObjectOfType<FryingPan>();
     }
 
     // Start is called before the first frame update
@@ -70,7 +73,6 @@ public class Player : MonoBehaviour
         portalState = new PlayerPortalState(this, "inAir");
         hurtState = new PlayerHurtState(this, "hurt");
         StateMachine.Initialize(idleState);
-        FryingPan = FindObjectOfType<FryingPan>();
     }
 
     // Update is called once per frame
