@@ -451,7 +451,7 @@ MonoBehaviour:
   groundCheckRadius: 0.61
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4160
   throwLocation: {fileID: 183404887}
   wallCheckOrigin1: {fileID: 1390083816}
   wallCheckOrigin2: {fileID: 1547029283}
@@ -460,7 +460,7 @@ MonoBehaviour:
   wallCheckLength: 0.85
   wallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4160
   bigWallCheckOrigin: {fileID: 997262169}
   bigWallCheckWidth: 0.5
   bigWallCheckHeight: 1.3

@@ -50,3 +50,13 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+  - name: Jungle
+    audioClip: {fileID: 8300000, guid: e62020fd6a0fe4c469d9191fdb09d1d1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - name: Swamp
+    audioClip: {fileID: 8300000, guid: 0ecd1b4808d23b745ba3a1c505afb808, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1

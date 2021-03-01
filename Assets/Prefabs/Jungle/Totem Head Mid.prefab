@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7949279595479583816}
   - component: {fileID: 7949279595479583815}
   - component: {fileID: 7949279595479583814}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Totem Head Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,4 +175,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 3224536824841652267, guid: c642adf2e339c654baac0ccd9265db37, type: 3}
   arrowOrigin: {fileID: 6443413145397108218}
-  direction: 1

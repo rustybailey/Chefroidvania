@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject lowCheckOrigin;
     [SerializeField] GameObject highCheckOrigin;
     [SerializeField] float wallCheckLength;
+    [SerializeField] LayerMask wallAndPlatformLayers;
     [SerializeField] LayerMask wallLayer;
     [SerializeField] GameObject bigWallCheckOrigin;
     [SerializeField] float bigWallCheckWidth;
@@ -204,6 +205,11 @@ public class Player : MonoBehaviour
     public float GetWallCheckLength()
     {
         return wallCheckLength;
+    }
+
+    public LayerMask GetWallAndPlatformLayers()
+    {
+        return wallAndPlatformLayers;
     }
 
     public LayerMask GetWallLayer()

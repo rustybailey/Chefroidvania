@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3224536824841652273}
   - component: {fileID: 3224536824841652278}
   - component: {fileID: -4536472753928406248}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Totem Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

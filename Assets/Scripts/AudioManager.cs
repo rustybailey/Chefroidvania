@@ -120,6 +120,33 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    public void FadeInTrack(string selectedTrack, float duration)
+    {
+        foreach (Sound track in musicTracks)
+        {
+            if (track.GetName() == selectedTrack && !track.IsPlaying())
+            {
+                StartCoroutine(track.FadeIn(duration));
+            }
+        }
+    }
+
+    public void CrossFadeBetweenTwoTracks(string fadeOutTrack, string fadeInTrack, float duration)
+    {
+        foreach (Sound track in musicTracks)
+        {
+            if (track.GetName() == fadeOutTrack && track.IsPlaying())
+            {
+                StartCoroutine(track.FadeOut(duration));
+            }
+
+            if (track.GetName() == fadeInTrack && !track.IsPlaying())
+            {
+                StartCoroutine(track.FadeIn(duration));
+            }
+        }
+    }
 }
 
 [System.Serializable]
@@ -176,6 +203,23 @@ public class Sound
         }
         Stop();
         audioSource.volume = start;
+        yield break;
+    }
+
+    public IEnumerator FadeIn(float duration)
+    {
+        float currentTime = 0;
+        float target = audioSource.volume;
+
+        Play();
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(0, target, currentTime / duration);
+            yield return null;
+        }
+
+        audioSource.volume = target;
         yield break;
     }
 }
