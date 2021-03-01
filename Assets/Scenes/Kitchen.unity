@@ -3532,6 +3532,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9150131050543248737, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150131050543248737, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
+      propertyPath: wallAndPlatformLayers.m_Bits
+      value: 4160
+      objectReference: {fileID: 0}
     - target: {fileID: 9150131050543248739, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -458,9 +458,12 @@ MonoBehaviour:
   lowCheckOrigin: {fileID: 2010703603}
   highCheckOrigin: {fileID: 1840467638}
   wallCheckLength: 0.85
-  wallLayer:
+  wallAndPlatformLayers:
     serializedVersion: 2
     m_Bits: 4160
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
   bigWallCheckOrigin: {fileID: 997262169}
   bigWallCheckWidth: 0.5
   bigWallCheckHeight: 1.3
