@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject highCheckOrigin;
     [SerializeField] float wallCheckLength;
     [SerializeField] LayerMask wallLayer;
+    [SerializeField] GameObject bigWallCheckOrigin;
+    [SerializeField] float bigWallCheckWidth;
+    [SerializeField] float bigWallCheckHeight;
     #endregion
 
     #region Component Variables
@@ -96,6 +99,8 @@ public class Player : MonoBehaviour
         // Draw ground check
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+        Gizmos.DrawWireCube(bigWallCheckOrigin.transform.position, new Vector3(bigWallCheckWidth, bigWallCheckHeight, 0.0f));
 
         // Draw wall check ray casts
         Gizmos.color = Color.yellow;
@@ -204,5 +209,20 @@ public class Player : MonoBehaviour
     public LayerMask GetWallLayer()
     {
         return wallLayer;
+    }
+
+    public GameObject GetBigWallCheckOrigin()
+    {
+        return bigWallCheckOrigin;
+    }
+
+    public float GetBigWallCheckWidth()
+    {
+        return bigWallCheckWidth;
+    }
+
+    public float GetBigWallCheckHeight()
+    {
+        return bigWallCheckHeight;
     }
 }

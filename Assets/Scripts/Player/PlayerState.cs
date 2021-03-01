@@ -16,6 +16,7 @@ public class PlayerState : State
     protected bool areFeetCollidingWithWall;
     protected bool isBottomOfPlayerCollidingWithWall;
     protected bool isTopOfPlayerCollidingWithWall;
+    protected bool isCollidingWithWall;
 
     public PlayerState(Player player, string animationBooleanName) : base(player.StateMachine, player.Animator, animationBooleanName)
     {
@@ -32,6 +33,12 @@ public class PlayerState : State
         isJumpButtonPressedDown = Mathf.Abs(player.InputManager.Player.Jump.ReadValue<float>()) > 0;
         isFryingPanButtonPressedDown = Mathf.Abs(player.InputManager.Player.ThrowFryingPan.ReadValue<float>()) > 0;
         isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer);
+        isCollidingWithWall = Physics2D.OverlapBox(
+            player.GetBigWallCheckOrigin().transform.position,
+            new Vector2(player.GetBigWallCheckWidth(), player.GetBigWallCheckHeight()),
+            0.0f,
+            player.GetWallLayer()
+        );
 
         RaycastHit2D wallCheck1Hit = Physics2D.Raycast(
             player.GetWallCheckOrigin1().transform.position,
@@ -48,14 +55,14 @@ public class PlayerState : State
         RaycastHit2D lowCheckHit = Physics2D.Raycast(
             player.GetLowCheckOrigin().transform.position,
             player.GetLowCheckOrigin().transform.right,
-            player.GetWallCheckLength()
-        //player.GetWallLayer()
+            player.GetWallCheckLength(),
+            player.GetWallLayer()
         );
         RaycastHit2D highCheckHit = Physics2D.Raycast(
             player.GetHighCheckOrigin().transform.position,
             player.GetHighCheckOrigin().transform.right,
-            player.GetWallCheckLength()
-        //player.GetWallLayer()
+            player.GetWallCheckLength(),
+            player.GetWallLayer()
         );
 
         isHeadCollidingWithWall = wallCheck1Hit.collider != null;

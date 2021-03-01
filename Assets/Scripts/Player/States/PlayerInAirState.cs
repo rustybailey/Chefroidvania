@@ -48,8 +48,8 @@ public class PlayerInAirState : PlayerState
         base.PhysicsUpdate();
 
         // Allow the player to move in the air as long as they are not hitting
-        // a wall with their feet.
-        if (!areFeetCollidingWithWall)
+        // a wall.
+        if (!isCollidingWithWall)
         {
             player.SetVelocityX(normalizedMoveX * player.GetMovementSpeed() * Time.fixedDeltaTime);
         }
