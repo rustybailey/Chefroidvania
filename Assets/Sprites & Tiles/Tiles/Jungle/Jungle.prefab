@@ -679,6 +679,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 2147483650
+  - first: {x: 1, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 53
+      m_TileSpriteIndex: 43
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741826
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
@@ -787,8 +797,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 198882a6ec961574ebdd24b03604ca6f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 77b5e20bbb97ea74caa75deec92b3455, type: 2}
   - m_RefCount: 1
@@ -974,7 +984,7 @@ Tilemap:
     m_Data: {fileID: 1053388956410263222, guid: ae94b00f961f12546893c398d9d774b7, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 885567280596393976, guid: ae94b00f961f12546893c398d9d774b7, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: -200492493470585332, guid: ae94b00f961f12546893c398d9d774b7, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -8100976343439862210, guid: ae94b00f961f12546893c398d9d774b7, type: 3}
@@ -1093,7 +1103,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -948517485828756680, guid: 81775bf8635d1654cbe7bc2ea18f5a31, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 63
+  - m_RefCount: 64
     m_Data:
       e00: 1
       e01: 0
@@ -1112,13 +1122,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 63
+  - m_RefCount: 64
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -3, y: -14, z: 0}
-  m_Size: {x: 21, y: 17, z: 1}
+  m_Origin: {x: -7, y: -14, z: 0}
+  m_Size: {x: 25, y: 17, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1713,8 +1723,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monkey
       objectReference: {fileID: 0}
+    - target: {fileID: 3296525329102074295, guid: 866e0852287e22642b11ea92ca89c7f9, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296525329486798315, guid: 866e0852287e22642b11ea92ca89c7f9, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 3296525329826551888, guid: 866e0852287e22642b11ea92ca89c7f9, type: 3}
       propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296525329826551890, guid: 866e0852287e22642b11ea92ca89c7f9, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1794,7 +1816,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4496977188758356857, guid: 356893f33f3fd1045981fab36731d0cb, type: 3}
   m_PrefabInstance: {fileID: 6755455567033398317}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8208231615840748739
+--- !u!114 &6710596582117116612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
