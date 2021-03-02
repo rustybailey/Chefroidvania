@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrocodileIdleState : CrocodileState
 {
-    private float idleDuration = 2f;
+    private float idleDuration = 2.4f;
     private float countDown;
     private bool isInitialIdle = true;
 

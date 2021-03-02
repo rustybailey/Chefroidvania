@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CrocodileOpenIdleState : CrocodileState
 {
-    private float idleDuration = 2f;
+    private float idleDuration = 1.5f;
     private float countDown;
-    private bool isInitialIdle = true;
 
     public CrocodileOpenIdleState(Crocodile crocodile, string animationBooleanName) : base(crocodile, animationBooleanName)
     {
