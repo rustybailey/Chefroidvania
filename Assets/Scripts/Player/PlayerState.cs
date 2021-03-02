@@ -17,6 +17,7 @@ public class PlayerState : State
     protected bool isBottomOfPlayerCollidingWithWall;
     protected bool isTopOfPlayerCollidingWithWall;
     protected bool isCollidingWithWallsAndPlatforms;
+    protected bool isTenderizerButtonPressedDown;
 
     public PlayerState(Player player, string animationBooleanName) : base(player.StateMachine, player.Animator, animationBooleanName)
     {
@@ -32,6 +33,7 @@ public class PlayerState : State
         normalizedMoveY = (int)(movement * Vector2.up).normalized.y;
         isJumpButtonPressedDown = Mathf.Abs(player.InputManager.Player.Jump.ReadValue<float>()) > 0;
         isFryingPanButtonPressedDown = Mathf.Abs(player.InputManager.Player.ThrowFryingPan.ReadValue<float>()) > 0;
+        isTenderizerButtonPressedDown = Mathf.Abs(player.InputManager.Player.Tenderizer.ReadValue<float>()) > 0;
         isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer);
         isCollidingWithWallsAndPlatforms = Physics2D.OverlapBox(
             player.GetBigWallCheckOrigin().transform.position,

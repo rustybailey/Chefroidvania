@@ -35,9 +35,17 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Throw Frying Pan"",
+                    ""name"": ""ThrowFryingPan"",
                     ""type"": ""Button"",
                     ""id"": ""c329a27d-35d4-4762-9160-ad8998132ed0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Tenderizer"",
+                    ""type"": ""Button"",
+                    ""id"": ""04992acb-0812-4c6c-87a4-c4670af0fc77"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -238,7 +246,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Throw Frying Pan"",
+                    ""action"": ""ThrowFryingPan"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -249,7 +257,29 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Throw Frying Pan"",
+                    ""action"": ""ThrowFryingPan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2661919-b839-41e4-b2a1-ae0c1174a8ed"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Tenderizer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31c292c1-c30f-4a67-a2fb-d1beff135159"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Tenderizer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -829,7 +859,8 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_ThrowFryingPan = m_Player.FindAction("Throw Frying Pan", throwIfNotFound: true);
+        m_Player_ThrowFryingPan = m_Player.FindAction("ThrowFryingPan", throwIfNotFound: true);
+        m_Player_Tenderizer = m_Player.FindAction("Tenderizer", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -894,6 +925,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_ThrowFryingPan;
+    private readonly InputAction m_Player_Tenderizer;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -901,6 +933,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @ThrowFryingPan => m_Wrapper.m_Player_ThrowFryingPan;
+        public InputAction @Tenderizer => m_Wrapper.m_Player_Tenderizer;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -919,6 +952,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @ThrowFryingPan.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowFryingPan;
                 @ThrowFryingPan.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowFryingPan;
                 @ThrowFryingPan.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowFryingPan;
+                @Tenderizer.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTenderizer;
+                @Tenderizer.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTenderizer;
+                @Tenderizer.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTenderizer;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -932,6 +968,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @ThrowFryingPan.started += instance.OnThrowFryingPan;
                 @ThrowFryingPan.performed += instance.OnThrowFryingPan;
                 @ThrowFryingPan.canceled += instance.OnThrowFryingPan;
+                @Tenderizer.started += instance.OnTenderizer;
+                @Tenderizer.performed += instance.OnTenderizer;
+                @Tenderizer.canceled += instance.OnTenderizer;
             }
         }
     }
@@ -1091,6 +1130,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnThrowFryingPan(InputAction.CallbackContext context);
+        void OnTenderizer(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

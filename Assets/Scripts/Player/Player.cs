@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public PlayerWallClimbImpactState wallClimbImpactState;
     public PlayerWallClimbIdleState wallClimbIdleState;
     public PlayerWallClimbState wallClimbState;
+    public PlayerSwingTenderizerState swingTenderizerState;
     #endregion
 
     #region Movement Variables
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
         wallClimbImpactState = new PlayerWallClimbImpactState(this, "wallClimbImpact");
         wallClimbIdleState = new PlayerWallClimbIdleState(this, "wallClimbIdle");
         wallClimbState = new PlayerWallClimbState(this, "wallClimb");
+        swingTenderizerState = new PlayerSwingTenderizerState(this, "tenderizer");
         StateMachine.Initialize(idleState);
     }
 

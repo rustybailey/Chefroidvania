@@ -36,6 +36,11 @@ public class PlayerRunState : PlayerState
         {
             player.FryingPan.StateMachine.ChangeState(player.FryingPan.ExitHoverState);
         }
+        // @TODO Check for tenderizer ability
+        else if (isTenderizerButtonPressedDown && isGrounded && isYVelocityNearlyZero)
+        {
+            stateMachine.ChangeState(player.swingTenderizerState);
+        }
     }
 
     public override void PhysicsUpdate()

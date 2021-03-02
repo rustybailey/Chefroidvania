@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Tenderizer",
+                    "type": "Button",
+                    "id": "04992acb-0812-4c6c-87a4-c4670af0fc77",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -237,6 +245,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "ThrowFryingPan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2661919-b839-41e4-b2a1-ae0c1174a8ed",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Tenderizer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31c292c1-c30f-4a67-a2fb-d1beff135159",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Tenderizer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
