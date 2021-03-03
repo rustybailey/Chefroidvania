@@ -7,7 +7,7 @@ public class DamageDealer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
-        if (player && !player.StateMachine.CurrentState.GetType().IsInstanceOfType(player.hurtState))
+        if (player && !player.StateMachine.CurrentState.Equals(player.hurtState))
         {
             player.StateMachine.ChangeState(player.hurtState);
         }

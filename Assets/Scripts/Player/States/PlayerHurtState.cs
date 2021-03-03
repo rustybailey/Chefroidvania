@@ -16,6 +16,13 @@ public class PlayerHurtState : PlayerState
     {
         base.Enter();
         hasAppliedForce = false;
+
+        // Reset frying pan if we got hurt in the middle of the PlayerThrowFryingPanState,
+        // but before the animation finished when we would naturally change FryingPan to ThrowState
+        if (!player.isHoldingFryingPan && player.FryingPan.StateMachine.CurrentState.Equals(player.FryingPan.HiddenState))
+        {
+            player.isHoldingFryingPan = true;
+        }
     }
 
     public override void LogicUpdate()
