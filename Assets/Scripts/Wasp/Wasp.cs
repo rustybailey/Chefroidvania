@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wasp : MonoBehaviour
 {
+    #region Serialized Variables
     [SerializeField] float leftPatrolDistance;
     [SerializeField] float rightPatrolDistance;
     [SerializeField] float movementSpeed = 5.0f;
@@ -11,7 +12,8 @@ public class Wasp : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     [SerializeField] float attackDelay = 5.0f;
     [SerializeField] Stinger stingerPrefab;
-    [SerializeField] GameObject stingerOrigin;
+    [SerializeField] Transform stingerOrigin;
+    #endregion
 
     #region Component Variables
     public Animator Animator { get; private set; }
@@ -28,7 +30,9 @@ public class Wasp : MonoBehaviour
     private int facingDirection;
     #endregion
 
+    #region Game Variables
     public Player Player { get; private set; }
+    #endregion
 
     private void Awake()
     {
@@ -106,7 +110,7 @@ public class Wasp : MonoBehaviour
         return stingerPrefab;
     }
 
-    public GameObject GetStingerOrigin()
+    public Transform GetStingerOrigin()
     {
         return stingerOrigin;
     }

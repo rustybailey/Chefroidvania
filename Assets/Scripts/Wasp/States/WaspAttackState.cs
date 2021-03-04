@@ -19,10 +19,9 @@ public class WaspAttackState : WaspState
             playerPosition = wasp.Player.transform.position;
 
             // Fire 2 shots that go around the player
-            Stinger stinger = Object.Instantiate(wasp.GetStingerPrefab(), wasp.GetStingerOrigin().transform.position, Quaternion.identity);
-            Stinger stinger2 = Object.Instantiate(wasp.GetStingerPrefab(), wasp.GetStingerOrigin().transform.position, Quaternion.identity);
+            Stinger stinger = Object.Instantiate(wasp.GetStingerPrefab(), wasp.GetStingerOrigin().position, Quaternion.identity);
+            Stinger stinger2 = Object.Instantiate(wasp.GetStingerPrefab(), wasp.GetStingerOrigin().position, Quaternion.identity);
 
-            // @TODO Adjust this value based on the angle between the wasp and the player
             stinger.FireAt(new Vector3(playerPosition.x + 2, playerPosition.y, playerPosition.z));
             stinger2.FireAt(new Vector3(playerPosition.x - 2, playerPosition.y, playerPosition.z));
 

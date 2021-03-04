@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4528320108811751050}
   - component: {fileID: 4528320108811751061}
   - component: {fileID: 4528320108811751060}
-  - component: {fileID: 4528320108811751063}
   - component: {fileID: 4528320108811751062}
+  - component: {fileID: 1937383513}
+  - component: {fileID: 1050510616175958306}
   m_Layer: 10
   m_Name: Stinger
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4528320108811751048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.259, y: 10.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,7 +119,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 8
---- !u!50 &4528320108811751063
+--- !u!58 &4528320108811751062
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528320108811751048}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02577293, y: 0.022911549}
+  serializedVersion: 2
+  m_Radius: 0.115052104
+--- !u!50 &1937383513
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -139,19 +156,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4528320108811751062
-CircleCollider2D:
+--- !u!114 &1050510616175958306
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4528320108811751048}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.02577293, y: 0.022911549}
-  serializedVersion: 2
-  m_Radius: 0.115052104
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362512927103d5243aade7dbd77b1707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
