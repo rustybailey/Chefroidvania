@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GetItemTrigger : MonoBehaviour
 {
+    [SerializeField] Inventory.ItemType itemType;
+
     private bool isPlayingGetItemSequence = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,9 +38,7 @@ public class GetItemTrigger : MonoBehaviour
 
         // TODO: Transition to a zoomed in the camera
 
-        // TODO: Add object to player's inventory and/or game state
-        // TODO: How do we know what the object is? Pass the gameObject name to the game state method?
-
+        Inventory.instance.AcquireItem(itemType, gameObject.name);
 
         while (player.StateMachine.CurrentState.Equals(player.getItemState)
             || player.StateMachine.CurrentState.Equals(player.getItemIdleState))
