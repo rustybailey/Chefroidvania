@@ -8,13 +8,6 @@ public class PlayerThrowFryingPanState : PlayerState
     {
     }
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        player.isHoldingFryingPan = false;
-    }
-
     public override void LogicUpdate()
     {
         base.LogicUpdate();
@@ -23,6 +16,7 @@ public class PlayerThrowFryingPanState : PlayerState
         {
             player.FryingPan.StateMachine.ChangeState(player.FryingPan.ThrowState);
             stateMachine.ChangeState(player.idleState);
+            player.isHoldingFryingPan = false;
         }
     }
 }
