@@ -13,6 +13,7 @@ public class PlayerGetItemState : PlayerState
         base.Enter();
 
         player.SetVelocityX(0.0f);
+        AudioManager.instance.PlaySoundEffect("GetItem");
     }
 
     public override void LogicUpdate()
@@ -21,7 +22,7 @@ public class PlayerGetItemState : PlayerState
 
         if (isAnimationFinished)
         {
-            stateMachine.ChangeState(player.idleState);
+            stateMachine.ChangeState(player.getItemIdleState);
         }
     }
 }

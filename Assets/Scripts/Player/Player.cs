@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     public PlayerWallClimbState wallClimbState;
     public PlayerSwingTenderizerState swingTenderizerState;
     public PlayerGetItemState getItemState;
+    public PlayerGetItemIdleState getItemIdleState;
     #endregion
 
     #region Movement Variables
@@ -90,6 +91,7 @@ public class Player : MonoBehaviour
         wallClimbState = new PlayerWallClimbState(this, "wallClimb");
         swingTenderizerState = new PlayerSwingTenderizerState(this, "tenderizer");
         getItemState = new PlayerGetItemState(this, "getItem");
+        getItemIdleState = new PlayerGetItemIdleState(this, "getItemIdle");
         StateMachine.Initialize(idleState);
     }
 
@@ -234,5 +236,10 @@ public class Player : MonoBehaviour
     public float GetBigWallCheckHeight()
     {
         return bigWallCheckHeight;
+    }
+
+    public bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 }

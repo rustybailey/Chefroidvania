@@ -43,20 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa44f70023daad045851bc11361b7652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffects: []
+  soundEffects:
+  - name: GetItem
+    audioClip: {fileID: 8300000, guid: 5212ce00d08850243b7563487bdaf025, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
   musicTracks:
   - name: Kitchen
     audioClip: {fileID: 8300000, guid: 8b983a560c8b1414891e029ea16dcafe, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 1
   - name: Jungle
     audioClip: {fileID: 8300000, guid: e62020fd6a0fe4c469d9191fdb09d1d1, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 1
   - name: Swamp
     audioClip: {fileID: 8300000, guid: 0ecd1b4808d23b745ba3a1c505afb808, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 1

@@ -34,7 +34,7 @@ public class PlayerState : State
         isJumpButtonPressedDown = Mathf.Abs(player.InputManager.Player.Jump.ReadValue<float>()) > 0;
         isFryingPanButtonPressedDown = Mathf.Abs(player.InputManager.Player.ThrowFryingPan.ReadValue<float>()) > 0;
         isTenderizerButtonPressedDown = Mathf.Abs(player.InputManager.Player.Tenderizer.ReadValue<float>()) > 0;
-        isGrounded = Physics2D.OverlapCircle(player.groundCheck.position, player.groundCheckRadius, player.groundLayer);
+        isGrounded = player.IsGrounded();
         isCollidingWithWallsAndPlatforms = Physics2D.OverlapBox(
             player.GetBigWallCheckOrigin().transform.position,
             new Vector2(player.GetBigWallCheckWidth(), player.GetBigWallCheckHeight()),
@@ -78,5 +78,10 @@ public class PlayerState : State
         // but that didn't work, so we're calculating it here
         isYVelocityNearlyZero = Mathf.Abs(player.CurrentVelocity.y) < 0.001f;
         isXVelocityNearlyZero = Mathf.Abs(player.CurrentVelocity.x) < 0.001f;
+    }
+
+    public bool IsGrounded()
+    {
+        return isGrounded;
     }
 }
