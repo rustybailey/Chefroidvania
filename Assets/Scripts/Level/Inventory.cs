@@ -77,12 +77,15 @@ public class Inventory : MonoBehaviour
         Debug.Log(name + ' ' + Ingredients[name]);
     }
 
+    public delegate void GiveAbility(string name);
+    public event GiveAbility OnAcquireAbility;
+
     private void AcquireAbility(string name)
     {
         string abilityName = name.Replace(" Upgrade", "");
-        // TODO: Call into the player to turn on the ability
-        // TODO: Gate all of the states behind whether the player has certain abilities
         Abilities[abilityName] = true;
+        OnAcquireAbility?.Invoke(abilityName);
+
         Debug.Log(abilityName + ' ' + Abilities[abilityName]);
     }
 

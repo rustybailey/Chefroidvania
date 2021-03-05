@@ -61,6 +61,12 @@ public class Player : MonoBehaviour
     public bool isHoldingFryingPan;
     #endregion
 
+    #region Ability Checks
+    public bool hasFryingPanAbility = false;
+    public bool hasKnivesAbility = false;
+    public bool hasTenderizerAbility = false;
+    #endregion
+
     private void Awake()
     {
         InputManager = new InputManager();
@@ -73,10 +79,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RigidBody = GetComponent<Rigidbody2D>();
         FacingDirection = 1;
         isHoldingFryingPan = true;
+
+        RigidBody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+
         idleState = new PlayerIdleState(this, "idle");
         runState = new PlayerRunState(this, "run");
         jumpState = new PlayerJumpState(this, "inAir");
@@ -93,6 +101,8 @@ public class Player : MonoBehaviour
         getItemState = new PlayerGetItemState(this, "getItem");
         getItemIdleState = new PlayerGetItemIdleState(this, "getItemIdle");
         StateMachine.Initialize(idleState);
+        
+        Inventory.instance.OnAcquireAbility += AddAbility;
     }
 
     // Update is called once per frame
@@ -241,5 +251,24 @@ public class Player : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    private void AddAbility(string name)
+    {
+        switch (name)
+        {
+            case "Frying Pan":
+                hasFryingPanAbility = true;
+                break;
+            case "Knives":
+                hasKnivesAbility = true;
+                break;
+            case "Tenderizer":
+                hasTenderizerAbility = true;
+                break;
+            default:
+                Debug.Log("Trying to add unknown ability: " + name);
+                break;
+        }
     }
 }

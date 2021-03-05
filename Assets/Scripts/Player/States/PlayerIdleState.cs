@@ -31,18 +31,15 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.inAirState);
         }
-        // @TODO Check for frying pan ability
-        else if (isFryingPanButtonPressedDown && player.isHoldingFryingPan)
+        else if (player.hasFryingPanAbility && isFryingPanButtonPressedDown && player.isHoldingFryingPan)
         {
             stateMachine.ChangeState(player.throwFryingPanState);
         }
-        // @TODO Check for frying pan ability
-        else if (isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
+        else if (player.hasFryingPanAbility && isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
         {
             player.FryingPan.StateMachine.ChangeState(player.FryingPan.ExitHoverState);
         }
-        // @TODO Check for tenderizer ability
-        else if (isTenderizerButtonPressedDown && isGrounded && isYVelocityNearlyZero)
+        else if (player.hasTenderizerAbility && isTenderizerButtonPressedDown && isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.swingTenderizerState);
         }
