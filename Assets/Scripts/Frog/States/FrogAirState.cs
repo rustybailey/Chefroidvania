@@ -12,9 +12,16 @@ public class FrogAirState : FrogState
     {
         base.LogicUpdate();
 
+        if (frog.IsHittingWallOrPlatform())
+        {
+            frog.Flip();
+        }
+
+        // @TODO If the frog has reach the current patrol location, go to the next
+
         if (frog.IsGrounded() && isYVelocityNearlyZero)
         {
-            stateMachine.ChangeState(frog.IdleState);
+            stateMachine.ChangeState(frog.LandState);
         }
     }
 }

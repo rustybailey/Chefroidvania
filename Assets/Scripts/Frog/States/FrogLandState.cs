@@ -12,6 +12,9 @@ public class FrogLandState : FrogState
     {
         base.LogicUpdate();
 
-        // After animation has finished, transition to idle state
+        if (isAnimationFinished)
+        {
+            stateMachine.ChangeState(frog.IdleState);
+        }
     }
 }

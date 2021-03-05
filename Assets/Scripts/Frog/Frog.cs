@@ -12,6 +12,10 @@ public class Frog : MonoBehaviour
     [SerializeField] public Transform groundCheck;
     [SerializeField] public float groundCheckRadius = 0.2f;
     [SerializeField] public LayerMask groundLayer;
+    [SerializeField] Transform wallCheckOrigin;
+    [SerializeField] float wallCheckWidth;
+    [SerializeField] float wallCheckHeight;
+    [SerializeField] LayerMask wallAndPlatformLayers;
     #endregion
 
     #region Component Variables
@@ -66,9 +70,10 @@ public class Frog : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        // Draw ground check
+        // Draw ground/wall check
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        Gizmos.DrawWireCube(wallCheckOrigin.transform.position, new Vector3(wallCheckWidth, wallCheckHeight, 0.0f));
 
         Gizmos.color = Color.yellow;
 
@@ -86,7 +91,7 @@ public class Frog : MonoBehaviour
         }
     }
 
-    private void Flip()
+    public void Flip()
     {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
@@ -95,6 +100,16 @@ public class Frog : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    public bool IsHittingWallOrPlatform()
+    {
+        return Physics2D.OverlapBox(
+            wallCheckOrigin.position,
+            new Vector2(wallCheckWidth, wallCheckHeight),
+            0.0f,
+            wallAndPlatformLayers
+        );
     }
 
     public float GetJumpDelay()
