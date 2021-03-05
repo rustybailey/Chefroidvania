@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
 
     public Dictionary<string, bool> Abilities = new Dictionary<string, bool>()
     {
-        { "Skillet", false },
+        { "Frying Pan", false },
         { "Knives", false },
         { "Tenderizer", false }
     };
@@ -79,10 +79,11 @@ public class Inventory : MonoBehaviour
 
     private void AcquireAbility(string name)
     {
+        string abilityName = name.Replace(" Upgrade", "");
         // TODO: Call into the player to turn on the ability
         // TODO: Gate all of the states behind whether the player has certain abilities
-        Abilities[name] = true;
-        Debug.Log(name + ' ' + Abilities[name]);
+        Abilities[abilityName] = true;
+        Debug.Log(abilityName + ' ' + Abilities[abilityName]);
     }
 
     private void AcquireHealthUpgrade(string name)
