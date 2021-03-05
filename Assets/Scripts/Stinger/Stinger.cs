@@ -34,7 +34,7 @@ public class Stinger : MonoBehaviour
         {
             float step = movementSpeed * Time.deltaTime;
 
-            transform.Translate(direction * step);
+            transform.Translate(direction * step, Space.World);
         }
     }
 
@@ -51,8 +51,7 @@ public class Stinger : MonoBehaviour
         // @see https://answers.unity.com/questions/1023987/lookat-only-on-z-axis.html
         Vector3 difference = target - transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        // Subtract 180 degrees so the projectile faces the target on its left
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 180);
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
     }
 
     public void Destroyed()
