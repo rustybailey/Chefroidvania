@@ -6,13 +6,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region Serialized Variables
+    [Header("Movement")]
     [SerializeField] float moveSpeed = 8.0f;
     [SerializeField] float climbSpeed = 200.0f;
     [SerializeField] float jumpForce = 8.0f;
+    [Header("Ground Checks")]
     [SerializeField] public Transform groundCheck;
     [SerializeField] public float groundCheckRadius = 0.2f;
     [SerializeField] public LayerMask groundLayer;
+    [Header("Frying Pan")]
     [SerializeField] GameObject throwLocation;
+    [Header("Wall Checks")]
     [SerializeField] GameObject wallCheckOrigin1;
     [SerializeField] GameObject wallCheckOrigin2;
     [SerializeField] GameObject lowCheckOrigin;
@@ -23,9 +27,17 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject bigWallCheckOrigin;
     [SerializeField] float bigWallCheckWidth;
     [SerializeField] float bigWallCheckHeight;
+    [Header("Tenderizer")]
+    [SerializeField] Transform tenderizerImpactOrigin;
+    [SerializeField] float tenderizerImpactRadius;
+    [Header("Health")] // TODO: Likely will be moved into its own component
     [SerializeField] int startingHealth = 3;
     [SerializeField] int currentHealth;
     [SerializeField] int maxHealth;
+    [Header("Abilities")]
+    public bool hasFryingPanAbility = false;
+    public bool hasKnivesAbility = false;
+    public bool hasTenderizerAbility = false;
     #endregion
 
     #region Component Variables
@@ -61,13 +73,8 @@ public class Player : MonoBehaviour
 
     #region Ability Objects
     public FryingPan FryingPan { get; private set; }
+    [HideInInspector]
     public bool isHoldingFryingPan;
-    #endregion
-
-    #region Ability Checks
-    public bool hasFryingPanAbility = false;
-    public bool hasKnivesAbility = false;
-    public bool hasTenderizerAbility = false;
     #endregion
 
     private void Awake()
@@ -133,6 +140,10 @@ public class Player : MonoBehaviour
         Gizmos.DrawRay(wallCheckOrigin2.transform.position, direction);
         Gizmos.DrawRay(lowCheckOrigin.transform.position, direction);
         Gizmos.DrawRay(highCheckOrigin.transform.position, direction);
+
+        // Draw tenderizer impact radius
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(tenderizerImpactOrigin.position, tenderizerImpactRadius);
     }
 
     void FixedUpdate()
@@ -260,6 +271,26 @@ public class Player : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    public void HandleTenderizerImpact()
+    {
+        Debug.Log("IMPACT");
+
+        // TODO: Shake screen vertically
+        // TODO: Cast a circle
+        Collider2D[] collisions = Physics2D.OverlapCircleAll(tenderizerImpactOrigin.position, tenderizerImpactRadius);
+        foreach (Collider2D collision in collisions)
+        {
+            Debug.Log(collision.gameObject.name);
+            var destructibleWall = collision.gameObject.GetComponent<DestructibleWall>();
+            if (destructibleWall)
+            {
+                destructibleWall.TriggerDestruction();
+            }
+        }
+        // TODO: Check for any destructible objects
+        // TODO: Check for any switches
     }
 
     private void AddAbility(string name)

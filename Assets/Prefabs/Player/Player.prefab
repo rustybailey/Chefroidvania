@@ -344,6 +344,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2463449850907385897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6800364406081365249}
+  m_Layer: 7
+  m_Name: Tenderizer Impact Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6800364406081365249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463449850907385897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9150131050543248739}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9150131050543248751
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +417,7 @@ Transform:
   - {fileID: 748196230}
   - {fileID: 997262170}
   - {fileID: 2141571339}
+  - {fileID: 6800364406081365249}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -550,13 +581,15 @@ MonoBehaviour:
   bigWallCheckOrigin: {fileID: 997262169}
   bigWallCheckWidth: 0.45
   bigWallCheckHeight: 1.85
+  tenderizerImpactOrigin: {fileID: 6800364406081365249}
+  tenderizerImpactRadius: 1
   startingHealth: 3
   currentHealth: 0
   maxHealth: 0
-  isHoldingFryingPan: 0
   hasFryingPanAbility: 0
   hasKnivesAbility: 0
   hasTenderizerAbility: 0
+  isHoldingFryingPan: 0
 --- !u!95 &9150131050543248736
 Animator:
   serializedVersion: 3
