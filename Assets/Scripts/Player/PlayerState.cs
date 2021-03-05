@@ -79,9 +79,4 @@ public class PlayerState : State
         isYVelocityNearlyZero = Mathf.Abs(player.CurrentVelocity.y) < 0.001f;
         isXVelocityNearlyZero = Mathf.Abs(player.CurrentVelocity.x) < 0.001f;
     }
-
-    public bool IsGrounded()
-    {
-        return isGrounded;
-    }
 }

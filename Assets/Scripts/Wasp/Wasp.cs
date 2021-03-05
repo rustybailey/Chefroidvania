@@ -44,12 +44,13 @@ public class Wasp : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
         PatrolLocations = new Vector3[2];
-        calculatePatrolLocations();
         IdleState = new WaspIdleState(this, "idle");
         AttackState = new WaspAttackState(this, "attack");
         StateMachine.Initialize(IdleState);
         Player = FindObjectOfType<Player>();
         facingDirection = 1;
+
+        calculatePatrolLocations();
     }
 
     // Update is called once per frame
