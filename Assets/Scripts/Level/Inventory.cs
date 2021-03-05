@@ -56,7 +56,6 @@ public class Inventory : MonoBehaviour
     {
         switch (type)
         {
-            // TODO: Create methods for each type of item to acquire
             case ItemType.Ingredient:
                 HandleIngredient(name);
                 break;
