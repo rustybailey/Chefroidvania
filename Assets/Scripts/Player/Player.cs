@@ -107,6 +107,9 @@ public class Player : MonoBehaviour
 
         currentHealth = startingHealth;
         maxHealth = startingHealth;
+
+        Inventory.instance.OnAcquireAbility += AddAbility;
+        Inventory.instance.OnAcquireHealthUpgrade += UpdateMaxHealth;
     }
 
     // Update is called once per frame
@@ -142,8 +145,6 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         InputManager.Player.Enable();
-        Inventory.instance.OnAcquireAbility += AddAbility;
-        Inventory.instance.OnAcquireHealthUpgrade += UpdateMaxHealth;
     }
 
     private void OnDisable()
