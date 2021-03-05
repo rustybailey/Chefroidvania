@@ -18,7 +18,7 @@ public class PlayerHealthEditor : Editor
 
         if (GUILayout.Button("Increase Max Health"))
         {
-            playerHealth.IncreaseMaxHealth();
+            playerHealth.HandleIncreasingMaxHealth();
         }
     }
 }

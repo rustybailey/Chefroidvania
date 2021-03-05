@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = startingHealth;
         currentHealth = maxHealth;
 
-        Inventory.instance.OnAcquireHealthUpgrade += IncreaseMaxHealth;
+        Inventory.instance.OnAcquireHealthUpgrade += HandleIncreasingMaxHealth;
     }
 
     // Update is called once per frame
@@ -28,14 +28,18 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnDisable()
     {
-        Inventory.instance.OnAcquireHealthUpgrade -= IncreaseMaxHealth;
+        Inventory.instance.OnAcquireHealthUpgrade -= HandleIncreasingMaxHealth;
     }
 
+    public delegate void IncreaseMaxHealth();
+    public static event IncreaseMaxHealth OnIncreaseMaxHealth;
     // Increment max health and heal to max
-    public void IncreaseMaxHealth()
+    public void HandleIncreasingMaxHealth()
     {
         maxHealth += 1;
         FullHeal();
+
+        OnIncreaseMaxHealth?.Invoke();
     }
 
     public void FullHeal()
