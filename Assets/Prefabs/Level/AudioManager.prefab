@@ -65,3 +65,8 @@ MonoBehaviour:
     volume: 0.8
     pitch: 1
     loop: 1
+  - name: Mountain
+    audioClip: {fileID: 8300000, guid: f646a680f8acdd84781bf766f36d096f, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
