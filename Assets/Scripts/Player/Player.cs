@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject bigWallCheckOrigin;
     [SerializeField] float bigWallCheckWidth;
     [SerializeField] float bigWallCheckHeight;
+    [SerializeField] int startingHealth = 3;
+    [SerializeField] int currentHealth;
+    [SerializeField] int maxHealth;
     #endregion
 
     #region Component Variables
@@ -101,8 +104,12 @@ public class Player : MonoBehaviour
         getItemState = new PlayerGetItemState(this, "getItem");
         getItemIdleState = new PlayerGetItemIdleState(this, "getItemIdle");
         StateMachine.Initialize(idleState);
+
+        currentHealth = startingHealth;
+        maxHealth = startingHealth;
         
         Inventory.instance.OnAcquireAbility += AddAbility;
+        Inventory.instance.OnAcquireHealthUpgrade += UpdateMaxHealth;
     }
 
     // Update is called once per frame
@@ -270,5 +277,12 @@ public class Player : MonoBehaviour
                 Debug.Log("Trying to add unknown ability: " + name);
                 break;
         }
+    }
+
+    // Increment max health and heal to max
+    private void UpdateMaxHealth()
+    {
+        maxHealth += 1;
+        currentHealth = maxHealth;
     }
 }

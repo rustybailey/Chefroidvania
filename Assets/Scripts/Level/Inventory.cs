@@ -58,18 +58,18 @@ public class Inventory : MonoBehaviour
         {
             // TODO: Create methods for each type of item to acquire
             case ItemType.Ingredient:
-                AcquireIngredient(name);
+                HandleIngredient(name);
                 break;
             case ItemType.Ability:
-                AcquireAbility(name);
+                HandleAbility(name);
                 break;
             case ItemType.Health:
-                AcquireHealthUpgrade(name);
+                HandleHealthUpgrade(name);
                 break;
         }
     }
 
-    private void AcquireIngredient(string name)
+    private void HandleIngredient(string name)
     {
         // TODO: Have sillouttes of the ingredients in the top right
         // TODO: When you acquire one, signal to the UI to update with the real image
@@ -77,10 +77,10 @@ public class Inventory : MonoBehaviour
         Debug.Log(name + ' ' + Ingredients[name]);
     }
 
-    public delegate void GiveAbility(string name);
-    public event GiveAbility OnAcquireAbility;
+    public delegate void AcquireAbility(string name);
+    public event AcquireAbility OnAcquireAbility;
 
-    private void AcquireAbility(string name)
+    private void HandleAbility(string name)
     {
         string abilityName = name.Replace(" Upgrade", "");
         Abilities[abilityName] = true;
@@ -89,12 +89,13 @@ public class Inventory : MonoBehaviour
         Debug.Log(abilityName + ' ' + Abilities[abilityName]);
     }
 
-    private void AcquireHealthUpgrade(string name)
+    public delegate void AcquireHealthUpgrade();
+    public event AcquireHealthUpgrade OnAcquireHealthUpgrade;
+    private void HandleHealthUpgrade(string name)
     {
-        // TODO: Increase the player's max health
-        // TODO: Heal the player's current health to max
-        // TODO: Update the UI in the top left
+        // TODO: Update the UI when health is upgraded
         HealthUpgrades[name] = true;
+        OnAcquireHealthUpgrade?.Invoke();
         Debug.Log(name + ' ' + HealthUpgrades[name]);
     }
 }
