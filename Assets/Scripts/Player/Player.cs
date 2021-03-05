@@ -283,7 +283,6 @@ public class Player : MonoBehaviour
         Collider2D[] collisions = Physics2D.OverlapCircleAll(tenderizerImpactOrigin.position, tenderizerImpactRadius);
         foreach (Collider2D collision in collisions)
         {
-            Debug.Log(collision.gameObject.name);
             var destructibleWall = collision.gameObject.GetComponent<DestructibleWall>();
             if (destructibleWall)
             {

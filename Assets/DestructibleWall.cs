@@ -10,23 +10,30 @@ public class DestructibleWall : MonoBehaviour
     {
         if (hasTriggeredDestruction) { return; }
 
-        StartCoroutine(DestroyAllChildren());
+        StartCoroutine(Destruction());
     }
 
-    private IEnumerator DestroyAllChildren()
+    private IEnumerator Destruction()
     {
         hasTriggeredDestruction = true;
 
-        // Loop through all children's animation component and activate the destroy trigger
-        Animator[] animators = gameObject.GetComponentsInChildren<Animator>();
-        foreach (Animator animator in animators)
+        // Trigger this wall piece's animation
+        gameObject.GetComponent<Animator>().SetTrigger("destroy");
+
+        // Check for wall piece above this one. If found, trigger destruction.
+        RaycastHit2D[] hits = Physics2D.RaycastAll(gameObject.transform.position, Vector2.up, 1f);
+        foreach (RaycastHit2D hit in hits)
         {
-            animator.SetTrigger("destroy");
+            var destructibleWall = hit.collider.gameObject.GetComponent<DestructibleWall>();
+            if (destructibleWall)
+            {
+                destructibleWall.TriggerDestruction();
+            }
         }
 
         yield return new WaitForSeconds(.1f);
 
-        gameObject.GetComponent<CompositeCollider2D>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
 
         yield return new WaitForSeconds(.7f);
 
