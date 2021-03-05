@@ -275,10 +275,11 @@ public class Player : MonoBehaviour
 
     public void HandleTenderizerImpact()
     {
-        Debug.Log("IMPACT");
-
         // TODO: Shake screen vertically
-        // TODO: Cast a circle
+
+
+
+        // Cast a circle and trigger destruction of any walls overlapping
         Collider2D[] collisions = Physics2D.OverlapCircleAll(tenderizerImpactOrigin.position, tenderizerImpactRadius);
         foreach (Collider2D collision in collisions)
         {
@@ -288,9 +289,9 @@ public class Player : MonoBehaviour
             {
                 destructibleWall.TriggerDestruction();
             }
+            
+            // TODO: Check for any switches and handle that behavior
         }
-        // TODO: Check for any destructible objects
-        // TODO: Check for any switches
     }
 
     private void AddAbility(string name)
