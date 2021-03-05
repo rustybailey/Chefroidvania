@@ -28,7 +28,7 @@ public class Frog : MonoBehaviour
     #endregion
 
     #region Movement Variables
-    private int facingDirection;
+    public int FacingDirection { get; private set; }
     private Vector2 workspace;
     public Vector2 CurrentVelocity { get; private set; }
     #endregion
@@ -48,7 +48,7 @@ public class Frog : MonoBehaviour
         AirState = new FrogAirState(this, "inAir");
         LandState = new FrogLandState(this, "land");
         StateMachine.Initialize(IdleState);
-        facingDirection = 1;
+        FacingDirection = -1;
     }
 
     // Update is called once per frame
@@ -80,7 +80,7 @@ public class Frog : MonoBehaviour
 
     public void FlipIfNeeded(int facingDirection)
     {
-        if (facingDirection != this.facingDirection)
+        if (facingDirection != this.FacingDirection)
         {
             Flip();
         }
@@ -88,7 +88,7 @@ public class Frog : MonoBehaviour
 
     private void Flip()
     {
-        facingDirection *= -1;
+        FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 

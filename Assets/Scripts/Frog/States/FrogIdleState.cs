@@ -25,6 +25,7 @@ public class FrogIdleState : FrogState
 
         if (jumpCountdown <= 0.0f)
         {
+
             stateMachine.ChangeState(frog.LaunchState);
         }
     }

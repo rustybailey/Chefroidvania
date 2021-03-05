@@ -14,7 +14,7 @@ public class FrogLaunchState : FrogState
 
         if (isAnimationFinished)
         {
-            frog.SetVelocityX(frog.GetJumpHorizontalVelocity());
+            frog.SetVelocityX(frog.GetJumpHorizontalVelocity() * frog.FacingDirection);
             frog.SetVelocityY(frog.GetJumpVerticalVelocity());
 
             stateMachine.ChangeState(frog.AirState);
