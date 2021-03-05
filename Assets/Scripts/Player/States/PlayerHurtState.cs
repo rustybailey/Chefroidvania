@@ -16,13 +16,12 @@ public class PlayerHurtState : PlayerState
     {
         base.Enter();
         hasAppliedForce = false;
+        player.GetComponent<PlayerHealth>().DecreaseHealth();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        // TODO: Reduce health here
 
         if (hasAppliedForce && Mathf.Abs(player.CurrentVelocity.x) < 3f)
         {

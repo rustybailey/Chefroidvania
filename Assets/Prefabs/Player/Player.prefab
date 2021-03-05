@@ -385,9 +385,10 @@ GameObject:
   - component: {fileID: 9150131050543248739}
   - component: {fileID: 9150131050543248749}
   - component: {fileID: 9150131050543248750}
+  - component: {fileID: 9150131050543248736}
   - component: {fileID: 9150131050543248738}
   - component: {fileID: 9150131050543248737}
-  - component: {fileID: 9150131050543248736}
+  - component: {fileID: 9150131050806374189}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -468,6 +469,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &9150131050543248736
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150131050543248751}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1b946146c2bf4246b3a63cc71fb2128, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &9150131050543248738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,32 +603,25 @@ MonoBehaviour:
   bigWallCheckHeight: 1.85
   tenderizerImpactOrigin: {fileID: 6800364406081365249}
   tenderizerImpactRadius: 1
-  startingHealth: 3
-  currentHealth: 0
-  maxHealth: 0
   hasFryingPanAbility: 0
   hasKnivesAbility: 0
   hasTenderizerAbility: 0
   isHoldingFryingPan: 0
---- !u!95 &9150131050543248736
-Animator:
-  serializedVersion: 3
+--- !u!114 &9150131050806374189
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9150131050543248751}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b1b946146c2bf4246b3a63cc71fb2128, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b9db1a223c46044b9ed293466d9114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  currentHealth: 0
+  maxHealth: 0
 --- !u!1 &9150131051720184881
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,10 +30,6 @@ public class Player : MonoBehaviour
     [Header("Tenderizer")]
     [SerializeField] Transform tenderizerImpactOrigin;
     [SerializeField] float tenderizerImpactRadius;
-    [Header("Health")] // TODO: Likely will be moved into its own component
-    [SerializeField] int startingHealth = 3;
-    [SerializeField] int currentHealth;
-    [SerializeField] int maxHealth;
     [Header("Abilities")]
     public bool hasFryingPanAbility = false;
     public bool hasKnivesAbility = false;
@@ -112,11 +108,7 @@ public class Player : MonoBehaviour
         getItemIdleState = new PlayerGetItemIdleState(this, "getItemIdle");
         StateMachine.Initialize(idleState);
 
-        currentHealth = startingHealth;
-        maxHealth = startingHealth;
-
         Inventory.instance.OnAcquireAbility += AddAbility;
-        Inventory.instance.OnAcquireHealthUpgrade += UpdateMaxHealth;
     }
 
     // Update is called once per frame
@@ -162,7 +154,6 @@ public class Player : MonoBehaviour
     {
         InputManager.Player.Disable();
         Inventory.instance.OnAcquireAbility -= AddAbility;
-        Inventory.instance.OnAcquireHealthUpgrade -= UpdateMaxHealth;
     }
 
     public void SetVelocityX(float velocity)
@@ -310,12 +301,5 @@ public class Player : MonoBehaviour
                 Debug.Log("Trying to add unknown ability: " + name);
                 break;
         }
-    }
-
-    // Increment max health and heal to max
-    private void UpdateMaxHealth()
-    {
-        maxHealth += 1;
-        currentHealth = maxHealth;
     }
 }
