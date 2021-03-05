@@ -550,7 +550,13 @@ MonoBehaviour:
   bigWallCheckOrigin: {fileID: 997262169}
   bigWallCheckWidth: 0.45
   bigWallCheckHeight: 1.85
+  startingHealth: 3
+  currentHealth: 0
+  maxHealth: 0
   isHoldingFryingPan: 0
+  hasFryingPanAbility: 0
+  hasKnivesAbility: 0
+  hasTenderizerAbility: 0
 --- !u!95 &9150131050543248736
 Animator:
   serializedVersion: 3
