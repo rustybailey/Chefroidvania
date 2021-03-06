@@ -236,6 +236,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558266fcb14cbb2428fbd08b12433efd, type: 3}
+--- !u!4 &98780500 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+  m_PrefabInstance: {fileID: 1496721818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &120135546 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+  m_PrefabInstance: {fileID: 555929418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &268653058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.31
+      value: -45.25
       objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -315,7 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6566115796578944953, guid: 4988462608b85884a94dadddefed2d72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.68
+      value: -38.620003
       objectReference: {fileID: 0}
     - target: {fileID: 6566115796578944953, guid: 4988462608b85884a94dadddefed2d72, type: 3}
       propertyPath: m_LocalPosition.y
@@ -725,6 +735,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4540745266378984422, guid: 77fc4760a9502e8488209dea81905d88, type: 3}
   m_PrefabInstance: {fileID: 540494693}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &555929418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1550895595}
+    m_Modifications:
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634607, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_Name
+      value: '[Mountain Snowy] Destructible Wall Base'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
 --- !u!4 &558336347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7867214808896225796, guid: 4c7591922fa7f594fa7e20e3a5533b7f, type: 3}
@@ -747,7 +814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6566115796578944953, guid: 4988462608b85884a94dadddefed2d72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.32
+      value: -34.260002
       objectReference: {fileID: 0}
     - target: {fileID: 6566115796578944953, guid: 4988462608b85884a94dadddefed2d72, type: 3}
       propertyPath: m_LocalPosition.y
@@ -980,6 +1047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20eb14277ce328c4eb53934aeacff490, type: 3}
+--- !u!4 &1209639382 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+  m_PrefabInstance: {fileID: 2036317774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254395481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1055,7 +1127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 614821763391321662, guid: 8730be7387abd214f92e3eb0a986c77e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.78
+      value: -29.720001
       objectReference: {fileID: 0}
     - target: {fileID: 614821763391321662, guid: 8730be7387abd214f92e3eb0a986c77e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1099,6 +1171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8730be7387abd214f92e3eb0a986c77e, type: 3}
+--- !u!4 &1308858180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+  m_PrefabInstance: {fileID: 2105140371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1342748278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1116,7 +1193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.3
+      value: -48.24
       objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1156,6 +1233,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb514b8771017524d851aac653aebd1f, type: 3}
+--- !u!1001 &1496721818
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1550895595}
+    m_Modifications:
+    - target: {fileID: 1038994803813907098, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_Name
+      value: '[Mountain Snowy] Destructible Wall Top'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038994803813907102, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0ed9ba943e279e74ba69c24b1b3bb3ef, type: 3}
 --- !u!1 &1550895594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1326,10 @@ Transform:
   - {fileID: 1124477373}
   - {fileID: 540494694}
   - {fileID: 1781894251}
+  - {fileID: 1209639382}
+  - {fileID: 120135546}
+  - {fileID: 1308858180}
+  - {fileID: 98780500}
   m_Father: {fileID: 380718129}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9192,7 +9330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.48
+      value: -42.420002
       objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9325,88 +9463,120 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7591922fa7f594fa7e20e3a5533b7f, type: 3}
---- !u!1 &2141571338
-GameObject:
+--- !u!1001 &2036317774
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2141571339}
-  - component: {fileID: 2141571340}
-  m_Layer: 7
-  m_Name: Tenderizer Particles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2141571339
-Transform:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1550895595}
+    m_Modifications:
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634607, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_Name
+      value: '[Mountain Snowy] Destructible Wall Base'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+--- !u!1001 &2105140371
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141571338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.59, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 275978824}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2141571340
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141571338}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1512812757
-  m_SortingLayer: 5
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -543957156670660159, guid: 5e51dd2472c5e4e5a84ada77f2a2412e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.75, y: 3.75}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1550895595}
+    m_Modifications:
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634603, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830429168198634607, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
+      propertyPath: m_Name
+      value: '[Mountain Snowy] Destructible Wall Base'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55a5cd563ecd2a7468d19dd772c8b913, type: 3}
 --- !u!1001 &697795589485127835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9530,11 +9700,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2141571339, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6800364406081365249, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9150131050543248737, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
       propertyPath: hasKnivesAbility

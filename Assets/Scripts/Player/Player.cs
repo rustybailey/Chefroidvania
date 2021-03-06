@@ -269,6 +269,9 @@ public class Player : MonoBehaviour
         // TODO: Shake screen vertically
 
 
+        // Play impact sound
+        string[] sounds = { "Smack01", "Smack02" };
+        AudioManager.instance.PlayRandomSoundEffect(sounds);
 
         // Cast a circle and trigger destruction of any walls overlapping
         Collider2D[] collisions = Physics2D.OverlapCircleAll(tenderizerImpactOrigin.position, tenderizerImpactRadius);

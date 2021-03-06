@@ -8,6 +8,13 @@ public class PlayerSwingTenderizerState : PlayerState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        AudioManager.instance.PlaySoundEffect("TendWhoosh");
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

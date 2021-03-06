@@ -305,7 +305,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: TendWhoosh
-    audioClip: {fileID: 8300000, guid: 364897b21dfb6ac4082934bd8dbcf38b, type: 3}
+    audioClip: {fileID: 8300000, guid: c0a427c4d0986504c8e38ed3c193bf4b, type: 3}
     volume: 1
     pitch: 1
     loop: 0
