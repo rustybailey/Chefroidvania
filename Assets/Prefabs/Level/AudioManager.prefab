@@ -221,12 +221,12 @@ MonoBehaviour:
     loop: 0
   - name: Knife04
     audioClip: {fileID: 8300000, guid: 9b7efa7ebcc6fbf4a8d39583033fd01e, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
   - name: Knife05
     audioClip: {fileID: 8300000, guid: 4262ff7b47d6c4d4bbb2e40a65a0c410, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
   - name: Knife06
@@ -241,12 +241,12 @@ MonoBehaviour:
     loop: 0
   - name: Knife08
     audioClip: {fileID: 8300000, guid: 8723b9662bfe6d24e92bf3896852582b, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
   - name: Knife09
     audioClip: {fileID: 8300000, guid: 2bedcde132eea4045866eca11dfc3031, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
   - name: MonkeyAnger

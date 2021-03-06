@@ -14,6 +14,7 @@ public class PlayerWallClimbIdleState : PlayerOnWallState
 
         if (isJumpButtonPressedDown)
         {
+            AudioManager.instance.PlaySoundEffect("Knife05");
             stateMachine.ChangeState(player.jumpState);
         }
         // Ensure that if the player tries to move they are not already at the

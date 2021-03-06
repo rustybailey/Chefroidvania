@@ -17,7 +17,7 @@ public class FryingPanReturnState : FryingPanState
         playedCatchSound = false;
 
         string[] sounds = { "SkilletThrow01", "SkilletThrow02", "SkilletThrow03" };
-        AudioManager.instance.PlayRandomSoundEffect(sounds);
+        AudioManager.instance.PlayRandomSoundEffectAtPoint(sounds, fryingPan.transform.position);
     }
 
     public override void LogicUpdate()
@@ -33,7 +33,7 @@ public class FryingPanReturnState : FryingPanState
         if (!playedCatchSound && distance < 3.0f)
         {
             string[] sounds = { "CatchSkillet01", "CatchSkillet02", "CatchSkillet03" };
-            AudioManager.instance.PlayRandomSoundEffect(sounds);
+            AudioManager.instance.PlayRandomSoundEffectAtPoint(sounds, fryingPan.transform.position);
             playedCatchSound = true;
         }
 

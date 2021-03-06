@@ -16,6 +16,7 @@ public class PlayerWallClimbState : PlayerOnWallState
 
         if (isJumpButtonPressedDown)
         {
+            AudioManager.instance.PlaySoundEffect("Knife05");
             stateMachine.ChangeState(player.jumpState);
         }
         else if (isGrounded)

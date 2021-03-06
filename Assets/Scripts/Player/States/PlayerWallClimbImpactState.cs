@@ -8,6 +8,13 @@ public class PlayerWallClimbImpactState : PlayerOnWallState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        AudioManager.instance.PlaySoundEffect("Knife04");
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

@@ -302,4 +302,16 @@ public class Player : MonoBehaviour
                 break;
         }
     }
+
+    // Most other sfx are called within the states
+    // These are here so we can called them within the animation
+    public void PlayKnifeClimb1()
+    {
+        AudioManager.instance.PlaySoundEffect("Knife08");
+    }
+
+    public void PlayKnifeClimb2()
+    {
+        AudioManager.instance.PlaySoundEffect("Knife09");
+    }
 }
