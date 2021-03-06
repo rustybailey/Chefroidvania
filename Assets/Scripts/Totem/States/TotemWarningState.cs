@@ -8,6 +8,13 @@ public class TotemWarningState : TotemState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        AudioManager.instance.PlaySoundEffectAtPoint("TotemAngry", totem.transform.position);
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

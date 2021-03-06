@@ -12,7 +12,7 @@ public class FryingPanEnterHoverState : FryingPanState
     {
         base.Enter();
 
-        string[] sounds = { "SuccessHit01", "SuccessHit02", "SuccessHit03", "SuccessHit04" };
+        string[] sounds = { "SuccessHit01", "SuccessHit02", "SuccessHit03" };
         AudioManager.instance.PlayRandomSoundEffectAtPoint(sounds, fryingPan.transform.position);
     }
 

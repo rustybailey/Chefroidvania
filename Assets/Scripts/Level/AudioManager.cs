@@ -263,20 +263,25 @@ public class Sound
         // create the temp object
         var tempGO = new GameObject("Custom PlayClipAtPoint Audio");
         // set its position
-        tempGO.transform.position = position;
+        tempGO.transform.position = new Vector3(position.x, position.y, Camera.main.transform.position.z);
         // add an audio source
         var aSource = tempGO.AddComponent<AudioSource>();
         aSource.clip = audioClip;
-        
-        // set other aSource properties here, if desired
-        aSource.spatialBlend = 0f;
 
+        // set other aSource properties here, if desired
+        aSource.spatialBlend = 1f;
+        aSource.rolloffMode = AudioRolloffMode.Custom;
+        aSource.minDistance = 8f;
+        aSource.maxDistance = 15f;
+        aSource.dopplerLevel = 0f;
+
+        //Debug.Break();
         aSource.Play();
+
 
         // destroy object after clip duration
         MonoBehaviour.Destroy(tempGO, audioClip.length);
 
         //AudioSource.PlayClipAtPoint(audioClip, new Vector3(position.x, position.y, Camera.main.transform.position.z));
-        //Debug.Break();
     }
 }
