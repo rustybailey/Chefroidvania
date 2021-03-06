@@ -50,7 +50,7 @@ public class Wasp : MonoBehaviour
         Player = FindObjectOfType<Player>();
         facingDirection = 1;
 
-        calculatePatrolLocations();
+        CalculatePatrolLocations();
     }
 
     // Update is called once per frame
@@ -75,10 +75,10 @@ public class Wasp : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector3.right * rightPatrolDistance);
     }
 
-    private void calculatePatrolLocations()
+    private void CalculatePatrolLocations()
     {
         PatrolLocations[0] = new Vector3(transform.position.x - leftPatrolDistance, transform.position.y, transform.position.z);
-        PatrolLocations[1] = new Vector3(transform.position.x + leftPatrolDistance, transform.position.y, transform.position.z);
+        PatrolLocations[1] = new Vector3(transform.position.x + rightPatrolDistance, transform.position.y, transform.position.z);
     }
 
     public float GetMovementSpeed()

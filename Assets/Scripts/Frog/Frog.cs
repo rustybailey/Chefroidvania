@@ -8,7 +8,8 @@ public class Frog : MonoBehaviour
     [SerializeField] float jumpDelay = 2.0f;
     [SerializeField] float jumpVerticalVelocity = 3.0f;
     [SerializeField] float jumpHorizontalVelocity = 3.0f;
-    [SerializeField] Transform[] PatrolLocations;
+    [SerializeField] float leftPatrolDistance;
+    [SerializeField] float rightPatrolDistance;
     [SerializeField] public Transform groundCheck;
     [SerializeField] public float groundCheckRadius = 0.2f;
     [SerializeField] public LayerMask groundLayer;
@@ -35,6 +36,8 @@ public class Frog : MonoBehaviour
     public int FacingDirection { get; private set; }
     private Vector2 workspace;
     public Vector2 CurrentVelocity { get; private set; }
+    public Vector3[] PatrolLocations { get; private set; }
+    public int patrolIndex;
     #endregion
 
     private void Awake()
@@ -53,6 +56,10 @@ public class Frog : MonoBehaviour
         LandState = new FrogLandState(this, "land");
         StateMachine.Initialize(IdleState);
         FacingDirection = -1;
+        PatrolLocations = new Vector3[2];
+        patrolIndex = 0;
+
+        CalculatePatrolLocations();
     }
 
     // Update is called once per frame
@@ -75,12 +82,16 @@ public class Frog : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         Gizmos.DrawWireCube(wallCheckOrigin.transform.position, new Vector3(wallCheckWidth, wallCheckHeight, 0.0f));
 
+        // Patrol locations
         Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, Vector3.left * leftPatrolDistance);
+        Gizmos.DrawRay(transform.position, Vector3.right * rightPatrolDistance);
+    }
 
-        foreach (Transform patrolLocation in PatrolLocations)
-        {
-            Gizmos.DrawLine(transform.position, patrolLocation.position);
-        }
+    private void CalculatePatrolLocations()
+    {
+        PatrolLocations[0] = new Vector3(transform.position.x - leftPatrolDistance, transform.position.y, transform.position.z);
+        PatrolLocations[1] = new Vector3(transform.position.x + rightPatrolDistance, transform.position.y, transform.position.z);
     }
 
     public void FlipIfNeeded(int facingDirection)
@@ -144,5 +155,20 @@ public class Frog : MonoBehaviour
     public float GetJumpHorizontalVelocity()
     {
         return jumpHorizontalVelocity;
+    }
+
+    public void PatrolNext()
+    {
+        patrolIndex++;
+
+        if (patrolIndex >= PatrolLocations.Length)
+        {
+            patrolIndex = 0;
+        }
+    }
+
+    public Vector3 GetCurrentPatrolLocation()
+    {
+        return PatrolLocations[patrolIndex];
     }
 }

@@ -14,6 +14,17 @@ public class FrogLandState : FrogState
 
         if (isAnimationFinished)
         {
+            // If the frog is facing the left and the patrol location is to the
+            // right or the frog is facing the right and the patrol location is
+            // to the left, go to the next patrol location.
+            if ((frog.FacingDirection == -1 && frog.GetCurrentPatrolLocation().x > frog.transform.position.x)
+                || (frog.FacingDirection == 1 && frog.GetCurrentPatrolLocation().x < frog.transform.position.x))
+            {
+                frog.PatrolNext();
+            }
+
+            frog.FlipIfNeeded(frog.GetCurrentPatrolLocation().x <= frog.transform.position.x ? -1 : 1);
+
             stateMachine.ChangeState(frog.IdleState);
         }
     }
