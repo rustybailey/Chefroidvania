@@ -43,6 +43,41 @@ public class AudioManager : MonoBehaviour
         PlaySound(name, soundEffects);
     }
 
+    public void PlaySoundEffectAtPoint(string name, Vector3 position)
+    {
+        foreach (Sound sound in soundEffects)
+        {
+            if (sound.GetName() == name)
+            {
+                sound.PlayClipAtPoint(position);
+                return;
+            }
+        }
+    }
+
+    private string GetRandom(string[] names)
+    {
+        return names[UnityEngine.Random.Range(0, names.Length)];
+    }
+
+    public void PlayRandomSoundEffect(string[] names)
+    {
+        PlaySound(GetRandom(names), soundEffects);
+    }
+
+    public void PlayRandomSoundEffectAtPoint(string[] names, Vector3 position)
+    {
+        string name = GetRandom(names);
+        foreach (Sound sound in soundEffects)
+        {
+            if (sound.GetName() == name)
+            {
+                sound.PlayClipAtPoint(position);
+                return;
+            }
+        }
+    }
+
     public void PlayMusic(string name)
     {
         Sound currentTrack = GetCurrentlyPlayingMusic();
@@ -144,18 +179,6 @@ public class AudioManager : MonoBehaviour
             if (track.GetName() == fadeInTrack && !track.IsPlaying())
             {
                 StartCoroutine(track.FadeIn(duration));
-            }
-        }
-    }
-
-    public void PlaySoundEffectAtPoint(string name, Vector3 position)
-    {
-        foreach (Sound sound in soundEffects)
-        {
-            if (sound.GetName() == name)
-            {
-                sound.PlayClipAtPoint(position);
-                return;
             }
         }
     }
