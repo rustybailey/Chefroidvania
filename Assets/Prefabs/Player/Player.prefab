@@ -605,7 +605,7 @@ MonoBehaviour:
   tenderizerImpactRadius: 1
   hasFryingPanAbility: 0
   hasKnivesAbility: 0
-  hasTenderizerAbility: 0
+  hasTenderizerAbility: 1
   isHoldingFryingPan: 0
 --- !u!114 &9150131050806374189
 MonoBehaviour:
@@ -622,6 +622,7 @@ MonoBehaviour:
   startingHealth: 3
   currentHealth: 0
   maxHealth: 0
+  isInvincible: 1
 --- !u!1 &9150131051720184881
 GameObject:
   m_ObjectHideFlags: 0

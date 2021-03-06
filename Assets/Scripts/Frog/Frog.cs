@@ -152,4 +152,9 @@ public class Frog : MonoBehaviour
     {
         return patrolLocations[patrolIndex];
     }
+
+    public void TriggerJump()
+    {
+        LaunchState.JumpReady();
+    }
 }
