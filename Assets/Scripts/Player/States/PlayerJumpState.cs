@@ -12,6 +12,7 @@ public class PlayerJumpState : PlayerInAirState
     {
         base.Enter();
 
+        AudioManager.instance.PlaySoundEffect("JumpGrunt");
         player.SetVelocityY(player.GetJumpForce() * Time.fixedDeltaTime);
     }
 }

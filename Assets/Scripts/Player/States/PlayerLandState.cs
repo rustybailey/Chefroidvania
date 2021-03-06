@@ -8,6 +8,13 @@ public class PlayerLandState : PlayerState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        AudioManager.instance.PlaySoundEffect("Landing");
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

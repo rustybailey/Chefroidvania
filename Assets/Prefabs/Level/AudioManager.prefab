@@ -190,7 +190,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: JumpGrunt
-    audioClip: {fileID: 8300000, guid: 64d402ca96e33c74989a8e2b6ab6687e, type: 3}
+    audioClip: {fileID: 8300000, guid: c15ebe4c04db4c842b73b588b0027f1d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -283,17 +283,17 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: bdb9fcd1c75d1ef49bc78d25d58aac5c, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
   - name: Run02
     audioClip: {fileID: 8300000, guid: 9c92ceb7e558ffe4492c09ac68a73d8d, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
   - name: Run03
     audioClip: {fileID: 8300000, guid: 467374d562c7e204b93ba811641383b6, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
   - name: Smack01
     audioClip: {fileID: 8300000, guid: 8b9f7d9b64b489b4c8b7059d0b4de725, type: 3}
     volume: 1
@@ -322,21 +322,21 @@ MonoBehaviour:
   musicTracks:
   - name: Kitchen
     audioClip: {fileID: 8300000, guid: 8b983a560c8b1414891e029ea16dcafe, type: 3}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 1
   - name: Jungle
     audioClip: {fileID: 8300000, guid: e62020fd6a0fe4c469d9191fdb09d1d1, type: 3}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 1
   - name: Swamp
     audioClip: {fileID: 8300000, guid: 0ecd1b4808d23b745ba3a1c505afb808, type: 3}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 1
   - name: Mountain
     audioClip: {fileID: 8300000, guid: f646a680f8acdd84781bf766f36d096f, type: 3}
-    volume: 0.8
+    volume: 0.4
     pitch: 1
     loop: 1

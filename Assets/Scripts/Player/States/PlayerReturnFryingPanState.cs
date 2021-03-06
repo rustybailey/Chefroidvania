@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerReturnFryingPanState : PlayerState
 {
+
     public PlayerReturnFryingPanState(Player player, string animationBooleanName) : base(player, animationBooleanName)
     {
     }

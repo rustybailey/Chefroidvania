@@ -8,6 +8,14 @@ public class FryingPanEnterHoverState : FryingPanState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        string[] returnSounds = { "SuccessHit01", "SuccessHit02", "SuccessHit03", "SuccessHit04" };
+        AudioManager.instance.PlaySoundEffect(returnSounds[Random.Range(0, returnSounds.Length)]);
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

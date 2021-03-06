@@ -8,6 +8,22 @@ public class PlayerRunState : PlayerState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        AudioManager.instance.PlaySoundEffect("Run01");
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        // TODO: It may sound better if we pause/resume this sound effect
+        // instead of stopping it completely
+        AudioManager.instance.StopSoundEffect("Run01");
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
