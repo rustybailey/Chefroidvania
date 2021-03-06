@@ -2252,12 +2252,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  wallCheckOrigin: {fileID: 1816820032}
-  wallCheckWidth: 0.25
-  wallCheckHeight: 0.7
-  wallAndPlatformLayers:
-    serializedVersion: 2
-    m_Bits: 4160
+  patrolLocations: []
+  patrolIndex: 0
 --- !u!70 &662628789
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -17979,10 +17975,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wasp
       objectReference: {fileID: 0}
-    - target: {fileID: 2989728144092190500, guid: 29ac7a0049246436383622529844ecb6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2989728144092190501, guid: 29ac7a0049246436383622529844ecb6, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -18026,14 +18018,6 @@ PrefabInstance:
     - target: {fileID: 2989728144092190501, guid: 29ac7a0049246436383622529844ecb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989728145522156797, guid: 29ac7a0049246436383622529844ecb6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.276
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989728145522156797, guid: 29ac7a0049246436383622529844ecb6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.654
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ac7a0049246436383622529844ecb6, type: 3}

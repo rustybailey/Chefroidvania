@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class WaspIdleState : WaspState
 {
-    private int patrolIndex;
     private float attackDelay;
 
     public WaspIdleState(Wasp wasp, string animationBooleanName) : base(wasp, animationBooleanName)
     {
-        patrolIndex = 0;
     }
 
     public override void Enter()
@@ -43,20 +41,14 @@ public class WaspIdleState : WaspState
         // Otherwise face the direction of the patrol location
         else
         {
-            wasp.FlipIfNeeded(wasp.PatrolLocations[patrolIndex].x <= wasp.transform.position.x ? 1 : -1);
+            wasp.FlipIfNeeded(wasp.GetCurrentPatrolLocation().x <= wasp.transform.position.x ? 1 : -1);
         }
 
-        wasp.transform.position = Vector3.MoveTowards(wasp.transform.position, wasp.PatrolLocations[patrolIndex], step);
+        wasp.transform.position = Vector3.MoveTowards(wasp.transform.position, wasp.GetCurrentPatrolLocation(), step);
 
-        if (Vector3.Distance(wasp.transform.position, wasp.PatrolLocations[patrolIndex]) < 0.001f)
+        if (Vector3.Distance(wasp.transform.position, wasp.GetCurrentPatrolLocation()) < 0.001f)
         {
-            // Go to the next patrol location
-            patrolIndex++;
-
-            if (patrolIndex >= wasp.PatrolLocations.Length)
-            {
-                patrolIndex = 0;
-            }
+            wasp.PatrolNext();
         }
     }
 }

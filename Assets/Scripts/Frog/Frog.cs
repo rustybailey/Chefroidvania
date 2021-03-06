@@ -13,10 +13,6 @@ public class Frog : MonoBehaviour
     [SerializeField] public Transform groundCheck;
     [SerializeField] public float groundCheckRadius = 0.2f;
     [SerializeField] public LayerMask groundLayer;
-    [SerializeField] Transform wallCheckOrigin;
-    [SerializeField] float wallCheckWidth;
-    [SerializeField] float wallCheckHeight;
-    [SerializeField] LayerMask wallAndPlatformLayers;
     #endregion
 
     #region Component Variables
@@ -36,7 +32,7 @@ public class Frog : MonoBehaviour
     public int FacingDirection { get; private set; }
     private Vector2 workspace;
     public Vector2 CurrentVelocity { get; private set; }
-    public Vector3[] PatrolLocations { get; private set; }
+    public Vector3[] patrolLocations;
     public int patrolIndex;
     #endregion
 
@@ -56,7 +52,7 @@ public class Frog : MonoBehaviour
         LandState = new FrogLandState(this, "land");
         StateMachine.Initialize(IdleState);
         FacingDirection = -1;
-        PatrolLocations = new Vector3[2];
+        patrolLocations = new Vector3[2];
         patrolIndex = 0;
 
         CalculatePatrolLocations();
@@ -77,11 +73,6 @@ public class Frog : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        // Draw ground/wall check
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        Gizmos.DrawWireCube(wallCheckOrigin.transform.position, new Vector3(wallCheckWidth, wallCheckHeight, 0.0f));
-
         // Patrol locations
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, Vector3.left * leftPatrolDistance);
@@ -90,8 +81,8 @@ public class Frog : MonoBehaviour
 
     private void CalculatePatrolLocations()
     {
-        PatrolLocations[0] = new Vector3(transform.position.x - leftPatrolDistance, transform.position.y, transform.position.z);
-        PatrolLocations[1] = new Vector3(transform.position.x + rightPatrolDistance, transform.position.y, transform.position.z);
+        patrolLocations[0] = new Vector3(transform.position.x - leftPatrolDistance, transform.position.y, transform.position.z);
+        patrolLocations[1] = new Vector3(transform.position.x + rightPatrolDistance, transform.position.y, transform.position.z);
     }
 
     public void FlipIfNeeded(int facingDirection)
@@ -111,16 +102,6 @@ public class Frog : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-    }
-
-    public bool IsHittingWallOrPlatform()
-    {
-        return Physics2D.OverlapBox(
-            wallCheckOrigin.position,
-            new Vector2(wallCheckWidth, wallCheckHeight),
-            0.0f,
-            wallAndPlatformLayers
-        );
     }
 
     public float GetJumpDelay()
@@ -161,7 +142,7 @@ public class Frog : MonoBehaviour
     {
         patrolIndex++;
 
-        if (patrolIndex >= PatrolLocations.Length)
+        if (patrolIndex >= patrolLocations.Length)
         {
             patrolIndex = 0;
         }
@@ -169,6 +150,6 @@ public class Frog : MonoBehaviour
 
     public Vector3 GetCurrentPatrolLocation()
     {
-        return PatrolLocations[patrolIndex];
+        return patrolLocations[patrolIndex];
     }
 }

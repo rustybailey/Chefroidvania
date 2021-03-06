@@ -26,7 +26,8 @@ public class Wasp : MonoBehaviour
     #endregion
 
     #region Movement Variables
-    public Vector3[] PatrolLocations { get; private set; }
+    public Vector3[] patrolLocations;
+    private int patrolIndex;
     private int facingDirection;
     #endregion
 
@@ -43,12 +44,13 @@ public class Wasp : MonoBehaviour
     void Start()
     {
         Animator = GetComponent<Animator>();
-        PatrolLocations = new Vector3[2];
+        patrolLocations = new Vector3[2];
         IdleState = new WaspIdleState(this, "idle");
         AttackState = new WaspAttackState(this, "attack");
         StateMachine.Initialize(IdleState);
         Player = FindObjectOfType<Player>();
         facingDirection = 1;
+        patrolIndex = 0;
 
         CalculatePatrolLocations();
     }
@@ -77,8 +79,8 @@ public class Wasp : MonoBehaviour
 
     private void CalculatePatrolLocations()
     {
-        PatrolLocations[0] = new Vector3(transform.position.x - leftPatrolDistance, transform.position.y, transform.position.z);
-        PatrolLocations[1] = new Vector3(transform.position.x + rightPatrolDistance, transform.position.y, transform.position.z);
+        patrolLocations[0] = new Vector3(transform.position.x - leftPatrolDistance, transform.position.y, transform.position.z);
+        patrolLocations[1] = new Vector3(transform.position.x + rightPatrolDistance, transform.position.y, transform.position.z);
     }
 
     public float GetMovementSpeed()
@@ -128,5 +130,20 @@ public class Wasp : MonoBehaviour
     {
         facingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+    public void PatrolNext()
+    {
+        patrolIndex++;
+
+        if (patrolIndex >= patrolLocations.Length)
+        {
+            patrolIndex = 0;
+        }
+    }
+
+    public Vector3 GetCurrentPatrolLocation()
+    {
+        return patrolLocations[patrolIndex];
     }
 }
