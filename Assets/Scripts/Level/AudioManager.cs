@@ -147,6 +147,18 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    public void PlaySoundEffectAtPoint(string name, Vector3 position)
+    {
+        foreach (Sound sound in soundEffects)
+        {
+            if (sound.GetName() == name)
+            {
+                sound.PlayClipAtPoint(position);
+                return;
+            }
+        }
+    }
 }
 
 [System.Serializable]
@@ -221,5 +233,10 @@ public class Sound
 
         audioSource.volume = target;
         yield break;
+    }
+
+    public void PlayClipAtPoint(Vector3 position)
+    {
+        AudioSource.PlayClipAtPoint(audioClip, position);
     }
 }

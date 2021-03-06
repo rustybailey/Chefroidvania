@@ -49,6 +49,111 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - name: SpeechBubble01
+    audioClip: {fileID: 8300000, guid: 6601e684c2fe7754c842c9e7cdc88037, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: SpeechBubble02
+    audioClip: {fileID: 8300000, guid: e1dbfebea680ceb439d072c07c38690d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: TakeDamage
+    audioClip: {fileID: 8300000, guid: 015407ab8d0ab844e8d27d97f1e21d8b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: BeeAngry
+    audioClip: {fileID: 8300000, guid: 0e4e000351510ed498282de71da48d5b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: BeeBuzz
+    audioClip: {fileID: 8300000, guid: 29bdcd8d064fc9b45aa1199fa5cda6e3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: BeeDead
+    audioClip: {fileID: 8300000, guid: bf5432063bf8c8543b99b4851081a737, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: BeeShoot
+    audioClip: {fileID: 8300000, guid: 40cfa981e75e4f94388b48fe85133d86, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: CatchSkillet01
+    audioClip: {fileID: 8300000, guid: 3c745821319b7894f8b43f0586a0e607, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: CatchSkillet02
+    audioClip: {fileID: 8300000, guid: b3d6155f5161f0948b334c7f6d0ca0e2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: CatchSkillet03
+    audioClip: {fileID: 8300000, guid: b0b848cb71aecc44bbc6dae82b47f1c4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: DudHit01
+    audioClip: {fileID: 8300000, guid: 6d85cd078b1288f408b430a601512d44, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: DudHit02
+    audioClip: {fileID: 8300000, guid: b574792b9035b4b49b5eae4fb738fb3a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: DudHit03
+    audioClip: {fileID: 8300000, guid: a7793757aff20634eb9ea878dcbd338d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: LandOnCastIron01
+    audioClip: {fileID: 8300000, guid: f1cd73d4775234f44a6f4fd1188251e5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: LandOnCastIron02
+    audioClip: {fileID: 8300000, guid: 5be2bace5d9975a4a9226236ae560944, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: SkilletThrow01
+    audioClip: {fileID: 8300000, guid: 82352451c2e375848a9b841ec39e59dc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: SkilletThrow02
+    audioClip: {fileID: 8300000, guid: 541a3f20e47fa814da4d08720a619c39, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: SkilletThrow03
+    audioClip: {fileID: 8300000, guid: 8e01a0175a70c4746bc72fdd2d5299f4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: SuccessHit01
+    audioClip: {fileID: 8300000, guid: 0f04af20c39eee44c9108ee0c95cf0ee, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: SuccessHit02
+    audioClip: {fileID: 8300000, guid: 2dac2c666052b524a8bf4eff14ba2e93, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: SuccessHit03
+    audioClip: {fileID: 8300000, guid: 362a8020ad201cb479a6b36cd07ac58b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
   musicTracks:
   - name: Kitchen
     audioClip: {fileID: 8300000, guid: 8b983a560c8b1414891e029ea16dcafe, type: 3}
