@@ -154,6 +154,171 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - name: SuccessHit04
+    audioClip: {fileID: 8300000, guid: 96f41ea24f63f434e86c4ed5b86a2f2b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: EnterPortal
+    audioClip: {fileID: 8300000, guid: 0b5e435d1153a1f42bf83a5d1a75b79d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: FridgeAnticipation
+    audioClip: {fileID: 8300000, guid: f4facf4b28df3d34bab3d4e09a961c5e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: FridgeClose
+    audioClip: {fileID: 8300000, guid: ac6c847a828b62a4aa247dfbcab9c0e5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: FridgeHum
+    audioClip: {fileID: 8300000, guid: a69feb813f2494e498b2df09eda998cc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: FridgeOpen
+    audioClip: {fileID: 8300000, guid: e4c5749cc6910624882c0d35e1c71b69, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: FridgePortal
+    audioClip: {fileID: 8300000, guid: e8a352a0df529d74eb661d67f0035129, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: JumpGrunt
+    audioClip: {fileID: 8300000, guid: 64d402ca96e33c74989a8e2b6ab6687e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: JumpWhoosh
+    audioClip: {fileID: 8300000, guid: e36f3e741c9e4844184d097a64ae26ef, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Landing
+    audioClip: {fileID: 8300000, guid: dddd7e2159441224dbfcf6f463c73a77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife01
+    audioClip: {fileID: 8300000, guid: 52b41e04292c1d044b284affb373b468, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife02
+    audioClip: {fileID: 8300000, guid: 0735f912d392ebd47b1e15e56de2d14a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife03
+    audioClip: {fileID: 8300000, guid: 1fddbbd609702694d9cfbe8d04c57533, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife04
+    audioClip: {fileID: 8300000, guid: 9b7efa7ebcc6fbf4a8d39583033fd01e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife05
+    audioClip: {fileID: 8300000, guid: 4262ff7b47d6c4d4bbb2e40a65a0c410, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife06
+    audioClip: {fileID: 8300000, guid: f72a73b5d460e9144bf5de8e93a55816, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife07
+    audioClip: {fileID: 8300000, guid: f81fc26d0ad89b547bbffcdfb174b9d0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife08
+    audioClip: {fileID: 8300000, guid: 8723b9662bfe6d24e92bf3896852582b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Knife09
+    audioClip: {fileID: 8300000, guid: 2bedcde132eea4045866eca11dfc3031, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MonkeyAnger
+    audioClip: {fileID: 8300000, guid: e1454c7e37812ad42b4597bc9587738c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MonkeyChirp01
+    audioClip: {fileID: 8300000, guid: ad318bc5f87ee6944a48a9543eaed3e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MonkeyChirp02
+    audioClip: {fileID: 8300000, guid: 9874c7041c3bbc6408c3e7f0837a26fa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MonkeyClimb
+    audioClip: {fileID: 8300000, guid: 33f8bab7e6692cf44924cd571c11ecc0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MonkeyDead
+    audioClip: {fileID: 8300000, guid: 265edc7a9e57b234b97158b4927e2b15, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MonkeyThrow
+    audioClip: {fileID: 8300000, guid: 72df18bec8a1298469d24c153c6419c3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Run01
+    audioClip: {fileID: 8300000, guid: bdb9fcd1c75d1ef49bc78d25d58aac5c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Run02
+    audioClip: {fileID: 8300000, guid: 9c92ceb7e558ffe4492c09ac68a73d8d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Run03
+    audioClip: {fileID: 8300000, guid: 467374d562c7e204b93ba811641383b6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Smack01
+    audioClip: {fileID: 8300000, guid: 8b9f7d9b64b489b4c8b7059d0b4de725, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Smack02
+    audioClip: {fileID: 8300000, guid: ce085fe84a839224591e709f7e04c691, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: TendWhoosh
+    audioClip: {fileID: 8300000, guid: 364897b21dfb6ac4082934bd8dbcf38b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: TotemAngry
+    audioClip: {fileID: 8300000, guid: 23fcc94fbd62c7840af0dfe921199e97, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: TotemShoot
+    audioClip: {fileID: 8300000, guid: 5ccf1490ab9c3824f9759e1989637e15, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
   musicTracks:
   - name: Kitchen
     audioClip: {fileID: 8300000, guid: 8b983a560c8b1414891e029ea16dcafe, type: 3}
