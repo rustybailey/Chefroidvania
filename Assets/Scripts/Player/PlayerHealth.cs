@@ -20,12 +20,6 @@ public class PlayerHealth : MonoBehaviour
         Inventory.instance.OnAcquireHealthUpgrade += HandleIncreasingMaxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnDisable()
     {
         Inventory.instance.OnAcquireHealthUpgrade -= HandleIncreasingMaxHealth;
@@ -36,23 +30,40 @@ public class PlayerHealth : MonoBehaviour
     // Increment max health and heal to max
     public void HandleIncreasingMaxHealth()
     {
+        float waitTime = (maxHealth - currentHealth + 1) * .25f;
         maxHealth += 1;
+
+        StartCoroutine(FullHealThenTriggerIncreaseMaxEvent(waitTime));
+    }
+
+    public delegate void HealAll();
+    public static event HealAll OnFullHeal;
+    public void FullHeal()
+    {
+        currentHealth = maxHealth;
+
+        OnFullHeal?.Invoke();
+    }
+
+    public IEnumerator FullHealThenTriggerIncreaseMaxEvent(float waitTime)
+    {
         FullHeal();
+
+        yield return new WaitForSeconds(waitTime);
 
         OnIncreaseMaxHealth?.Invoke();
     }
 
-    public void FullHeal()
-    {
-        currentHealth = maxHealth;
-    }
-
+    public delegate void DecreaseHealthEvent();
+    public static event DecreaseHealthEvent OnDecreaseHealth;
     // Decrease current health from damage dealer
     public void DecreaseHealth()
     {
         if (isInvincible) { return; }
 
         currentHealth--;
+
+        OnDecreaseHealth?.Invoke();
 
         if (currentHealth <= 0)
         {
@@ -71,5 +82,15 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSecondsRealtime(.1f);
 
         FindObjectOfType<LevelLoader>().ReloadScene();
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

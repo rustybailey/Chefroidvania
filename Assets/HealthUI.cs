@@ -8,13 +8,19 @@ public class HealthUI : MonoBehaviour
 
     private List<GameObject> tomatoes = new List<GameObject>();
     private int tomatoSpacing = 100;
+    private bool animatingFullHeal = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        // TODO: Delete children in scene view first
-        // TODO: Actually get the player health
-        int playerHealth = 3;
+        // Clean up any example tomatoes in the scene view
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        var player = FindObjectOfType<Player>();
+        int playerHealth = player.gameObject.GetComponent<PlayerHealth>().GetMaxHealth();
         for (int i = 0; i < playerHealth; i++)
         {
             var tomato = InstantiateTomato(tomatoSpacing * i);
@@ -24,6 +30,7 @@ public class HealthUI : MonoBehaviour
 
     private GameObject InstantiateTomato(int xOffset)
     {
+        // TODO: Add a yOffset and reset the xOffset if we go over X tomatoes
         Vector2 tomatoPos = new Vector2(transform.position.x + xOffset, transform.position.y);
         var tomato = Instantiate(tomatoUiPrefab, tomatoPos, Quaternion.identity);
         tomato.transform.SetParent(gameObject.transform);
@@ -33,22 +40,64 @@ public class HealthUI : MonoBehaviour
     private void OnEnable()
     {
         PlayerHealth.OnIncreaseMaxHealth += IncreaseMax;
+        PlayerHealth.OnDecreaseHealth += DestroyTomato;
+        PlayerHealth.OnFullHeal += RecoverAllTomatoes;
     }
 
-    private void Hurt()
+    private void OnDisable()
     {
-        Debug.Log("DESTROY TOMATO");
+        PlayerHealth.OnIncreaseMaxHealth -= IncreaseMax;
+        PlayerHealth.OnDecreaseHealth -= DestroyTomato;
+        PlayerHealth.OnFullHeal -= RecoverAllTomatoes;
     }
 
-    private void FullHeal()
+    private void DestroyTomato()
     {
-        Debug.Log("DESTROY TOMATO");
+        for (int i = tomatoes.Count - 1; i >= 0; i--)
+        {
+            Animator animator = tomatoes[i].GetComponent<Animator>();
+            if (!animator.GetBool("destroy"))
+            {
+                animator.SetBool("destroy", true);
+                return;
+            }
+        }
+    }
+
+
+    private void RecoverAllTomatoes()
+    {
+        StartCoroutine(RecoverEachTomato());
+    }
+
+    private IEnumerator RecoverEachTomato()
+    {
+        animatingFullHeal = true;
+        for (int i = 0; i < tomatoes.Count; i++)
+        {
+            Animator animator = tomatoes[i].GetComponent<Animator>();
+            if (animator.GetBool("destroy"))
+            {
+                animator.SetBool("destroy", false);
+                yield return new WaitForSeconds(.25f);
+            }
+        }
+        animatingFullHeal = false;
     }
 
     private void IncreaseMax()
     {
+        StartCoroutine(WaitToIncreaseMax());
+    }
+
+    private IEnumerator WaitToIncreaseMax()
+    {
+        if (animatingFullHeal)
+        {
+            yield return null;
+        }
+
         var tomato = InstantiateTomato(tomatoSpacing * tomatoes.Count);
-        // TODO: Probably put this in the front if the player is injured
         tomatoes.Add(tomato);
     }
 }
