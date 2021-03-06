@@ -32,9 +32,9 @@ public class Inventory : MonoBehaviour
 
     public Dictionary<string, bool> Ingredients = new Dictionary<string, bool>()
     {
-        { "Milk", false },
+        { "Milk", true },
         { "Pineapple", false },
-        { "Turnip", false },
+        { "Radish", false },
         { "Yakburger", false }
     };
 
@@ -68,11 +68,13 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public delegate void AcquireIngredient(string name);
+    public event AcquireIngredient OnAcquireIngredient;
     private void HandleIngredient(string name)
     {
-        // TODO: Have sillouttes of the ingredients in the top right
-        // TODO: When you acquire one, signal to the UI to update with the real image
         Ingredients[name] = true;
+        OnAcquireIngredient?.Invoke(name);
+
         Debug.Log(name + ' ' + Ingredients[name]);
     }
 

@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aab4f39816e0e04db4d89312ca46c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refrigeratorAnimator: {fileID: 0}
+  refrigeratorAnimator: {fileID: 7843657362599060846, guid: 637af801b0fbffb479187394fc484a58, type: 3}
 --- !u!1 &1033458026121291197
 GameObject:
   m_ObjectHideFlags: 0
