@@ -81,7 +81,16 @@ public class PlayerHealth : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(.1f);
 
-        FindObjectOfType<LevelLoader>().ReloadScene();
+        PlayerSaveData playerSaveData = SaveSystem.LoadPlayer();
+
+        if (playerSaveData != null)
+        {
+            new SaveLoader(FindObjectOfType<Player>()).LoadFromPlayerSaveData(playerSaveData);
+        }
+        else
+        {
+            FindObjectOfType<LevelLoader>().ReloadScene();
+        }
     }
 
     public int GetCurrentHealth()

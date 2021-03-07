@@ -3366,6 +3366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   savePosition: {fileID: 1072567226}
+  saveLocationName: save2
 --- !u!61 &1080477033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16717,6 +16718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   savePosition: {fileID: 1108671091}
+  saveLocationName: save1
 --- !u!1001 &1757524489
 PrefabInstance:
   m_ObjectHideFlags: 0

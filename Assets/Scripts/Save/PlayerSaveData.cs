@@ -6,25 +6,27 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class PlayerSaveData
 {
+    #region Save Data Variables
     public string sceneName;
+    public string saveLocationName;
     public int health;
     public bool[] abilities;
     public bool[] ingredients;
     public bool[] healthUpgrades;
-    public float[] position;
     public int facingDirection;
+    #endregion
 
-    public PlayerSaveData(Player player, Vector3 savePosition)
+    public PlayerSaveData(Player player, string saveLocationName)
     {
         Inventory inventory = Inventory.instance;
 
-        this.sceneName = SceneManager.GetActiveScene().name;
-        this.health = player.Health.GetCurrentHealth();
-        this.abilities = new bool[] { inventory.Abilities["Frying Pan"], inventory.Abilities["Knives"], inventory.Abilities["Tenderizer"] };
-        this.ingredients = new bool[] { inventory.Ingredients["Milk"], inventory.Ingredients["Pineapple"], inventory.Ingredients["Radish"], inventory.Ingredients["Yakburger"] };
-        this.position = new float[] { savePosition.x, savePosition.y, savePosition.z };
-        this.facingDirection = player.FacingDirection;
-        this.healthUpgrades = new bool[inventory.HealthUpgrades.Count];
+        sceneName = SceneManager.GetActiveScene().name;
+        health = player.Health.GetCurrentHealth();
+        abilities = new bool[] { inventory.Abilities["Frying Pan"], inventory.Abilities["Knives"], inventory.Abilities["Tenderizer"] };
+        ingredients = new bool[] { inventory.Ingredients["Milk"], inventory.Ingredients["Pineapple"], inventory.Ingredients["Radish"], inventory.Ingredients["Yakburger"] };
+        facingDirection = player.FacingDirection;
+        healthUpgrades = new bool[inventory.HealthUpgrades.Count];
+        this.saveLocationName = saveLocationName;
 
         int i = 0;
         foreach (KeyValuePair<string, bool> healthUpgrade in inventory.HealthUpgrades)
