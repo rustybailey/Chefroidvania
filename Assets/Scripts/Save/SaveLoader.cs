@@ -25,18 +25,18 @@ public class SaveLoader
         // If the current active scene is not the same as the saved scene, load
         // the saved scene and use the world position the was saved to move the
         // player to.
-        if (SceneManager.GetActiveScene().name != saveData.sceneName)
+        //if (SceneManager.GetActiveScene().name != saveData.sceneName)
+        //{
+        if (SceneManager.GetSceneByName(saveData.sceneName) == null)
         {
-            if (SceneManager.GetSceneByName(saveData.sceneName) == null)
-            {
-                return;
-            }
-
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadScene(saveData.sceneName);
-
             return;
         }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(saveData.sceneName);
+
+        return;
+        //}
 
         // In this case the scene doesn't change so there is no need to load
         // everything.
@@ -54,20 +54,22 @@ public class SaveLoader
 
         player = Object.FindObjectOfType<Player>();
 
-        FindAcquiredAbilitiesAndRemoveThem();
-        FindHealthUpgradesAndRemoveThem();
-        FindIngredientsAndRemoveThem();
+        if (player == null)
+        {
+            return;
+        }
+
+        string[] acquiredAbilities = saveData.acquiredAbilities;
+
+        for (int i = 0; i < acquiredAbilities.Length; i++)
+        {
+            acquiredAbilities[i] += " Upgrade";
+        }
+
+        AcquireObjectsOfTypeAndRemoveThem(Inventory.ItemType.Ability, acquiredAbilities);
+        AcquireObjectsOfTypeAndRemoveThem(Inventory.ItemType.Health, saveData.acquiredHealthUpgrades);
+        AcquireObjectsOfTypeAndRemoveThem(Inventory.ItemType.Ingredient, saveData.acquiredIngredients);
         FindSaveLocationAndMovePlayerToIt();
-
-        //foreach (KeyValuePair<string, bool> ingredient in Inventory.instance.Ingredients)
-        //{
-        //Debug.Log("Post Scene Loaded Ingredient " + ingredient.Key + ": " + ingredient.Value);
-        //}
-
-        //foreach (KeyValuePair<string, bool> ability in Inventory.instance.AcquiredAbilities)
-        //{
-        //Debug.Log("Post Scene Loaded Ability " + ability.Key + ": " + ability.Value);
-        //}
     }
 
     private void FindSaveLocationAndMovePlayerToIt()
@@ -80,56 +82,18 @@ public class SaveLoader
             {
                 saveLocation.MovePlayerTo(player);
 
-                // @TODO Change player facing direction
-
                 break;
             }
         }
     }
 
-    private void FindAcquiredAbilitiesAndRemoveThem()
+    private void AcquireObjectsOfTypeAndRemoveThem(Inventory.ItemType itemType, string[] objectNames)
     {
-        for (int i = 0; i < saveData.acquiredAbilities.Length; i++)
+        for (int i = 0; i < objectNames.Length; i++)
         {
-            if (saveData.acquiredAbilities[i] != true)
-            {
-                continue;
-            }
+            GameObject gameObject = GameObject.Find(objectNames[i]);
 
-            // @TODO Is there a better way to handle this appending of "Upgrade"
-            // to the name?
-            GameObject gameObject = GameObject.Find(saveData.abilityNames[i] + " Upgrade");
-
-            // The ability may not exist in the current scene but the player
-            // acquired it at some point so make sure they have it now.
-            Inventory.instance.AcquireItem(Inventory.ItemType.Ability, saveData.abilityNames[i]);
-
-            if (gameObject != null)
-            {
-                Object.Destroy(gameObject);
-            }
-        }
-    }
-
-    private void FindHealthUpgradesAndRemoveThem()
-    {
-
-    }
-
-    private void FindIngredientsAndRemoveThem()
-    {
-        for (int i = 0; i < saveData.acquiredIngredients.Length; i++)
-        {
-            if (saveData.acquiredIngredients[i] != true)
-            {
-                continue;
-            }
-
-            GameObject gameObject = GameObject.Find(saveData.ingredientNames[i]);
-
-            // The ingredient may not exist in the current scene but the player
-            // acquired it at some point so make sure they have it now.
-            Inventory.instance.AcquireItem(Inventory.ItemType.Ingredient, saveData.ingredientNames[i]);
+            Inventory.instance.AcquireItem(itemType, objectNames[i]);
 
             if (gameObject != null)
             {

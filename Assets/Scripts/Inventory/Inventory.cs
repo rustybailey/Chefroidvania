@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    #region Singleton Variables
     public static Inventory instance;
-    private IngredientsUI ingredientsUI;
+    #endregion
+
+    #region Inventory Variables
+    public enum ItemType
+    {
+        Ingredient,
+        Ability,
+        Health
+    };
+    public Dictionary<string, bool> AcquiredAbilities { get; private set; }
+    public Dictionary<string, bool> AcquiredHealthUpgrades { get; private set; }
+    public Dictionary<string, bool> AcquiredIngredients { get; private set; }
+    #endregion
 
     // TODO: Does this need to be a monobehavior?
     private void Awake()
@@ -27,37 +40,10 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ingredientsUI = FindObjectOfType<IngredientsUI>();
+        AcquiredAbilities = new Dictionary<string, bool>();
+        AcquiredHealthUpgrades = new Dictionary<string, bool>();
+        AcquiredIngredients = new Dictionary<string, bool>();
     }
-
-    public enum ItemType
-    {
-        Ingredient,
-        Ability,
-        Health
-    }
-
-    public Dictionary<string, bool> AcquiredIngredients = new Dictionary<string, bool>()
-    {
-        { Ingredients.MILK, true },
-        { Ingredients.PINEAPPLE, false },
-        { Ingredients.RADISH, false },
-        { Ingredients.YAKBURGER, false }
-    };
-
-    public Dictionary<string, bool> AcquiredAbilities = new Dictionary<string, bool>()
-    {
-        { Abilities.FRYING_PAN, false },
-        { Abilities.KNIVES, false },
-        { Abilities.TENDERIZER, false }
-    };
-
-    public Dictionary<string, bool> HealthUpgrades = new Dictionary<string, bool>()
-    {
-        { "Health1", false },
-        { "Health2", false },
-        { "Health3", false }
-    };
 
     public void AcquireItem(ItemType type, string name)
     {
@@ -70,7 +56,7 @@ public class Inventory : MonoBehaviour
                 AcquireAbility(name);
                 break;
             case ItemType.Health:
-                HandleHealthUpgrade(name);
+                AcquireHealthUpgrade(name);
                 break;
         }
     }
@@ -78,21 +64,20 @@ public class Inventory : MonoBehaviour
     private void AcquireIngredient(string name)
     {
         AcquiredIngredients[name] = true;
+        // This object is not destroyed on load so always look for ingredients
+        // UI here instead of Start().
+        IngredientsUI ingredientsUI = FindObjectOfType<IngredientsUI>();
 
         if (ingredientsUI != null)
         {
             ingredientsUI.ShowIngredient(name + " Ingredient");
         }
-
-        Debug.Log(name + ' ' + AcquiredIngredients[name]);
     }
 
     private void AcquireAbility(string name)
     {
         string abilityName = name.Replace(" Upgrade", "");
         AcquiredAbilities[abilityName] = true;
-
-        Debug.Log(abilityName + ' ' + AcquiredAbilities[abilityName]);
     }
 
     public void AcquireAllAbilities()
@@ -109,13 +94,16 @@ public class Inventory : MonoBehaviour
         return AcquiredAbilities.ContainsKey(name) && AcquiredAbilities[name] == true;
     }
 
-    public delegate void AcquireHealthUpgrade();
-    public event AcquireHealthUpgrade OnAcquireHealthUpgrade;
-    private void HandleHealthUpgrade(string name)
+    private void AcquireHealthUpgrade(string name)
     {
-        // TODO: Update the UI when health is upgraded
-        HealthUpgrades[name] = true;
-        OnAcquireHealthUpgrade?.Invoke();
-        Debug.Log(name + ' ' + HealthUpgrades[name]);
+        AcquiredHealthUpgrades[name] = true;
+        // This object is not destroyed on load so always look for player health
+        // here instead of Start().
+        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.HandleIncreasingMaxHealth();
+        }
     }
 }

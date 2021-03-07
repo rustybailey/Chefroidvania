@@ -9,13 +9,9 @@ public class PlayerSaveData
     #region Save Data Variables
     public string sceneName;
     public string saveLocationName;
-    public int health;
-    public bool[] acquiredAbilities;
-    public string[] abilityNames;
-    public bool[] acquiredIngredients;
-    public string[] ingredientNames;
-    public bool[] healthUpgrades;
-    public int facingDirection;
+    public string[] acquiredAbilities;
+    public string[] acquiredIngredients;
+    public string[] acquiredHealthUpgrades;
     #endregion
 
     public PlayerSaveData(Player player, string saveLocationName)
@@ -23,33 +19,27 @@ public class PlayerSaveData
         Inventory inventory = Inventory.instance;
 
         sceneName = SceneManager.GetActiveScene().name;
-        health = player.Health.GetCurrentHealth();
-        facingDirection = player.FacingDirection;
-        healthUpgrades = new bool[inventory.HealthUpgrades.Count];
+        acquiredAbilities = new string[inventory.AcquiredAbilities.Count];
+        acquiredIngredients = new string[inventory.AcquiredIngredients.Count];
+        acquiredHealthUpgrades = new string[inventory.AcquiredHealthUpgrades.Count];
         this.saveLocationName = saveLocationName;
 
         int i = 0;
-        foreach (KeyValuePair<string, bool> healthUpgrade in inventory.HealthUpgrades)
+        foreach (KeyValuePair<string, bool> acquiredHealthUpgrade in inventory.AcquiredHealthUpgrades)
         {
-            this.healthUpgrades[i++] = healthUpgrade.Value;
+            this.acquiredHealthUpgrades[i++] = acquiredHealthUpgrade.Key;
         }
 
         i = 0;
-        this.acquiredIngredients = new bool[inventory.AcquiredIngredients.Count];
-        this.ingredientNames = new string[inventory.AcquiredIngredients.Count];
-        foreach (KeyValuePair<string, bool> ingredient in inventory.AcquiredIngredients)
+        foreach (KeyValuePair<string, bool> acquiredIngredient in inventory.AcquiredIngredients)
         {
-            this.acquiredIngredients[i] = ingredient.Value;
-            this.ingredientNames[i++] = ingredient.Key;
+            this.acquiredIngredients[i++] = acquiredIngredient.Key;
         }
 
         i = 0;
-        this.acquiredAbilities = new bool[inventory.AcquiredAbilities.Count];
-        this.abilityNames = new string[inventory.AcquiredAbilities.Count];
-        foreach (KeyValuePair<string, bool> ability in inventory.AcquiredAbilities)
+        foreach (KeyValuePair<string, bool> acquiredAbility in inventory.AcquiredAbilities)
         {
-            this.acquiredAbilities[i] = ability.Value;
-            this.abilityNames[i++] = ability.Key;
+            this.acquiredAbilities[i++] = acquiredAbility.Key;
         }
     }
 }

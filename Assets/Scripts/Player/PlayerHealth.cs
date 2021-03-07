@@ -16,13 +16,6 @@ public class PlayerHealth : MonoBehaviour
     {
         maxHealth = startingHealth;
         currentHealth = maxHealth;
-
-        Inventory.instance.OnAcquireHealthUpgrade += HandleIncreasingMaxHealth;
-    }
-
-    private void OnDisable()
-    {
-        Inventory.instance.OnAcquireHealthUpgrade -= HandleIncreasingMaxHealth;
     }
 
     public delegate void IncreaseMaxHealth();
