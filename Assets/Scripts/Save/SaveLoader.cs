@@ -20,34 +20,32 @@ public class SaveLoader
 
     public void LoadFromPlayerSaveData(PlayerSaveData saveData)
     {
+        this.saveData = saveData;
+
+        // If the current active scene is not the same as the saved scene, load
+        // the saved scene and use the world position the was saved to move the
+        // player to.
+        if (SceneManager.GetActiveScene().name != saveData.sceneName)
+        {
+            if (SceneManager.GetSceneByName(saveData.sceneName) == null)
+            {
+                return;
+            }
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.LoadScene(saveData.sceneName);
+
+            return;
+        }
+
+        // In this case the scene doesn't change so there is no need to load
+        // everything.
         if (player == null)
         {
             return;
         }
 
-        this.saveData = saveData;
-
-        //saveLocationName = saveData.saveLocationName;
-
-        // If the current active scene is not the same as the saved scene, load
-        // the saved scene and use the world position the was saved to move the
-        // player to.
-        //if (SceneManager.GetActiveScene().name != saveData.sceneName)
-        //{
-        if (SceneManager.GetSceneByName(saveData.sceneName) == null)
-        {
-            return;
-        }
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(saveData.sceneName);
-
-        return;
-        //}
-
-        // In this case the scene doesn't change so there is no need to load
-        // everything.
-        //FindSaveLocationAndMovePlayerToIt();
+        FindSaveLocationAndMovePlayerToIt();
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
