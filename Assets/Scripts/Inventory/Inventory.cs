@@ -97,9 +97,10 @@ public class Inventory : MonoBehaviour
 
     public void AcquireAllAbilities()
     {
-        foreach (var ability in AcquiredAbilities)
+        List<string> keys = new List<string>(AcquiredAbilities.Keys);
+        for (int i = 0; i < keys.Count; i++)
         {
-            AcquiredAbilities[ability.Key] = true;
+            AcquiredAbilities[keys[i]] = true;
         }
     }
 
