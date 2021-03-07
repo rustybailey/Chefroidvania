@@ -70,8 +70,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: BeeBuzz
-    audioClip: {fileID: 8300000, guid: f557b016161eca74097d0e7f9edc25c5, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: c80fce430ed691746a9a248b568bbf99, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 1
   - name: BeeDead
