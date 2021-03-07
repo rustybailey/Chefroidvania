@@ -95,6 +95,14 @@ public class Inventory : MonoBehaviour
         Debug.Log(abilityName + ' ' + AcquiredAbilities[abilityName]);
     }
 
+    public void AcquireAllAbilities()
+    {
+        foreach (var ability in AcquiredAbilities)
+        {
+            AcquiredAbilities[ability.Key] = true;
+        }
+    }
+
     public bool HasAbility(string name)
     {
         return AcquiredAbilities.ContainsKey(name) && AcquiredAbilities[name] == true;
