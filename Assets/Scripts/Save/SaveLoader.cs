@@ -10,7 +10,7 @@ public class SaveLoader
     #endregion
 
     #region Save Data Variables
-    private string saveLocationName;
+    private PlayerSaveData saveData;
     #endregion
 
     public SaveLoader(Player player)
@@ -25,25 +25,29 @@ public class SaveLoader
             return;
         }
 
-        saveLocationName = saveData.saveLocationName;
+        this.saveData = saveData;
+
+        //saveLocationName = saveData.saveLocationName;
 
         // If the current active scene is not the same as the saved scene, load
         // the saved scene and use the world position the was saved to move the
         // player to.
-        if (SceneManager.GetActiveScene().name != saveData.sceneName)
+        //if (SceneManager.GetActiveScene().name != saveData.sceneName)
+        //{
+        if (SceneManager.GetSceneByName(saveData.sceneName) == null)
         {
-            if (SceneManager.GetSceneByName(saveData.sceneName) == null)
-            {
-                return;
-            }
-
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadScene(saveData.sceneName);
-
             return;
         }
 
-        FindSaveLocationAndMovePlayerToIt();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(saveData.sceneName);
+
+        return;
+        //}
+
+        // In this case the scene doesn't change so there is no need to load
+        // everything.
+        //FindSaveLocationAndMovePlayerToIt();
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -52,7 +56,20 @@ public class SaveLoader
 
         player = Object.FindObjectOfType<Player>();
 
+        FindAbilityUpgradesAndRemoveThem();
+        FindHealthUpgradesAndRemoveThem();
+        FindIngredientsAndRemoveThem();
         FindSaveLocationAndMovePlayerToIt();
+
+        foreach (KeyValuePair<string, bool> ingredient in Inventory.instance.Ingredients)
+        {
+            //Debug.Log("Post Scene Loaded Ingredient " + ingredient.Key + ": " + ingredient.Value);
+        }
+
+        foreach (KeyValuePair<string, bool> ability in Inventory.instance.Abilities)
+        {
+            //Debug.Log("Post Scene Loaded Ability " + ability.Key + ": " + ability.Value);
+        }
     }
 
     private void FindSaveLocationAndMovePlayerToIt()
@@ -61,11 +78,54 @@ public class SaveLoader
 
         foreach (SaveLocation saveLocation in saveLocations)
         {
-            if (saveLocation.GetSaveLocationName() == saveLocationName)
+            if (saveLocation.GetSaveLocationName() == saveData.saveLocationName)
             {
                 saveLocation.MovePlayerTo(player);
 
+                // @TODO Change player facing direction
+
                 break;
+            }
+        }
+    }
+
+    private void FindAbilityUpgradesAndRemoveThem()
+    {
+        for (int i = 0; i < saveData.abilities.Length; i++)
+        {
+            // @TODO Is there a better way to handle this appending of "Upgrade"
+            // to the name?
+            GameObject gameObject = GameObject.Find(saveData.abilityNames[i] + " Upgrade");
+
+            // The ability may not exist in the current scene but the player
+            // acquired it at some point so make sure they have it now.
+            Inventory.instance.AcquireItem(Inventory.ItemType.Ability, saveData.abilityNames[i]);
+
+            if (gameObject != null)
+            {
+                Object.Destroy(gameObject);
+            }
+        }
+    }
+
+    private void FindHealthUpgradesAndRemoveThem()
+    {
+
+    }
+
+    private void FindIngredientsAndRemoveThem()
+    {
+        for (int i = 0; i < saveData.ingredients.Length; i++)
+        {
+            GameObject gameObject = GameObject.Find(saveData.ingredientNames[i]);
+
+            // The ingredient may not exist in the current scene but the player
+            // acquired it at some point so make sure they have it now.
+            Inventory.instance.AcquireItem(Inventory.ItemType.Ingredient, saveData.ingredientNames[i]);
+
+            if (gameObject != null)
+            {
+                Object.Destroy(gameObject);
             }
         }
     }

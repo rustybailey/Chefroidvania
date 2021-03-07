@@ -11,7 +11,9 @@ public class PlayerSaveData
     public string saveLocationName;
     public int health;
     public bool[] abilities;
+    public string[] abilityNames;
     public bool[] ingredients;
+    public string[] ingredientNames;
     public bool[] healthUpgrades;
     public int facingDirection;
     #endregion
@@ -22,8 +24,6 @@ public class PlayerSaveData
 
         sceneName = SceneManager.GetActiveScene().name;
         health = player.Health.GetCurrentHealth();
-        abilities = new bool[] { inventory.Abilities["Frying Pan"], inventory.Abilities["Knives"], inventory.Abilities["Tenderizer"] };
-        ingredients = new bool[] { inventory.Ingredients["Milk"], inventory.Ingredients["Pineapple"], inventory.Ingredients["Radish"], inventory.Ingredients["Yakburger"] };
         facingDirection = player.FacingDirection;
         healthUpgrades = new bool[inventory.HealthUpgrades.Count];
         this.saveLocationName = saveLocationName;
@@ -32,6 +32,24 @@ public class PlayerSaveData
         foreach (KeyValuePair<string, bool> healthUpgrade in inventory.HealthUpgrades)
         {
             this.healthUpgrades[i++] = healthUpgrade.Value;
+        }
+
+        i = 0;
+        this.ingredients = new bool[inventory.Ingredients.Count];
+        this.ingredientNames = new string[inventory.Ingredients.Count];
+        foreach (KeyValuePair<string, bool> ingredient in inventory.Ingredients)
+        {
+            this.ingredients[i] = ingredient.Value;
+            this.ingredientNames[i++] = ingredient.Key;
+        }
+
+        i = 0;
+        this.abilities = new bool[inventory.Abilities.Count];
+        this.abilityNames = new string[inventory.Abilities.Count];
+        foreach (KeyValuePair<string, bool> ability in inventory.Abilities)
+        {
+            this.abilities[i] = ability.Value;
+            this.abilityNames[i++] = ability.Key;
         }
     }
 }
