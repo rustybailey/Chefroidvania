@@ -12,6 +12,6 @@ public class SaveLocation : MonoBehaviour
     {
         // @TODO Don't save rapidly
 
-        SaveSystem.SavePlayer(new PlayerSaveData(FindObjectOfType<Player>(), transform.TransformPoint(savePosition.position)));
+        SaveSystem.SavePlayer(new PlayerSaveData(FindObjectOfType<Player>(), savePosition.position));
     }
 }

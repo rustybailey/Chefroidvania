@@ -6,16 +6,25 @@ public static class SaveSystem
 {
     public static void SavePlayer(PlayerSaveData playerSaveData)
     {
-        Debug.Log("Save player data");
+        Debug.Log("Save player");
 
         string jsonData = JsonUtility.ToJson(playerSaveData);
 
         File.WriteAllText(Application.persistentDataPath + "/player_data.txt", jsonData);
     }
 
-    public static Player LoadPlayer()
+    public static PlayerSaveData LoadPlayer()
     {
-        Debug.Log("Load plyaer data");
+        Debug.Log("Load player");
+
+        string jsonData = File.ReadAllText(Application.persistentDataPath + "/player_data.txt");
+
+        if (jsonData != null)
+        {
+            PlayerSaveData playerSaveData = JsonUtility.FromJson<PlayerSaveData>(jsonData);
+
+            return playerSaveData;
+        }
 
         return null;
     }

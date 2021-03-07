@@ -31,15 +31,16 @@ public class Player : MonoBehaviour
     [SerializeField] Transform tenderizerImpactOrigin;
     [SerializeField] float tenderizerImpactRadius;
     [Header("Abilities")]
-    public bool hasFryingPanAbility = false;
-    public bool hasKnivesAbility = false;
-    public bool hasTenderizerAbility = false;
+    [SerializeField] public bool hasFryingPanAbility = false;
+    [SerializeField] public bool hasKnivesAbility = false;
+    [SerializeField] public bool hasTenderizerAbility = false;
     #endregion
 
     #region Component Variables
     public Rigidbody2D RigidBody { get; private set; }
     public InputManager InputManager { get; private set; }
     public Animator Animator { get; private set; }
+    public PlayerHealth Health { get; private set; }
     #endregion
 
     #region State Variables
@@ -90,6 +91,7 @@ public class Player : MonoBehaviour
 
         RigidBody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        Health = GetComponent<PlayerHealth>();
 
         idleState = new PlayerIdleState(this, "idle");
         runState = new PlayerRunState(this, "run");
@@ -282,7 +284,7 @@ public class Player : MonoBehaviour
             {
                 destructibleWall.TriggerDestruction();
             }
-            
+
             // TODO: Check for any switches and handle that behavior
         }
     }
