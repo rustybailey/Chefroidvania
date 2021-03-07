@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
+    private IngredientsUI ingredientsUI;
 
     // TODO: Does this need to be a monobehavior?
     private void Awake()
@@ -21,6 +22,12 @@ public class Inventory : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        ingredientsUI = FindObjectOfType<IngredientsUI>();
     }
 
     public enum ItemType
@@ -71,8 +78,11 @@ public class Inventory : MonoBehaviour
     private void AcquireIngredient(string name)
     {
         AcquiredIngredients[name] = true;
-        // @TODO This is dumb
-        FindObjectOfType<IngredientsUI>().ShowIngredient(name + " Ingredient");
+
+        if (ingredientsUI != null)
+        {
+            ingredientsUI.ShowIngredient(name + " Ingredient");
+        }
 
         Debug.Log(name + ' ' + AcquiredIngredients[name]);
     }
