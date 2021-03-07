@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 
 public class Navigation : MonoBehaviour
 {
     const string START_BUTTON = "Start Button";
     const string CONTINUE_BUTTON = "Continue Button";
-    const string RESTART_BUTTON = "Restart Button";
-    const string MAIN_MENU_BUTTON = "Main Menu Button";
     const string QUIT_BUTTON = "Quit Button";
 
     bool isInitialSelection = true;
@@ -32,8 +32,15 @@ public class Navigation : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        // TODO: If there is no save file, change the first selected object to New Game
-        // and then gray out and remove Continue from the navigation hierarchy (just "disable" it?)
+        // If there is no save file, change the first selected object to New Game
+        // and then gray out and disable Continue
+        if (SaveSystem.LoadPlayer() == null)
+        {
+            eventSystem.firstSelectedGameObject = gameObject.transform.Find(START_BUTTON).gameObject;
+            var continueButton = gameObject.transform.Find(CONTINUE_BUTTON).gameObject;
+            continueButton.GetComponent<Button>().interactable = false;
+            continueButton.GetComponentInChildren<TextMeshProUGUI>().alpha = 100;
+        }
     }
 
     public void MoveCursor(BaseEventData eventData)
@@ -46,18 +53,21 @@ public class Navigation : MonoBehaviour
         }
         else
         {
-            audioManager.PlaySoundEffect("SpeechBubble02");
+            audioManager.PlaySoundEffect("SpeechBubble01");
         }
     }
 
     public void ContinueGame()
     {
         Debug.Log("CONTINUE SUBMIT");
+
+        // TODO: Load save data here
     }
 
     public void StartNewGame()
     {
         Debug.Log("START SUBMIT");
+        levelLoader.LoadNextLevelWithTransition();
     }
 
     public void QuitGame()
