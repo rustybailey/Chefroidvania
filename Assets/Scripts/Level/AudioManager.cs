@@ -49,10 +49,29 @@ public class AudioManager : MonoBehaviour
         {
             if (sound.GetName() == name)
             {
-                sound.PlayClipAtPoint(position);
+                var tempGameObject = sound.PlayClipAtPoint(position);
+                tempGameObject.transform.parent = transform;
+                // destroy temp object after clip duration
+                Destroy(tempGameObject, sound.audioClip.length);
                 return;
             }
         }
+    }
+
+    // Returns the temp game object created so we can move it if we need to
+    public GameObject PlayLoopingSoundEffectAtPoint(string name, Vector3 position)
+    {
+        foreach (Sound sound in soundEffects)
+        {
+            if (sound.GetName() == name)
+            {
+                var tempGameObject = sound.PlayClipAtPoint(position, true);
+                tempGameObject.transform.parent = transform;
+                return tempGameObject;
+            }
+        }
+
+        throw new Exception("Sound not found");
     }
 
     private string GetRandom(string[] names)
@@ -72,7 +91,10 @@ public class AudioManager : MonoBehaviour
         {
             if (sound.GetName() == name)
             {
-                sound.PlayClipAtPoint(position);
+                var tempGameObject = sound.PlayClipAtPoint(position);
+                tempGameObject.transform.parent = transform;
+                // destroy temp object after clip duration
+                Destroy(tempGameObject, sound.audioClip.length);
                 return;
             }
         }
@@ -188,7 +210,7 @@ public class AudioManager : MonoBehaviour
 public class Sound
 {
     [SerializeField] string name;
-    [SerializeField] AudioClip audioClip;
+    [SerializeField] public AudioClip audioClip;
     [Range(0f, 1f)]
     [SerializeField] float volume = 1f;
     [Range(-0.5f, 1.4f)]
@@ -258,17 +280,18 @@ public class Sound
         yield break;
     }
 
-    public void PlayClipAtPoint(Vector3 position)
+    public GameObject PlayClipAtPoint(Vector3 position, bool looping = false)
     {
         // create the temp object
-        var tempGO = new GameObject("Custom PlayClipAtPoint Audio");
+        var tempGameObject = new GameObject("[Custom PlayClipAtPoint] " + name);
         // set its position
-        tempGO.transform.position = new Vector3(position.x, position.y, Camera.main.transform.position.z);
+        tempGameObject.transform.position = new Vector3(position.x, position.y, Camera.main.transform.position.z);
         // add an audio source
-        var aSource = tempGO.AddComponent<AudioSource>();
+        var aSource = tempGameObject.AddComponent<AudioSource>();
         aSource.clip = audioClip;
 
         // set other aSource properties here, if desired
+        aSource.loop = looping;
         aSource.spatialBlend = 1f;
         aSource.rolloffMode = AudioRolloffMode.Custom;
         aSource.minDistance = 17.5f;
@@ -278,9 +301,7 @@ public class Sound
         //Debug.Break();
         aSource.Play();
 
-
-        // destroy object after clip duration
-        MonoBehaviour.Destroy(tempGO, audioClip.length);
+        return tempGameObject;
 
         //AudioSource.PlayClipAtPoint(audioClip, new Vector3(position.x, position.y, Camera.main.transform.position.z));
     }

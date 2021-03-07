@@ -15,6 +15,16 @@ public class WaspIdleState : WaspState
         base.Enter();
 
         attackDelay = wasp.GetAttackDelay();
+        //AudioManager.instance.PlaySoundEffectAtPoint("BeeBuzz", wasp.transform.position);
+
+        //AudioManager.instance.PlaySoundEffect("BeeBuzz");
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        //AudioManager.instance.StopSoundEffect("BeeBuzz");
     }
 
     public override void LogicUpdate()

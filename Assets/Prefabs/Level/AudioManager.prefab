@@ -65,15 +65,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: BeeAngry
-    audioClip: {fileID: 8300000, guid: 0e4e000351510ed498282de71da48d5b, type: 3}
+    audioClip: {fileID: 8300000, guid: af0be9a385ce8484d923710a37caa394, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: BeeBuzz
-    audioClip: {fileID: 8300000, guid: 29bdcd8d064fc9b45aa1199fa5cda6e3, type: 3}
+    audioClip: {fileID: 8300000, guid: f557b016161eca74097d0e7f9edc25c5, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
   - name: BeeDead
     audioClip: {fileID: 8300000, guid: bf5432063bf8c8543b99b4851081a737, type: 3}
     volume: 1

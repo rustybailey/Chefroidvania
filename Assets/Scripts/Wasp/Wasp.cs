@@ -35,6 +35,8 @@ public class Wasp : MonoBehaviour
     public Player Player { get; private set; }
     #endregion
 
+    private GameObject beeBuzzSfxGameObject;
+
     private void Awake()
     {
         StateMachine = new StateMachine();
@@ -51,6 +53,7 @@ public class Wasp : MonoBehaviour
         Player = FindObjectOfType<Player>();
         facingDirection = 1;
         patrolIndex = 0;
+        beeBuzzSfxGameObject = AudioManager.instance.PlayLoopingSoundEffectAtPoint("BeeBuzz", transform.position);
 
         CalculatePatrolLocations();
     }
@@ -59,11 +62,17 @@ public class Wasp : MonoBehaviour
     void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
+        beeBuzzSfxGameObject.transform.position = transform.position;
     }
 
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(beeBuzzSfxGameObject);
     }
 
     void OnDrawGizmos()
@@ -145,5 +154,19 @@ public class Wasp : MonoBehaviour
     public Vector3 GetCurrentPatrolLocation()
     {
         return patrolLocations[patrolIndex];
+    }
+
+    public void FireStinger()
+    {
+        Vector3 playerPosition = Player.transform.position;
+
+        // Fire 2 shots that go around the player
+        Stinger stinger = Instantiate(GetStingerPrefab(), GetStingerOrigin().position, Quaternion.identity);
+        Stinger stinger2 = Instantiate(GetStingerPrefab(), GetStingerOrigin().position, Quaternion.identity);
+
+        stinger.FireAt(new Vector3(playerPosition.x + 2, playerPosition.y, playerPosition.z));
+        stinger2.FireAt(new Vector3(playerPosition.x - 2, playerPosition.y, playerPosition.z));
+
+        AudioManager.instance.PlaySoundEffectAtPoint("BeeShoot", GetStingerOrigin().position);
     }
 }
