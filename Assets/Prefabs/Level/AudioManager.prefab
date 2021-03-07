@@ -70,17 +70,17 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: BeeBuzz
-    audioClip: {fileID: 8300000, guid: c80fce430ed691746a9a248b568bbf99, type: 3}
+    audioClip: {fileID: 8300000, guid: eb893fdb744b0044990c7669f133a1d1, type: 3}
     volume: 0.8
     pitch: 1
     loop: 1
   - name: BeeDead
-    audioClip: {fileID: 8300000, guid: bf5432063bf8c8543b99b4851081a737, type: 3}
+    audioClip: {fileID: 8300000, guid: 0b65643cf4824f74daaa25949a0d6b57, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: BeeShoot
-    audioClip: {fileID: 8300000, guid: 40cfa981e75e4f94388b48fe85133d86, type: 3}
+    audioClip: {fileID: 8300000, guid: b7c01ad577571a54e903ea4ab2e79d6e, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -250,32 +250,32 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: MonkeyAnger
-    audioClip: {fileID: 8300000, guid: e1454c7e37812ad42b4597bc9587738c, type: 3}
+    audioClip: {fileID: 8300000, guid: 75ded59b8d56c5744a685949d862aea0, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: MonkeyChirp01
-    audioClip: {fileID: 8300000, guid: ad318bc5f87ee6944a48a9543eaed3e4, type: 3}
+    audioClip: {fileID: 8300000, guid: 2815b19cbd8ceda4c92e40fb56957d00, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: MonkeyChirp02
-    audioClip: {fileID: 8300000, guid: 9874c7041c3bbc6408c3e7f0837a26fa, type: 3}
+    audioClip: {fileID: 8300000, guid: d91878b1412856a418902ecb079b9921, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: MonkeyClimb
-    audioClip: {fileID: 8300000, guid: 33f8bab7e6692cf44924cd571c11ecc0, type: 3}
+    audioClip: {fileID: 8300000, guid: ffe7995615ac1af4bb1be7944f7d4f61, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: MonkeyDead
-    audioClip: {fileID: 8300000, guid: 265edc7a9e57b234b97158b4927e2b15, type: 3}
+    audioClip: {fileID: 8300000, guid: f705242f62af5f44b9cffe089dd233d4, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: MonkeyThrow
-    audioClip: {fileID: 8300000, guid: 72df18bec8a1298469d24c153c6419c3, type: 3}
+    audioClip: {fileID: 8300000, guid: 0feda5331dc6c274c8747e07a49dc4cc, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -310,33 +310,33 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: TotemAngry
-    audioClip: {fileID: 8300000, guid: 23fcc94fbd62c7840af0dfe921199e97, type: 3}
+    audioClip: {fileID: 8300000, guid: 313d2d2dd1f7e074da76f42bf6bcc6ab, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: TotemShoot
-    audioClip: {fileID: 8300000, guid: 5ccf1490ab9c3824f9759e1989637e15, type: 3}
+    audioClip: {fileID: 8300000, guid: bcef7b599d097a940884ccb4b8e7be3f, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   musicTracks:
   - name: Kitchen
     audioClip: {fileID: 8300000, guid: 8b983a560c8b1414891e029ea16dcafe, type: 3}
-    volume: 0.4
+    volume: 0.7
     pitch: 1
     loop: 1
   - name: Jungle
     audioClip: {fileID: 8300000, guid: e62020fd6a0fe4c469d9191fdb09d1d1, type: 3}
-    volume: 0.4
+    volume: 0.7
     pitch: 1
     loop: 1
   - name: Swamp
     audioClip: {fileID: 8300000, guid: 0ecd1b4808d23b745ba3a1c505afb808, type: 3}
-    volume: 0.4
+    volume: 0.7
     pitch: 1
     loop: 1
   - name: Mountain
     audioClip: {fileID: 8300000, guid: f646a680f8acdd84781bf766f36d096f, type: 3}
-    volume: 0.4
+    volume: 0.7
     pitch: 1
     loop: 1
