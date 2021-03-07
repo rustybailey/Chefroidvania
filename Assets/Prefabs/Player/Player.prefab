@@ -99,7 +99,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1512812757
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1215929126406660277, guid: 4293993e12ceab64687a2e776a38da0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -331,7 +331,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1512812757
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -543957156670660159, guid: 5e51dd2472c5e4e5a84ada77f2a2412e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -603,9 +603,6 @@ MonoBehaviour:
   bigWallCheckHeight: 1.85
   tenderizerImpactOrigin: {fileID: 6800364406081365249}
   tenderizerImpactRadius: 1
-  hasFryingPanAbility: 0
-  hasKnivesAbility: 0
-  hasTenderizerAbility: 1
   isHoldingFryingPan: 0
 --- !u!114 &9150131050806374189
 MonoBehaviour:
@@ -622,7 +619,7 @@ MonoBehaviour:
   startingHealth: 3
   currentHealth: 0
   maxHealth: 0
-  isInvincible: 1
+  isInvincible: 0
 --- !u!1 &9150131051720184881
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +689,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1512812757
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 7461367844934495778, guid: 46b8e27d490824c54bd4844a329e3bb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -774,7 +771,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1512812757
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -6001233255531958399, guid: 46b8e27d490824c54bd4844a329e3bb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

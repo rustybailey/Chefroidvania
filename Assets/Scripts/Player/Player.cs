@@ -30,10 +30,6 @@ public class Player : MonoBehaviour
     [Header("Tenderizer")]
     [SerializeField] Transform tenderizerImpactOrigin;
     [SerializeField] float tenderizerImpactRadius;
-    [Header("Abilities")]
-    [SerializeField] public bool hasFryingPanAbility = false;
-    [SerializeField] public bool hasKnivesAbility = false;
-    [SerializeField] public bool hasTenderizerAbility = false;
     #endregion
 
     #region Component Variables
@@ -109,8 +105,6 @@ public class Player : MonoBehaviour
         getItemState = new PlayerGetItemState(this, "getItem");
         getItemIdleState = new PlayerGetItemIdleState(this, "getItemIdle");
         StateMachine.Initialize(idleState);
-
-        Inventory.instance.OnAcquireAbility += AddAbility;
     }
 
     // Update is called once per frame
@@ -155,7 +149,6 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         InputManager.Player.Disable();
-        Inventory.instance.OnAcquireAbility -= AddAbility;
     }
 
     public void SetVelocityX(float velocity)
@@ -170,21 +163,6 @@ public class Player : MonoBehaviour
         workspace.Set(CurrentVelocity.x, velocity);
         RigidBody.velocity = workspace;
         CurrentVelocity = workspace;
-    }
-
-    public float GetMovementSpeed()
-    {
-        return moveSpeed;
-    }
-
-    public float GetClimbingSpeed()
-    {
-        return climbSpeed;
-    }
-
-    public float GetJumpForce()
-    {
-        return jumpForce;
     }
 
     public void FlipIfNeeded(int normalizedMoveX)
@@ -204,6 +182,22 @@ public class Player : MonoBehaviour
     public void StateAnimationFinished()
     {
         StateMachine.CurrentState.AnimationFinished();
+    }
+
+    #region Getter Functions
+    public float GetMovementSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public float GetClimbingSpeed()
+    {
+        return climbSpeed;
+    }
+
+    public float GetJumpForce()
+    {
+        return jumpForce;
     }
 
     public GameObject GetThrowLocation()
@@ -260,6 +254,7 @@ public class Player : MonoBehaviour
     {
         return bigWallCheckHeight;
     }
+    #endregion
 
     public bool IsGrounded()
     {
@@ -289,25 +284,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void AddAbility(string name)
-    {
-        switch (name)
-        {
-            case "Frying Pan":
-                hasFryingPanAbility = true;
-                break;
-            case "Knives":
-                hasKnivesAbility = true;
-                break;
-            case "Tenderizer":
-                hasTenderizerAbility = true;
-                break;
-            default:
-                Debug.Log("Trying to add unknown ability: " + name);
-                break;
-        }
-    }
-
     // Most other sfx are called within the states
     // These are here so we can called them within the animation
     public void PlayKnifeClimb1()
@@ -319,4 +295,21 @@ public class Player : MonoBehaviour
     {
         AudioManager.instance.PlaySoundEffect("Knife09");
     }
+
+    #region Has Ability Functions
+    public bool HasFryingPanAbility()
+    {
+        return Inventory.instance.HasAbility(Abilities.FRYING_PAN);
+    }
+
+    public bool HasKnivesAbility()
+    {
+        return Inventory.instance.HasAbility(Abilities.KNIVES);
+    }
+
+    public bool HasTenderizerAbility()
+    {
+        return Inventory.instance.HasAbility(Abilities.TENDERIZER);
+    }
+    #endregion
 }

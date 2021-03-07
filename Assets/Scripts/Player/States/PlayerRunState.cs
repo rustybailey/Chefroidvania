@@ -42,15 +42,15 @@ public class PlayerRunState : PlayerState
         {
             stateMachine.ChangeState(player.inAirState);
         }
-        else if (player.hasFryingPanAbility && isFryingPanButtonPressedDown && player.isHoldingFryingPan)
+        else if (player.HasFryingPanAbility() && isFryingPanButtonPressedDown && player.isHoldingFryingPan)
         {
             stateMachine.ChangeState(player.throwFryingPanState);
         }
-        else if (player.hasFryingPanAbility && isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
+        else if (player.HasFryingPanAbility() && isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
         {
             player.FryingPan.StateMachine.ChangeState(player.FryingPan.ExitHoverState);
         }
-        else if (player.hasTenderizerAbility && isTenderizerButtonPressedDown && isGrounded && isYVelocityNearlyZero)
+        else if (player.HasTenderizerAbility() && isTenderizerButtonPressedDown && isGrounded && isYVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.swingTenderizerState);
         }

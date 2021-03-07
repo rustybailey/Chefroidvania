@@ -10,9 +10,9 @@ public class PlayerSaveData
     public string sceneName;
     public string saveLocationName;
     public int health;
-    public bool[] abilities;
+    public bool[] acquiredAbilities;
     public string[] abilityNames;
-    public bool[] ingredients;
+    public bool[] acquiredIngredients;
     public string[] ingredientNames;
     public bool[] healthUpgrades;
     public int facingDirection;
@@ -35,20 +35,20 @@ public class PlayerSaveData
         }
 
         i = 0;
-        this.ingredients = new bool[inventory.Ingredients.Count];
-        this.ingredientNames = new string[inventory.Ingredients.Count];
-        foreach (KeyValuePair<string, bool> ingredient in inventory.Ingredients)
+        this.acquiredIngredients = new bool[inventory.AcquiredIngredients.Count];
+        this.ingredientNames = new string[inventory.AcquiredIngredients.Count];
+        foreach (KeyValuePair<string, bool> ingredient in inventory.AcquiredIngredients)
         {
-            this.ingredients[i] = ingredient.Value;
+            this.acquiredIngredients[i] = ingredient.Value;
             this.ingredientNames[i++] = ingredient.Key;
         }
 
         i = 0;
-        this.abilities = new bool[inventory.Abilities.Count];
-        this.abilityNames = new string[inventory.Abilities.Count];
-        foreach (KeyValuePair<string, bool> ability in inventory.Abilities)
+        this.acquiredAbilities = new bool[inventory.AcquiredAbilities.Count];
+        this.abilityNames = new string[inventory.AcquiredAbilities.Count];
+        foreach (KeyValuePair<string, bool> ability in inventory.AcquiredAbilities)
         {
-            this.abilities[i] = ability.Value;
+            this.acquiredAbilities[i] = ability.Value;
             this.abilityNames[i++] = ability.Key;
         }
     }

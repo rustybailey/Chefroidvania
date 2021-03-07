@@ -56,20 +56,20 @@ public class SaveLoader
 
         player = Object.FindObjectOfType<Player>();
 
-        FindAbilityUpgradesAndRemoveThem();
+        FindAcquiredAbilitiesAndRemoveThem();
         FindHealthUpgradesAndRemoveThem();
         FindIngredientsAndRemoveThem();
         FindSaveLocationAndMovePlayerToIt();
 
-        foreach (KeyValuePair<string, bool> ingredient in Inventory.instance.Ingredients)
-        {
-            //Debug.Log("Post Scene Loaded Ingredient " + ingredient.Key + ": " + ingredient.Value);
-        }
+        //foreach (KeyValuePair<string, bool> ingredient in Inventory.instance.Ingredients)
+        //{
+        //Debug.Log("Post Scene Loaded Ingredient " + ingredient.Key + ": " + ingredient.Value);
+        //}
 
-        foreach (KeyValuePair<string, bool> ability in Inventory.instance.Abilities)
-        {
-            //Debug.Log("Post Scene Loaded Ability " + ability.Key + ": " + ability.Value);
-        }
+        //foreach (KeyValuePair<string, bool> ability in Inventory.instance.AcquiredAbilities)
+        //{
+        //Debug.Log("Post Scene Loaded Ability " + ability.Key + ": " + ability.Value);
+        //}
     }
 
     private void FindSaveLocationAndMovePlayerToIt()
@@ -89,10 +89,15 @@ public class SaveLoader
         }
     }
 
-    private void FindAbilityUpgradesAndRemoveThem()
+    private void FindAcquiredAbilitiesAndRemoveThem()
     {
-        for (int i = 0; i < saveData.abilities.Length; i++)
+        for (int i = 0; i < saveData.acquiredAbilities.Length; i++)
         {
+            if (saveData.acquiredAbilities[i] != true)
+            {
+                continue;
+            }
+
             // @TODO Is there a better way to handle this appending of "Upgrade"
             // to the name?
             GameObject gameObject = GameObject.Find(saveData.abilityNames[i] + " Upgrade");
@@ -115,8 +120,13 @@ public class SaveLoader
 
     private void FindIngredientsAndRemoveThem()
     {
-        for (int i = 0; i < saveData.ingredients.Length; i++)
+        for (int i = 0; i < saveData.acquiredIngredients.Length; i++)
         {
+            if (saveData.acquiredIngredients[i] != true)
+            {
+                continue;
+            }
+
             GameObject gameObject = GameObject.Find(saveData.ingredientNames[i]);
 
             // The ingredient may not exist in the current scene but the player

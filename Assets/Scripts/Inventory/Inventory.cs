@@ -30,19 +30,19 @@ public class Inventory : MonoBehaviour
         Health
     }
 
-    public Dictionary<string, bool> Ingredients = new Dictionary<string, bool>()
+    public Dictionary<string, bool> AcquiredIngredients = new Dictionary<string, bool>()
     {
-        { "Milk", true },
-        { "Pineapple", false },
-        { "Radish", false },
-        { "Yakburger", false }
+        { Ingredients.MILK, true },
+        { Ingredients.PINEAPPLE, false },
+        { Ingredients.RADISH, false },
+        { Ingredients.YAKBURGER, false }
     };
 
-    public Dictionary<string, bool> Abilities = new Dictionary<string, bool>()
+    public Dictionary<string, bool> AcquiredAbilities = new Dictionary<string, bool>()
     {
-        { "Frying Pan", false },
-        { "Knives", false },
-        { "Tenderizer", false }
+        { Abilities.FRYING_PAN, false },
+        { Abilities.KNIVES, false },
+        { Abilities.TENDERIZER, false }
     };
 
     public Dictionary<string, bool> HealthUpgrades = new Dictionary<string, bool>()
@@ -57,10 +57,10 @@ public class Inventory : MonoBehaviour
         switch (type)
         {
             case ItemType.Ingredient:
-                HandleIngredient(name);
+                AcquireIngredient(name);
                 break;
             case ItemType.Ability:
-                HandleAbility(name);
+                AcquireAbility(name);
                 break;
             case ItemType.Health:
                 HandleHealthUpgrade(name);
@@ -68,26 +68,26 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public delegate void AcquireIngredient(string name);
-    public event AcquireIngredient OnAcquireIngredient;
-    private void HandleIngredient(string name)
+    private void AcquireIngredient(string name)
     {
-        Ingredients[name] = true;
-        OnAcquireIngredient?.Invoke(name);
+        AcquiredIngredients[name] = true;
+        // @TODO This is dumb
+        FindObjectOfType<IngredientsUI>().ShowIngredient(name + " Ingredient");
 
-        Debug.Log(name + ' ' + Ingredients[name]);
+        Debug.Log(name + ' ' + AcquiredIngredients[name]);
     }
 
-    public delegate void AcquireAbility(string name);
-    public event AcquireAbility OnAcquireAbility;
-
-    private void HandleAbility(string name)
+    private void AcquireAbility(string name)
     {
         string abilityName = name.Replace(" Upgrade", "");
-        Abilities[abilityName] = true;
-        OnAcquireAbility?.Invoke(abilityName);
+        AcquiredAbilities[abilityName] = true;
 
-        Debug.Log(abilityName + ' ' + Abilities[abilityName]);
+        Debug.Log(abilityName + ' ' + AcquiredAbilities[abilityName]);
+    }
+
+    public bool HasAbility(string name)
+    {
+        return AcquiredAbilities.ContainsKey(name) && AcquiredAbilities[name] == true;
     }
 
     public delegate void AcquireHealthUpgrade();

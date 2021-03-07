@@ -18,22 +18,22 @@ public class PlayerInAirState : PlayerState
         {
             stateMachine.ChangeState(player.landState);
         }
-        else if (player.hasFryingPanAbility && isFryingPanButtonPressedDown && player.isHoldingFryingPan)
+        else if (player.HasFryingPanAbility() && isFryingPanButtonPressedDown && player.isHoldingFryingPan)
         {
             stateMachine.ChangeState(player.throwFryingPanState);
         }
-        else if (player.hasFryingPanAbility && isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
+        else if (player.HasFryingPanAbility() && isFryingPanButtonPressedDown && player.FryingPan.IsHovering)
         {
             player.FryingPan.StateMachine.ChangeState(player.FryingPan.ExitHoverState);
         }
-        else if (player.hasKnivesAbility && isHeadCollidingWithWall && areFeetCollidingWithWall && !isGrounded && !isXVelocityNearlyZero)
+        else if (player.HasKnivesAbility() && isHeadCollidingWithWall && areFeetCollidingWithWall && !isGrounded && !isXVelocityNearlyZero)
         {
             stateMachine.ChangeState(player.wallClimbImpactState);
         }
         // If the player is directly next to a wall and jumps they will not move
         // forward.  In that case, once the player begins to fall, begin the
         // wall climb.
-        else if (player.hasKnivesAbility && isHeadCollidingWithWall && areFeetCollidingWithWall && !isGrounded && player.CurrentVelocity.y < 0)
+        else if (player.HasKnivesAbility() && isHeadCollidingWithWall && areFeetCollidingWithWall && !isGrounded && player.CurrentVelocity.y < 0)
         {
             stateMachine.ChangeState(player.wallClimbImpactState);
         }

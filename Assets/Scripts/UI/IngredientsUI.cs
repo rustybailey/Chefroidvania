@@ -6,19 +6,8 @@ using UnityEngine.UI;
 
 public class IngredientsUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void Start()
+    public void ShowIngredient(string name)
     {
-        Inventory.instance.OnAcquireIngredient += ShowIngredient;
-    }
-    private void OnDisable()
-    {
-        Inventory.instance.OnAcquireIngredient -= ShowIngredient;
-    }
-
-    private void ShowIngredient(string name)
-    {
-        Debug.Log(name);
         StartCoroutine(FadeImageToWhite(transform.Find(name).GetComponent<Image>()));
     }
 

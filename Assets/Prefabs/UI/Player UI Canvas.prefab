@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6722144310468868651}
   - component: {fileID: 6722144310468868648}
   m_Layer: 5
-  m_Name: Yakburger
+  m_Name: Yakburger Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6722144310562449997}
   - component: {fileID: 6722144310562449986}
   m_Layer: 5
-  m_Name: Pineapple
+  m_Name: Pineapple Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 6722144311965693621}
   - component: {fileID: 6722144311965693610}
   m_Layer: 5
-  m_Name: Radish
+  m_Name: Radish Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 6722144312189838404}
   - component: {fileID: 6722144312189838405}
   m_Layer: 5
-  m_Name: Milk
+  m_Name: Milk Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
