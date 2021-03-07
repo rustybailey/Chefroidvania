@@ -8,13 +8,6 @@ public class TotemAttackState : TotemState
     {
     }
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        AudioManager.instance.PlaySoundEffectAtPoint("TotemShoot", totem.transform.position);
-    }
-
     public override void LogicUpdate()
     {
         base.LogicUpdate();

@@ -8,6 +8,13 @@ public class MonkeyWarningState : MonkeyState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        AudioManager.instance.PlaySoundEffectAtPoint("MonkeyAnger", monkey.transform.position);
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

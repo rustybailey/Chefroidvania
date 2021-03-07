@@ -8,6 +8,15 @@ public class MonkeyAttackState : MonkeyState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        AudioManager.instance.PlaySoundEffectAtPoint("MonkeyThrow", monkey.transform.position);
+        string[] sounds = { "MonkeyChirp01", "MonkeyChirp02" };
+        AudioManager.instance.PlayRandomSoundEffectAtPoint(sounds, monkey.transform.position);
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

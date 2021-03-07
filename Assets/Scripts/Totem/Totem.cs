@@ -47,5 +47,6 @@ public class Totem : MonoBehaviour
     public void FireArrow()
     {
         Instantiate(arrowPrefab, arrowOrigin.transform.position, transform.rotation);
+        AudioManager.instance.PlaySoundEffectAtPoint("TotemShoot", transform.position);
     }
 }

@@ -271,8 +271,8 @@ public class Sound
         // set other aSource properties here, if desired
         aSource.spatialBlend = 1f;
         aSource.rolloffMode = AudioRolloffMode.Custom;
-        aSource.minDistance = 8f;
-        aSource.maxDistance = 15f;
+        aSource.minDistance = 17.5f;
+        aSource.maxDistance = 18f;
         aSource.dopplerLevel = 0f;
 
         //Debug.Break();

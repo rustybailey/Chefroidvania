@@ -21,6 +21,7 @@ public class MonkeyClimbState : MonkeyState
 
         countDown = climbDuration;
         currentClimbingDirection = startingClimbingDirection;
+        AudioManager.instance.PlaySoundEffectAtPoint("MonkeyClimb", monkey.transform.position);
     }
 
     public override void LogicUpdate()
