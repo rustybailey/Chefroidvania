@@ -45,23 +45,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffects:
   - name: GetItem
-    audioClip: {fileID: 8300000, guid: 5212ce00d08850243b7563487bdaf025, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: 09626484127d40d448e8ebccfa3dced0, type: 3}
+    volume: 0.7
     pitch: 1
     loop: 0
   - name: SpeechBubble01
-    audioClip: {fileID: 8300000, guid: 6601e684c2fe7754c842c9e7cdc88037, type: 3}
+    audioClip: {fileID: 8300000, guid: f4edb776b782ce04182c430693cec668, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: SpeechBubble02
-    audioClip: {fileID: 8300000, guid: e1dbfebea680ceb439d072c07c38690d, type: 3}
+    audioClip: {fileID: 8300000, guid: e0e5591a802a6a64faaa8d57579e5f58, type: 3}
     volume: 1
     pitch: 1
     loop: 0
   - name: TakeDamage
-    audioClip: {fileID: 8300000, guid: 015407ab8d0ab844e8d27d97f1e21d8b, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: efd6987c3e9c9fd4e92a501ead60d882, type: 3}
+    volume: 0.3
     pitch: 1
     loop: 0
   - name: BeeAngry
@@ -190,18 +190,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: JumpGrunt
-    audioClip: {fileID: 8300000, guid: c15ebe4c04db4c842b73b588b0027f1d, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: 20cdcbb4950e15f4ab17b2ed618a53b7, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
-  - name: JumpWhoosh
-    audioClip: {fileID: 8300000, guid: e36f3e741c9e4844184d097a64ae26ef, type: 3}
-    volume: 1
+  - name: JumpWoosh
+    audioClip: {fileID: 8300000, guid: 79e66fd13c2345c45b48599030032d84, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
   - name: Landing
-    audioClip: {fileID: 8300000, guid: dddd7e2159441224dbfcf6f463c73a77, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: 8362d1a04a50a294e8f3e5b94c37fa57, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
   - name: Knife01
@@ -316,6 +316,31 @@ MonoBehaviour:
     loop: 0
   - name: TotemShoot
     audioClip: {fileID: 8300000, guid: bcef7b599d097a940884ccb4b8e7be3f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MenuDown
+    audioClip: {fileID: 8300000, guid: 443735413f4d75446ad9e5f8f4d48bbb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MenuSelect
+    audioClip: {fileID: 8300000, guid: d3b0efc19ec7eff498fe27c46c185766, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: MenuUp
+    audioClip: {fileID: 8300000, guid: 93d49cc48f4b52a4c85f80372f6d9e00, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: CrocHiss
+    audioClip: {fileID: 8300000, guid: cba433878cccafc4aa2bb8c660efca0c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: CrocSnap
+    audioClip: {fileID: 8300000, guid: 0e3ca74093ef4704bbbdb094249015b8, type: 3}
     volume: 1
     pitch: 1
     loop: 0
