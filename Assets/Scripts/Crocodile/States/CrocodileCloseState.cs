@@ -8,6 +8,12 @@ public class CrocodileCloseState : CrocodileState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

@@ -42,4 +42,9 @@ public class Crocodile : MonoBehaviour
     {
         StateMachine.CurrentState.AnimationFinished();
     }
+
+    public void PlaySnapSfx()
+    {
+        AudioManager.instance.PlaySoundEffectAtPoint("CrocSnap", transform.position);
+    }
 }

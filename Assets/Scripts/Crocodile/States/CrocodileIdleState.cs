@@ -16,6 +16,8 @@ public class CrocodileIdleState : CrocodileState
     {
         base.Enter();
 
+        AudioManager.instance.PlaySoundEffectAtPoint("CrocHiss", crocodile.transform.position);
+
         // TODO: When we're laying out levels, we may want to be more planned rather than random
         // If so, we should make the initialWait a SerializeField
         countDown = isInitialIdle ? Random.Range(1f, 4f) : idleDuration;
