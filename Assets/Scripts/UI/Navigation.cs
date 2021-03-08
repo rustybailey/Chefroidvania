@@ -22,7 +22,7 @@ public class Navigation : MonoBehaviour
     private void Start()
     {
         menuCursor = GameObject.Find("Menu Cursor");
-        //menuCursorAnimator = menuCursor.GetComponent<Animator>();
+        menuCursorAnimator = menuCursor.GetComponent<Animator>();
         audioManager = AudioManager.instance;
         eventSystem = EventSystem.current;
         levelLoader = FindObjectOfType<LevelLoader>();
@@ -39,7 +39,7 @@ public class Navigation : MonoBehaviour
             eventSystem.firstSelectedGameObject = gameObject.transform.Find(START_BUTTON).gameObject;
             var continueButton = gameObject.transform.Find(CONTINUE_BUTTON).gameObject;
             continueButton.GetComponent<Button>().interactable = false;
-            continueButton.GetComponentInChildren<TextMeshProUGUI>().alpha = 100;
+            continueButton.GetComponentInChildren<TextMeshProUGUI>().alpha = 0.25f;
         }
     }
 
@@ -53,7 +53,7 @@ public class Navigation : MonoBehaviour
         }
         else
         {
-            audioManager.PlaySoundEffect("SpeechBubble01");
+            audioManager.PlaySoundEffect("MenuUp");
         }
     }
 
@@ -63,13 +63,22 @@ public class Navigation : MonoBehaviour
 
         if (playerSaveData != null)
         {
-            new SaveLoader(playerSaveData).LoadFromMainMenu();
+            StartCoroutine(HandleContinueSubmit(playerSaveData));
         }
+    }
+
+    private IEnumerator HandleContinueSubmit(PlayerSaveData playerSaveData)
+    {
+        audioManager.PlaySoundEffect("MenuSelect");
+        //menuCursorAnimator.SetTrigger("destroy");
+        yield return new WaitForSeconds(.8f);
+        new SaveLoader(playerSaveData).LoadFromMainMenu();
     }
 
     public void StartNewGame()
     {
-        Debug.Log("START SUBMIT");
+        audioManager.PlaySoundEffect("MenuSelect");
+        //menuCursorAnimator.SetTrigger("destroy");
         levelLoader.LoadNextLevelWithTransition();
     }
 
@@ -77,41 +86,4 @@ public class Navigation : MonoBehaviour
     {
         levelLoader.QuitGame();
     }
-
-    //public void OnSubmit(BaseEventData eventData)
-    //{
-    //    StartCoroutine(HandleSubmit());
-    //}
-
-    //public IEnumerator HandleSubmit()
-    //{
-    //    menuCursorAnimator.SetTrigger("Explode");
-    //    audioManager.PlaySoundEffect("Menu Select");
-    //    yield return new WaitForSeconds(.3f);
-    //    menuCursor.GetComponent<SpriteRenderer>().enabled = false;
-    //    yield return new WaitForSeconds(.3f);
-
-    //    switch (gameObject.name)
-    //    {
-    //        case START_BUTTON:
-    //        case CONTINUE_BUTTON:
-    //            GameScore.instance.Reset();
-    //            levelLoader.LoadNextLevelWithTransition();
-    //            break;
-    //        case RESTART_BUTTON:
-    //            GameScore.instance.Reset();
-    //            levelLoader.LoadPreviousScene();
-    //            break;
-    //        case MAIN_MENU_BUTTON:
-    //            GameScore.instance.Reset();
-    //            levelLoader.LoadMainMenu();
-    //            break;
-    //        case QUIT_BUTTON:
-    //            levelLoader.QuitGame();
-    //            break;
-    //        default:
-    //            Debug.Log("Can't submit: Unknown button name");
-    //            break;
-    //    }
-    //}
 }
