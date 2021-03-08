@@ -59,9 +59,6 @@ public class Navigation : MonoBehaviour
 
     public void ContinueGame()
     {
-        Debug.Log("CONTINUE SUBMIT");
-
-        // TODO: Load save data here
         PlayerSaveData playerSaveData = SaveSystem.LoadPlayer();
 
         if (playerSaveData != null)
