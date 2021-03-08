@@ -8,14 +8,18 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int startingHealth = 3;
     [SerializeField] int currentHealth;
     [SerializeField] int maxHealth;
-
     [SerializeField] bool isInvincible = false;
+
+    #region Component Variables
+    private Player player;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         maxHealth = startingHealth;
         currentHealth = maxHealth;
+        player = gameObject.GetComponent<Player>();
     }
 
     public delegate void IncreaseMaxHealth();
@@ -78,7 +82,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (playerSaveData != null)
         {
-            new SaveLoader(FindObjectOfType<Player>()).LoadFromPlayerSaveData(playerSaveData);
+            new SaveLoader(player, this).LoadFromPlayerSaveData(playerSaveData);
         }
         else
         {

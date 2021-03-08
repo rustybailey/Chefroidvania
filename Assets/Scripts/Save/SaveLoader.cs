@@ -7,15 +7,17 @@ public class SaveLoader
 {
     #region Component Variables
     Player player;
+    PlayerHealth playerHealth;
     #endregion
 
     #region Save Data Variables
     private PlayerSaveData saveData;
     #endregion
 
-    public SaveLoader(Player player)
+    public SaveLoader(Player player = null, PlayerHealth playerHealth = null)
     {
         this.player = player;
+        this.playerHealth = playerHealth;
     }
 
     public void LoadFromPlayerSaveData(PlayerSaveData saveData)
@@ -25,18 +27,18 @@ public class SaveLoader
         // If the current active scene is not the same as the saved scene, load
         // the saved scene and use the world position the was saved to move the
         // player to.
-        //if (SceneManager.GetActiveScene().name != saveData.sceneName)
-        //{
-        if (SceneManager.GetSceneByName(saveData.sceneName) == null)
+        if (SceneManager.GetActiveScene().name != saveData.sceneName)
         {
+            if (SceneManager.GetSceneByName(saveData.sceneName) == null)
+            {
+                return;
+            }
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.LoadScene(saveData.sceneName);
+
             return;
         }
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(saveData.sceneName);
-
-        return;
-        //}
 
         // In this case the scene doesn't change so there is no need to load
         // everything.
@@ -46,6 +48,13 @@ public class SaveLoader
         }
 
         FindSaveLocationAndMovePlayerToIt();
+
+        if (playerHealth == null)
+        {
+            return;
+        }
+
+        playerHealth.FullHeal();
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
