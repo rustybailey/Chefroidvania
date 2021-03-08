@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
     #region State Variables
     public StateMachine StateMachine { get; private set; }
+    public PlayerNoInputIdleState noInputIdleState;
     public PlayerIdleState idleState;
     public PlayerRunState runState;
     public PlayerJumpState jumpState;
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour
         Animator = GetComponent<Animator>();
         Health = GetComponent<PlayerHealth>();
 
+        noInputIdleState = new PlayerNoInputIdleState(this, "idle");
         idleState = new PlayerIdleState(this, "idle");
         runState = new PlayerRunState(this, "run");
         jumpState = new PlayerJumpState(this, "inAir");
@@ -173,7 +175,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Flip()
+    public void Flip()
     {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
