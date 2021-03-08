@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Refrigerator : MonoBehaviour
 {
+    private GameObject humSfx;
+    private GameObject portalSfx;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        humSfx = AudioManager.instance.PlayLoopingSoundEffectAtPoint("FridgeHum", transform.position);
     }
 
     public void PlayCloseSfx()
@@ -26,7 +23,23 @@ public class Refrigerator : MonoBehaviour
         AudioManager.instance.PlaySoundEffectAtPoint("FridgeOpen", transform.position);
     }
 
-    // TODO: Play idle humming
-    // TODO: Play open idle portal
+    public void PlayPortalSfx()
+    {
+        portalSfx = AudioManager.instance.PlayLoopingSoundEffectAtPoint("FridgePortal", transform.position);
+    }
+
+    private void OnDestroy()
+    {
+        if (humSfx)
+        {
+            Destroy(humSfx);
+        }
+
+        if (portalSfx)
+        {
+            Destroy(portalSfx);
+        }
+    }
+
     // TODO: Play portal enter when portal trigger occurs (may need to trim beginning of clip)
 }

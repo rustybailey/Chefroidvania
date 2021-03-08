@@ -71,7 +71,7 @@ MonoBehaviour:
     loop: 0
   - name: BeeBuzz
     audioClip: {fileID: 8300000, guid: eb893fdb744b0044990c7669f133a1d1, type: 3}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 1
   - name: BeeDead
@@ -165,7 +165,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: FridgeAnticipation
-    audioClip: {fileID: 8300000, guid: f4facf4b28df3d34bab3d4e09a961c5e, type: 3}
+    audioClip: {fileID: 8300000, guid: 4a7734e64d0aecb4f91cb4efe61cadcd, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -175,8 +175,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: FridgeHum
-    audioClip: {fileID: 8300000, guid: a69feb813f2494e498b2df09eda998cc, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: 4a85ece95ccefa94eb8673abced30844, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
   - name: FridgeOpen
@@ -185,8 +185,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - name: FridgePortal
-    audioClip: {fileID: 8300000, guid: e8a352a0df529d74eb661d67f0035129, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: 4797110f16b32014d91b0d2cbd648bb5, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
   - name: JumpGrunt

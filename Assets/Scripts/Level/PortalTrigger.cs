@@ -24,6 +24,8 @@ public class PortalTrigger : MonoBehaviour
     {
         refrigeratorAnimator.SetBool("shouldOpen", true);
 
+        AudioManager.instance.PlaySoundEffect("EnterPortal");
+
         yield return new WaitForSeconds(.5f);
 
         player.StateMachine.ChangeState(player.portalState);

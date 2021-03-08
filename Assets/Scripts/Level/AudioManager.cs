@@ -291,6 +291,8 @@ public class Sound
         aSource.clip = audioClip;
 
         // set other aSource properties here, if desired
+        aSource.volume = volume;
+        aSource.pitch = pitch;
         aSource.loop = looping;
         aSource.spatialBlend = 1f;
         aSource.rolloffMode = AudioRolloffMode.Custom;
