@@ -4,16 +4,27 @@ using UnityEngine;
 
 public static class SaveSystem
 {
+    private const string SAVE_FILE = "player_save.txt";
+
     public static void SavePlayer(PlayerSaveData playerSaveData)
     {
         string jsonData = JsonUtility.ToJson(playerSaveData);
 
-        File.WriteAllText(Application.persistentDataPath + "/player_data.txt", jsonData);
+        File.WriteAllText(Application.persistentDataPath + "/" + SAVE_FILE, jsonData);
     }
 
     public static PlayerSaveData LoadPlayer()
     {
-        string jsonData = File.ReadAllText(Application.persistentDataPath + "/player_data.txt");
+        string jsonData;
+
+        try
+        {
+            jsonData = File.ReadAllText(Application.persistentDataPath + "/" + SAVE_FILE);
+        }
+        catch (System.Exception e)
+        {
+            return null;
+        }
 
         if (jsonData != null)
         {
