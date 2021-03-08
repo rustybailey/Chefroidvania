@@ -82,7 +82,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (playerSaveData != null)
         {
-            new SaveLoader(player, this).LoadFromPlayerSaveData(playerSaveData);
+            new SaveLoader(playerSaveData).LoadFromDeath(player, this);
         }
         else
         {

@@ -15,9 +15,9 @@ public class Inventory : MonoBehaviour
         Ability,
         Health
     };
-    public Dictionary<string, bool> AcquiredAbilities { get; private set; }
-    public Dictionary<string, bool> AcquiredHealthUpgrades { get; private set; }
-    public Dictionary<string, bool> AcquiredIngredients { get; private set; }
+    public Dictionary<string, bool> AcquiredAbilities = new Dictionary<string, bool>();
+    public Dictionary<string, bool> AcquiredHealthUpgrades = new Dictionary<string, bool>();
+    public Dictionary<string, bool> AcquiredIngredients = new Dictionary<string, bool>();
     #endregion
 
     // TODO: Does this need to be a monobehavior?
@@ -35,14 +35,6 @@ public class Inventory : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        AcquiredAbilities = new Dictionary<string, bool>();
-        AcquiredHealthUpgrades = new Dictionary<string, bool>();
-        AcquiredIngredients = new Dictionary<string, bool>();
     }
 
     public void AcquireItem(ItemType type, string name)

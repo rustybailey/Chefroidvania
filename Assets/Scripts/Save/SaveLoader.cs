@@ -5,63 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class SaveLoader
 {
-    #region Component Variables
-    Player player;
-    PlayerHealth playerHealth;
-    #endregion
-
     #region Save Data Variables
     private PlayerSaveData saveData;
     #endregion
 
-    public SaveLoader(Player player = null, PlayerHealth playerHealth = null)
-    {
-        this.player = player;
-        this.playerHealth = playerHealth;
-    }
-
-    public void LoadFromPlayerSaveData(PlayerSaveData saveData)
+    //public SaveLoader(Player player = null, PlayerHealth playerHealth = null)
+    public SaveLoader(PlayerSaveData saveData)
     {
         this.saveData = saveData;
+    }
 
-        // If the current active scene is not the same as the saved scene, load
-        // the saved scene and use the world position the was saved to move the
-        // player to.
-        if (SceneManager.GetActiveScene().name != saveData.sceneName)
-        {
-            if (SceneManager.GetSceneByName(saveData.sceneName) == null)
-            {
-                return;
-            }
-
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadScene(saveData.sceneName);
-
-            return;
-        }
-
-        // In this case the scene doesn't change so there is no need to load
-        // everything.
-        if (player == null)
-        {
-            return;
-        }
-
-        FindSaveLocationAndMovePlayerToIt();
-
-        if (playerHealth == null)
-        {
-            return;
-        }
+    public void LoadFromDeath(Player player, PlayerHealth playerHealth)
+    {
+        FindSaveLocationAndMovePlayerToIt(player);
 
         playerHealth.FullHeal();
+    }
+
+    public void LoadFromMainMenu()
+    {
+        if (SceneManager.GetSceneByName(saveData.sceneName) == null)
+        {
+            return;
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(saveData.sceneName);
+
+        return;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
 
-        player = Object.FindObjectOfType<Player>();
+        Player player = Object.FindObjectOfType<Player>();
 
         if (player == null)
         {
@@ -75,13 +53,13 @@ public class SaveLoader
             acquiredAbilities[i] += " Upgrade";
         }
 
+        FindSaveLocationAndMovePlayerToIt(player);
         AcquireObjectsOfTypeAndRemoveThem(Inventory.ItemType.Ability, acquiredAbilities);
         AcquireObjectsOfTypeAndRemoveThem(Inventory.ItemType.Health, saveData.acquiredHealthUpgrades);
         AcquireObjectsOfTypeAndRemoveThem(Inventory.ItemType.Ingredient, saveData.acquiredIngredients);
-        FindSaveLocationAndMovePlayerToIt();
     }
 
-    private void FindSaveLocationAndMovePlayerToIt()
+    private void FindSaveLocationAndMovePlayerToIt(Player player)
     {
         SaveLocation[] saveLocations = SaveLocation.FindObjectsOfType<SaveLocation>();
 
