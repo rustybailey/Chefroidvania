@@ -53,6 +53,9 @@ TagManager:
   - name: Background Near
     uniqueID: 1784841139
     locked: 0
+  - name: Background Nearest
+    uniqueID: 3482822879
+    locked: 0
   - name: Platform
     uniqueID: 2966014043
     locked: 0
