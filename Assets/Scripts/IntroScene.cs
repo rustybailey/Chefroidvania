@@ -7,6 +7,8 @@ public class IntroScene : MonoBehaviour
     [SerializeField] GameObject playerPrefab;
     [SerializeField] Transform startingPoint;
     [SerializeField] Transform endingPoint;
+    [SerializeField] Animator iceCreamAnim;
+    [SerializeField] Animator thumbsUpAnim;
 
     IEnumerator Start()
     {
@@ -19,8 +21,18 @@ public class IntroScene : MonoBehaviour
         player.Flip();
         player.transform.position = startingPoint.position;
 
-        // TODO: Dummy wait during "conversation" - show speech bubbles here
+        // Start conversation
+        yield return new WaitForSeconds(1f);
+        iceCreamAnim.SetBool("appear", true);
+        AudioManager.instance.PlaySoundEffectAtPoint("SpeechBubble01", playerPrefab.transform.position);
         yield return new WaitForSeconds(2f);
+        iceCreamAnim.SetBool("appear", false);
+        yield return new WaitForSeconds(1f);
+        thumbsUpAnim.SetBool("appear", true);
+        AudioManager.instance.PlaySoundEffectAtPoint("SpeechBubble02", playerPrefab.transform.position);
+        yield return new WaitForSeconds(2f);
+        thumbsUpAnim.SetBool("appear", false);
+        yield return new WaitForSeconds(1f);
 
         // Turn around and walk away
         player.Flip();
