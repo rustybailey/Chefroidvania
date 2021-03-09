@@ -18,6 +18,7 @@ public class PlayerHurtState : PlayerState
         hasAppliedForce = false;
         player.GetComponent<PlayerHealth>().DecreaseHealth();
         AudioManager.instance.PlaySoundEffect("TakeDamage");
+        player.HandleIFrames();
     }
 
     public override void LogicUpdate()

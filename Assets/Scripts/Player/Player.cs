@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     public InputManager InputManager { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerHealth Health { get; private set; }
+    public SpriteRenderer BodySpriteRenderer { get; private set; }
     #endregion
 
     #region State Variables
@@ -65,11 +66,17 @@ public class Player : MonoBehaviour
     public Vector2 CurrentVelocity { get; private set; }
     #endregion
 
+    #region iFrame Variables
+    public bool CanBeHurt { get; private set; }
+    private float iFrameDuration = 2f;
+    #endregion
+
     #region Ability Objects
     public FryingPan FryingPan { get; private set; }
     [HideInInspector]
     public bool isHoldingFryingPan;
     #endregion
+
 
     private void Awake()
     {
@@ -85,10 +92,12 @@ public class Player : MonoBehaviour
     {
         FacingDirection = 1;
         isHoldingFryingPan = true;
+        CanBeHurt = true;
 
         RigidBody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         Health = GetComponent<PlayerHealth>();
+        BodySpriteRenderer = gameObject.transform.Find("Body").GetComponent<SpriteRenderer>();
 
         noInputIdleState = new PlayerNoInputIdleState(this, "idle");
         idleState = new PlayerIdleState(this, "idle");
@@ -284,6 +293,26 @@ public class Player : MonoBehaviour
 
             // TODO: Check for any switches and handle that behavior
         }
+    }
+
+    public void HandleIFrames()
+    {
+        StartCoroutine(InternalHandleIFrames());
+    }
+
+    public IEnumerator InternalHandleIFrames()
+    {
+        CanBeHurt = false;
+        float startTime = Time.time;
+
+        while (Time.time - startTime < iFrameDuration)
+        {
+            BodySpriteRenderer.enabled = !BodySpriteRenderer.enabled;
+            yield return new WaitForSeconds(0.025f);
+        }
+
+        BodySpriteRenderer.enabled = true;
+        CanBeHurt = true;
     }
 
     // Most other sfx are called within the states
