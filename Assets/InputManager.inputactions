@@ -250,6 +250,28 @@
                 },
                 {
                     "name": "",
+                    "id": "d273150b-dff4-4422-89bd-d55ca02d54b4",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ThrowFryingPan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3fb8c4be-67e3-4e08-aa10-9441f885d8dc",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ThrowFryingPan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a2661919-b839-41e4-b2a1-ae0c1174a8ed",
                     "path": "<Keyboard>/rightShift",
                     "interactions": "",
@@ -266,6 +288,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Tenderizer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de042a31-816a-429d-b552-dfbdb32211c7",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Tenderizer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f476e25-4707-4309-a4d5-ebcd41561786",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Tenderizer",
                     "isComposite": false,
                     "isPartOfComposite": false
