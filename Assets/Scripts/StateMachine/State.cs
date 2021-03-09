@@ -19,14 +19,12 @@ public class State
 
     public virtual void Enter()
     {
-        Debug.Log("ENTER " + this.stateMachine.CurrentState);
         isAnimationFinished = false;
         animator.SetBool(animationBooleanName, true);
     }
 
     public virtual void Exit()
     {
-        Debug.Log("EXIT " + this.stateMachine.CurrentState);
         animator.SetBool(animationBooleanName, false);
         isAnimationFinished = true;
     }

@@ -70,7 +70,7 @@ public class Navigation : MonoBehaviour
     private IEnumerator HandleContinueSubmit(PlayerSaveData playerSaveData)
     {
         audioManager.PlaySoundEffect("MenuSelect");
-        //menuCursorAnimator.SetTrigger("destroy");
+        menuCursorAnimator.SetTrigger("destroy");
         yield return new WaitForSeconds(.8f);
         new SaveLoader(playerSaveData).LoadFromMainMenu();
     }
@@ -78,7 +78,7 @@ public class Navigation : MonoBehaviour
     public void StartNewGame()
     {
         audioManager.PlaySoundEffect("MenuSelect");
-        //menuCursorAnimator.SetTrigger("destroy");
+        menuCursorAnimator.SetTrigger("destroy");
         levelLoader.LoadNextLevelWithTransition();
     }
 

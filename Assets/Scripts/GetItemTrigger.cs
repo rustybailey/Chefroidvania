@@ -7,7 +7,6 @@ public class GetItemTrigger : MonoBehaviour
     [SerializeField] Inventory.ItemType itemType;
 
     private bool isPlayingGetItemSequence = false;
-    private bool isPlayingPortalSequence = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -70,7 +69,6 @@ public class GetItemTrigger : MonoBehaviour
         var refrigeratorAnimator = GameObject.Find("Refrigerator").GetComponent<Animator>();
         refrigeratorAnimator.SetBool("shouldOpen", true);
 
-        yield return new WaitForSeconds(.5f);
         AudioManager.instance.PlaySoundEffect("EnterPortal");
         yield return new WaitForSeconds(1f);
 
