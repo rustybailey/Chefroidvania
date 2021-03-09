@@ -2976,6 +2976,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476675557, guid: f3e87674b868656418a57c4f02d5b132, type: 3}
+      propertyPath: m_Size.x
+      value: 0.167696
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476675557, guid: f3e87674b868656418a57c4f02d5b132, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.32774782
+      objectReference: {fileID: 0}
     - target: {fileID: 1476675558, guid: f3e87674b868656418a57c4f02d5b132, type: 3}
       propertyPath: refrigeratorAnimator
       value: 

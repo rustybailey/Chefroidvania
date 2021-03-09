@@ -22,11 +22,13 @@ public class PortalTrigger : MonoBehaviour
 
     private IEnumerator AnimatePortalScene(Player player)
     {
+        player.StateMachine.ChangeState(player.noInputIdleState);
+
         refrigeratorAnimator.SetBool("shouldOpen", true);
 
         AudioManager.instance.PlaySoundEffect("EnterPortal");
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
 
         player.StateMachine.ChangeState(player.portalState);
 
