@@ -12,6 +12,7 @@ public class PlayerPortalState : PlayerState
 
     public override void Enter()
     {
+        Debug.Log("ENTER PORTAL STATE");
         base.Enter();
         player.GetComponent<Rigidbody2D>().isKinematic = true;
         target = new Vector3(player.transform.position.x, player.transform.position.y - 3f, player.transform.position.z);

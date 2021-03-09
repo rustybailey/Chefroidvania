@@ -344,11 +344,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9150131050543248751, guid: 9fb21be605d0f404ea8c9e4a30b7a37f, type: 3}
   m_PrefabInstance: {fileID: 9150131050806374187}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &477038267 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7843657362599060846, guid: 637af801b0fbffb479187394fc484a58, type: 3}
-  m_PrefabInstance: {fileID: 7843657363204896581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731890446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,18 +2971,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1476675557, guid: f3e87674b868656418a57c4f02d5b132, type: 3}
-      propertyPath: m_Size.x
-      value: 0.167696
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476675557, guid: f3e87674b868656418a57c4f02d5b132, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.32774782
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476675558, guid: f3e87674b868656418a57c4f02d5b132, type: 3}
-      propertyPath: refrigeratorAnimator
-      value: 
-      objectReference: {fileID: 477038267}
     - target: {fileID: 1033458026083721760, guid: f3e87674b868656418a57c4f02d5b132, type: 3}
       propertyPath: m_Name
       value: Milk

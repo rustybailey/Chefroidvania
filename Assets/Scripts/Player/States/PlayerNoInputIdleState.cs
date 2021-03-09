@@ -11,6 +11,7 @@ public class PlayerNoInputIdleState : PlayerState
 
     public override void Enter()
     {
+        Debug.Log("NO INPUT");
         base.Enter();
 
         player.SetVelocityX(0.0f);
