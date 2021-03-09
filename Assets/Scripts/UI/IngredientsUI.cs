@@ -24,4 +24,9 @@ public class IngredientsUI : MonoBehaviour
             yield return null;
         }
     }
+
+    // TODO: Create a common animator that pulses the scale
+    // TODO: In a coroutine, find all child ingredients and trigger their anim with a delay between each one's start
+    // TODO: After X seconds, stop the anim.
+    // TODO: Should we give them a background glow or something to highlight that you found them all?
 }
