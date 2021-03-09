@@ -71,6 +71,7 @@ public class Frog : MonoBehaviour
         StateMachine.CurrentState.PhysicsUpdate();
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         // Patrol locations
@@ -78,6 +79,7 @@ public class Frog : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector3.left * leftPatrolDistance);
         Gizmos.DrawRay(transform.position, Vector3.right * rightPatrolDistance);
     }
+#endif
 
     private void CalculatePatrolLocations()
     {

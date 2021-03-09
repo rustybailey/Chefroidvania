@@ -75,6 +75,7 @@ public class Wasp : MonoBehaviour
         Destroy(beeBuzzSfxGameObject);
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -85,6 +86,7 @@ public class Wasp : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector3.left * leftPatrolDistance);
         Gizmos.DrawRay(transform.position, Vector3.right * rightPatrolDistance);
     }
+#endif
 
     private void CalculatePatrolLocations()
     {

@@ -43,7 +43,8 @@ public class Monkey : MonoBehaviour
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }
-    
+
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -59,6 +60,7 @@ public class Monkey : MonoBehaviour
         // Bottom Horz
         Gizmos.DrawRay(new Vector2(transform.position.x, transform.position.y - .5f), transform.right * .6f);
     }
+#endif
 
     public void StateAnimationFinished()
     {

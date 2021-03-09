@@ -124,6 +124,7 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.LogicUpdate();
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         // Draw ground check
@@ -144,7 +145,7 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(tenderizerImpactOrigin.position, tenderizerImpactRadius);
     }
-
+#endif
     void FixedUpdate()
     {
         CurrentVelocity = RigidBody.velocity;
