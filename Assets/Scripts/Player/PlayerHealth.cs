@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     #endregion
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         maxHealth = startingHealth;
         currentHealth = maxHealth;
@@ -88,6 +88,11 @@ public class PlayerHealth : MonoBehaviour
         {
             FindObjectOfType<LevelLoader>().ReloadScene();
         }
+    }
+
+    public int GetStartingHealth()
+    {
+        return startingHealth;
     }
 
     public int GetCurrentHealth()

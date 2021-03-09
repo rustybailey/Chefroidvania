@@ -20,7 +20,8 @@ public class HealthUI : MonoBehaviour
         }
 
         var player = FindObjectOfType<Player>();
-        int playerHealth = player.gameObject.GetComponent<PlayerHealth>().GetMaxHealth();
+        // Initialize with starting health and let the SaveLoader call Inventory to increase the health on reloads
+        int playerHealth = player.gameObject.GetComponent<PlayerHealth>().GetStartingHealth();
         for (int i = 0; i < playerHealth; i++)
         {
             var tomato = InstantiateTomato(tomatoSpacing * i);
