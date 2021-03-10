@@ -86,4 +86,22 @@ public class Navigation : MonoBehaviour
     {
         levelLoader.QuitGame();
     }
+
+    public void GoToEnding()
+    {
+        audioManager.PlaySoundEffect("MenuSelect");
+        menuCursorAnimator.SetTrigger("destroy");
+        levelLoader.LoadNextLevelWithTransition();
+    }
+
+    public void CloseEndingOverlay()
+    {
+        GameObject endingOverlay = GameObject.Find("Ending Overlay");
+        endingOverlay.SetActive(false);
+
+        GameObject player = GameObject.Find("Player");
+        InputManager inputManager = player.GetComponent<Player>().InputManager;
+        inputManager.UI.Disable();
+        inputManager.Player.Enable();
+    }
 }

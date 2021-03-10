@@ -19,7 +19,8 @@ public class WinConditionCheck : MonoBehaviour
     {
         if (hasWon) { return; }
 
-        if (Inventory.instance.HasAllIngredients())
+        //if (Inventory.instance.HasAllIngredients())
+        if (true)
         {
             hasWon = true;
             StartCoroutine(TriggerWinCondition());
@@ -35,6 +36,9 @@ public class WinConditionCheck : MonoBehaviour
 
         // Fade in Fridge
         fridge.SetActive(true);
+        // TODO: Since you can likely complete it in any order,
+        // we need to move the fridge next to the player, and
+        // save the fridge's location in the save data
         fridge.GetComponent<Refrigerator>().FlickerIntoExistence();
     }
 }
