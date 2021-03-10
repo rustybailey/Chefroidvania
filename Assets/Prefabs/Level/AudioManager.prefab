@@ -365,3 +365,18 @@ MonoBehaviour:
     volume: 0.7
     pitch: 1
     loop: 1
+  - name: Intro
+    audioClip: {fileID: 8300000, guid: f6492c8499ea85347a8cda670e2bd2a2, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 1
+  - name: Credits
+    audioClip: {fileID: 8300000, guid: 46d4fbd750673134390c8992c04c7b34, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 1
+  - name: CreditsSuperFast
+    audioClip: {fileID: 8300000, guid: 8af5f82b7806b6c4abf52c33a26f1686, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 1

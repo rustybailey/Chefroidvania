@@ -5,17 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Sandbox.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 47b08dac44dcd2c4e898c7326621bf33
   - enabled: 1
-    path: Assets/Scenes/Kitchen.unity
+    path: Assets/Scenes/Kitchen Intro.unity
     guid: bd0fb528d76d3b34faaead2f8405eb30
   - enabled: 1
+    path: Assets/Scenes/Main World.unity
+    guid: e0770d03c7c744f57bde1ff66f191ea9
+  - enabled: 1
+    path: Assets/Scenes/Kitchen Ending.unity
+    guid: 59bd547775dcad34582abacaa314561d
+  - enabled: 0
     path: Assets/Scenes/Main World Old.unity
     guid: 969e808c792e303448c61ef66e09d076
+  - enabled: 0
+    path: Assets/Scenes/Sandbox.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 66c2c2ffb33c9404d8ea110f3e4aebaa, type: 2}
