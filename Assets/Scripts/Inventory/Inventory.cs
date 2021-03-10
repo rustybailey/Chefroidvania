@@ -20,6 +20,8 @@ public class Inventory : MonoBehaviour
     public Dictionary<string, bool> AcquiredIngredients = new Dictionary<string, bool>();
     #endregion
 
+    private int totalIngredients = 4;
+
     // TODO: Does this need to be a monobehavior?
     private void Awake()
     {
@@ -74,11 +76,9 @@ public class Inventory : MonoBehaviour
 
     public void AcquireAllAbilities()
     {
-        List<string> keys = new List<string>(AcquiredAbilities.Keys);
-        for (int i = 0; i < keys.Count; i++)
-        {
-            AcquiredAbilities[keys[i]] = true;
-        }
+        AcquiredAbilities[Abilities.FRYING_PAN] = true;
+        AcquiredAbilities[Abilities.KNIVES] = true;
+        AcquiredAbilities[Abilities.TENDERIZER] = true;
     }
 
     public bool HasAbility(string name)
@@ -97,5 +97,10 @@ public class Inventory : MonoBehaviour
         {
             playerHealth.HandleIncreasingMaxHealth();
         }
+    }
+
+    public bool HasAllIngredients()
+    {
+        return AcquiredIngredients.Count == totalIngredients;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GetItemTrigger : MonoBehaviour
 {
     [SerializeField] Inventory.ItemType itemType;
+    [SerializeField] bool shouldTriggerPortal;
 
     private bool isPlayingGetItemSequence = false;
 
@@ -47,7 +48,9 @@ public class GetItemTrigger : MonoBehaviour
             yield return null;
         }
 
-        if (itemName == Ingredients.MILK)
+        // This should only ever be true for the Milk,
+        // but I wanted an easy way to turn it off for testing
+        if (shouldTriggerPortal)
         {
             yield return StartCoroutine(AnimatePortalScene(player));
         }

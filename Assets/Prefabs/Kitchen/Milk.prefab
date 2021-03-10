@@ -508,6 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  shouldTriggerPortal: 1
 --- !u!1 &1033458026121291197
 GameObject:
   m_ObjectHideFlags: 0
