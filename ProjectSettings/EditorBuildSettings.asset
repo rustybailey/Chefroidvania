@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kitchen Ending.unity
     guid: 59bd547775dcad34582abacaa314561d
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 4199b5fe0e4b0e04c82a853331faab2f
   - enabled: 0
     path: Assets/Scenes/Main World Old.unity
     guid: 969e808c792e303448c61ef66e09d076
