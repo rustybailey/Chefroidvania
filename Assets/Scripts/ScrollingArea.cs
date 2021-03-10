@@ -9,11 +9,14 @@ public class ScrollingArea : MonoBehaviour
 
     private float currentScrollSpeed;
     private bool shouldStopScrolling = false;
+    private GameObject navigation;
 
     // Start is called before the first frame update
     void Start()
     {
         currentScrollSpeed = scrollSpeed;
+        navigation = GameObject.Find("Navigation");
+        navigation.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class ScrollingArea : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         shouldStopScrolling = true;
+        navigation.SetActive(true);
     }
 
     private void ScrollText()

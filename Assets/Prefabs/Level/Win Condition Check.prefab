@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32a759fe9cf4474bbf252b77fa9e386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fridge: {fileID: 0}
+  fridge: {fileID: 4207130938163179530, guid: 4fd8e0b982511264fba860ee7a4eac7c, type: 3}

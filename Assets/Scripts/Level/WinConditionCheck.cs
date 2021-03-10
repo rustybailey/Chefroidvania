@@ -19,8 +19,7 @@ public class WinConditionCheck : MonoBehaviour
     {
         if (hasWon) { return; }
 
-        //if (Inventory.instance.HasAllIngredients())
-        if (true)
+        if (Inventory.instance.HasAllIngredients())
         {
             hasWon = true;
             StartCoroutine(TriggerWinCondition());
@@ -29,16 +28,13 @@ public class WinConditionCheck : MonoBehaviour
 
     private IEnumerator TriggerWinCondition()
     {
-        Debug.Log("YOU DID IT!");
-
         // Give the get item anim a chance to finish
         yield return new WaitForSeconds(3f);
 
         // Fade in Fridge
         fridge.SetActive(true);
-        // TODO: Since you can likely complete it in any order,
-        // we need to move the fridge next to the player, and
-        // save the fridge's location in the save data
+        Vector3 playerPos = GameObject.Find("Player").transform.position;
+        fridge.transform.position = new Vector3(playerPos.x + 2.5f, Mathf.Round(playerPos.y - .7f), playerPos.z);
         fridge.GetComponent<Refrigerator>().FlickerIntoExistence();
     }
 }

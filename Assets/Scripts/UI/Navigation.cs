@@ -94,6 +94,13 @@ public class Navigation : MonoBehaviour
         levelLoader.LoadNextLevelWithTransition();
     }
 
+    public void GoToMainMenu()
+    {
+        audioManager.PlaySoundEffect("MenuSelect");
+        menuCursorAnimator.SetTrigger("destroy");
+        levelLoader.LoadMainMenu();
+    }
+
     public void CloseEndingOverlay()
     {
         GameObject endingOverlay = GameObject.Find("Ending Overlay");
