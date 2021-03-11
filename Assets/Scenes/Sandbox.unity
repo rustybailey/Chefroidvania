@@ -1434,10 +1434,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1350948501896972905, guid: 14eb43fbb78b23c4188f2a7ce18b9b3f, type: 3}
-      propertyPath: wallCheckDistance
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1350948501896972908, guid: 14eb43fbb78b23c4188f2a7ce18b9b3f, type: 3}
       propertyPath: m_Name
       value: Yak
