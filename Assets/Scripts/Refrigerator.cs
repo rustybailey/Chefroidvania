@@ -13,6 +13,7 @@ public class Refrigerator : MonoBehaviour
     void Start()
     {
         humSfx = AudioManager.instance.PlayLoopingSoundEffectAtPoint("FridgeHum", transform.position);
+        humSfx.transform.parent = transform;
         bodySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }

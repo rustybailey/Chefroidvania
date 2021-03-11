@@ -9,7 +9,7 @@ public class WinConditionCheck : MonoBehaviour
     private bool hasWon = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         fridge.SetActive(false);
     }
@@ -33,6 +33,7 @@ public class WinConditionCheck : MonoBehaviour
 
         // Fade in Fridge
         fridge.SetActive(true);
+        yield return new WaitForEndOfFrame();
         Vector3 playerPos = GameObject.Find("Player").transform.position;
         fridge.transform.position = new Vector3(playerPos.x + 2.5f, Mathf.Round(playerPos.y - .7f), playerPos.z);
         fridge.GetComponent<Refrigerator>().FlickerIntoExistence();

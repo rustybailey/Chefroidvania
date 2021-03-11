@@ -358,6 +358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558266fcb14cbb2428fbd08b12433efd, type: 3}
+--- !u!1 &76776569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7361708685759840004, guid: 05f92a4fc23a6e64ba8ace35d1e988a4, type: 3}
+  m_PrefabInstance: {fileID: 7361708685021966922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &218700693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,6 +430,10 @@ PrefabInstance:
     - target: {fileID: 1635415312188288086, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_Name
       value: Health (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635415312188288086, guid: fb514b8771017524d851aac653aebd1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_RootOrder
@@ -7704,6 +7713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health
       objectReference: {fileID: 0}
+    - target: {fileID: 1635415312188288086, guid: fb514b8771017524d851aac653aebd1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8248285795262446506, guid: fb514b8771017524d851aac653aebd1f, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -7921,6 +7934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7591922fa7f594fa7e20e3a5533b7f, type: 3}
+--- !u!1 &2146335053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4207130938163179530, guid: 4fd8e0b982511264fba860ee7a4eac7c, type: 3}
+  m_PrefabInstance: {fileID: 6249025529149448993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &697795589485127835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7989,6 +8007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win Condition Check
       objectReference: {fileID: 0}
+    - target: {fileID: 3796193474147412266, guid: bda00ecf104326946b51d4e151d1c87c, type: 3}
+      propertyPath: fridge
+      value: 
+      objectReference: {fileID: 2146335053}
     - target: {fileID: 3796193474147412267, guid: bda00ecf104326946b51d4e151d1c87c, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -8103,6 +8125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Refrigerator (Main World)
       objectReference: {fileID: 0}
+    - target: {fileID: 4207130938163179530, guid: 4fd8e0b982511264fba860ee7a4eac7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4207130938163179535, guid: 4fd8e0b982511264fba860ee7a4eac7c, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -8151,6 +8177,10 @@ PrefabInstance:
       propertyPath: firstButton
       value: 
       objectReference: {fileID: 1484692073}
+    - target: {fileID: 6249025529628445199, guid: 4fd8e0b982511264fba860ee7a4eac7c, type: 3}
+      propertyPath: endingOverlay
+      value: 
+      objectReference: {fileID: 76776569}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fd8e0b982511264fba860ee7a4eac7c, type: 3}
 --- !u!1001 &7361708685021966922
