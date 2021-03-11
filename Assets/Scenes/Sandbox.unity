@@ -264,6 +264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zone Boundary
       objectReference: {fileID: 0}
+    - target: {fileID: 2206850451757802780, guid: 558266fcb14cbb2428fbd08b12433efd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7563961636669878885, guid: 558266fcb14cbb2428fbd08b12433efd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
       value: 0.70490265
@@ -1444,6 +1448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1335159611}
   - component: {fileID: 1335159610}
+  - component: {fileID: 1335159612}
   m_Layer: 0
   m_Name: Yak
   m_TagString: Untagged
@@ -1485,6 +1490,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335159612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335159609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87c385c4f6f11244ba4b7b5669934c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  sightDistance: 5
 --- !u!1001 &1411323427
 PrefabInstance:
   m_ObjectHideFlags: 0
