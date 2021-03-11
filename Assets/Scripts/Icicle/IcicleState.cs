@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IcicleState : MonoBehaviour
+public class IcicleState : State
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected Icicle icicle;
 
-    // Update is called once per frame
-    void Update()
+    public IcicleState(Icicle icicle, string animationBooleanName) : base(icicle.StateMachine, icicle.Animator, animationBooleanName)
     {
-        
+        this.icicle = icicle;
     }
 }
