@@ -5,6 +5,7 @@ using UnityEngine;
 public class YakIdleState : YakState
 {
     private bool canSeePlayer;
+    private GameObject yakChew;
 
     public YakIdleState(Yak yak, string animationBooleanName) : base(yak, animationBooleanName)
     {
@@ -13,7 +14,14 @@ public class YakIdleState : YakState
     public override void Enter()
     {
         base.Enter();
+        yakChew = AudioManager.instance.PlayLoopingSoundEffectAtPoint("YakChew", yak.transform.position);
+        AudioManager.instance.PlaySoundEffectAtPoint("YakIdle", yak.transform.position);
+    }
 
+    public override void Exit()
+    {
+        base.Exit();
+        Object.Destroy(yakChew);
     }
 
     public override void LogicUpdate()

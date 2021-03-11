@@ -11,7 +11,7 @@ public class YakAlertState : YakState
     public override void Enter()
     {
         base.Enter();
-
+        AudioManager.instance.PlaySoundEffectAtPoint("YakMad", yak.transform.position);
     }
 
     public override void LogicUpdate()
