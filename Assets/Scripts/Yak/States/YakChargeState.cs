@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class YakChargeState : YakState
 {
+    private float chargeDuration = 2f;
+    private float countDown;
+    private float chargeSpeed = 9f;
+
     public YakChargeState(Yak yak, string animationBooleanName) : base(yak, animationBooleanName)
     {
     }
@@ -11,17 +15,38 @@ public class YakChargeState : YakState
     public override void Enter()
     {
         base.Enter();
-
+        countDown = chargeDuration;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
 
-        // TODO: Run forward for X seconds
-        // TODO: If you hit the edge or a wall (set up raycasts), turn around (add Flip() method to Yak)
+        countDown -= Time.deltaTime;
 
-        // TODO: If you hit the player, go to attack state
-        // TODO: After X seconds, if you don't hit the player, go to Reset State
+        // Wall (looking right)
+        bool isTouchingWall = Physics2D.Raycast(yak.wallCheck.position, yak.transform.right, yak.wallCheckDistance, yak.groundLayer);
+        // Floor
+        bool isTouchingFloor = Physics2D.Raycast(yak.floorCheck.position, Vector3.down, yak.floorCheckDistance, yak.groundLayer);
+
+        // Turn around before we keep charging if we're touching the wall or not touching the floor
+        if (isTouchingWall || !isTouchingFloor)
+        {
+            yak.Flip();
+        }
+
+        // Charge (faster than the player)
+        yak.transform.Translate(Vector3.right * chargeSpeed * Time.deltaTime);
+
+        // If you hit the player show the attack animation
+        if (yak.Hitbox.IsTouchingLayers(yak.playerLayer))
+        {
+            stateMachine.ChangeState(yak.attackState);
+        }
+        // Otherwise, keep running until we're done
+        else if (countDown < 0)
+        {
+            stateMachine.ChangeState(yak.resetState);
+        }
     }
 }
