@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class YakIdleState : YakState
 {
+    private bool canSeePlayer;
+
     public YakIdleState(Yak yak, string animationBooleanName) : base(yak, animationBooleanName)
     {
     }
@@ -18,6 +20,11 @@ public class YakIdleState : YakState
     {
         base.LogicUpdate();
 
-        // TODO: Cast a ray in front of you. If you see the player, change to ChargeState
+        // Check if you can see the player. If so, get ready to attack
+        canSeePlayer = Physics2D.Raycast(yak.wallCheck.position, yak.transform.right, yak.sightDistance, yak.playerLayer);
+        if (canSeePlayer)
+        {
+            stateMachine.ChangeState(yak.alertState);
+        }
     }
 }
