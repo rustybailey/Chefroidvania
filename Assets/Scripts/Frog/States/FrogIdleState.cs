@@ -14,6 +14,8 @@ public class FrogIdleState : FrogState
     {
         base.Enter();
 
+        AudioManager.instance.PlaySoundEffectAtPoint("FrogRibbit", frog.transform.position);
+
         jumpCountdown = frog.GetJumpDelay();
     }
 

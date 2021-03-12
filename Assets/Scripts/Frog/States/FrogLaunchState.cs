@@ -16,6 +16,8 @@ public class FrogLaunchState : FrogState
 
         jumpReady = false;
 
+        AudioManager.instance.PlaySoundEffectAtPoint("FrogJump", frog.transform.position);
+
         //frog.SetVelocityX(frog.GetJumpHorizontalVelocity() * frog.FacingDirection);
         //frog.SetVelocityY(frog.GetJumpVerticalVelocity());
     }

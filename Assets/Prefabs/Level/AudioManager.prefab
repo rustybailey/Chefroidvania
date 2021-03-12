@@ -394,6 +394,16 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - name: FrogJump
+    audioClip: {fileID: 8300000, guid: 3ee3e0fa5e9b6474aa4b6f740bab4a26, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: FrogRibbit
+    audioClip: {fileID: 8300000, guid: 2167e09ad9f8e4d49a4ff1de9358e694, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
   musicTracks:
   - name: Kitchen
     audioClip: {fileID: 8300000, guid: 8b983a560c8b1414891e029ea16dcafe, type: 3}
