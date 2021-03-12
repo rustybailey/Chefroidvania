@@ -8,17 +8,10 @@ public class EndingTrigger : MonoBehaviour
     [SerializeField] GameObject endingOverlay;
     [SerializeField] GameObject firstButton;
 
-    private InputManager inputManager;
-
     // Start is called before the first frame update
     void Awake()
     {
         endingOverlay.SetActive(false);
-    }
-
-    private void OnEnable()
-    {
-        inputManager = new InputManager();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

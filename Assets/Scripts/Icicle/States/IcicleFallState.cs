@@ -37,7 +37,6 @@ public class IcicleFallState : IcicleState
 
         // Check for touching ground, if so, change to land state
         countDown -= Time.deltaTime;
-        Debug.Log(icicle.Collider.IsTouchingLayers(icicle.groundLayer));
         if (countDown <= 0 && icicle.Collider.IsTouchingLayers(icicle.groundLayer))
         {
             stateMachine.ChangeState(icicle.landState);

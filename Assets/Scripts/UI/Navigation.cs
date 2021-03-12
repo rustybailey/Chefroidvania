@@ -21,7 +21,7 @@ public class Navigation : MonoBehaviour
 
     private void Start()
     {
-        menuCursor = GameObject.Find("Menu Cursor");
+        menuCursor = transform.Find("Menu Cursor").gameObject;
         menuCursorAnimator = menuCursor.GetComponent<Animator>();
         audioManager = AudioManager.instance;
         eventSystem = EventSystem.current;
