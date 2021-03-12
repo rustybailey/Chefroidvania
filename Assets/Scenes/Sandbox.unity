@@ -10651,42 +10651,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.size
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[70].name
-      value: FrogJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[71].name
-      value: FrogRibbit
-      objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[70].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[71].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[70].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[71].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[70].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3ee3e0fa5e9b6474aa4b6f740bab4a26, type: 3}
-    - target: {fileID: 108829942537601854, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
-      propertyPath: soundEffects.Array.data[71].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2167e09ad9f8e4d49a4ff1de9358e694, type: 3}
     - target: {fileID: 3694590882110098523, guid: 4ab2451fd4417f64ebc7b28152f0c622, type: 3}
       propertyPath: m_Name
       value: AudioManager
