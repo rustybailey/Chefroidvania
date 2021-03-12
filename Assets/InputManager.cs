@@ -32,7 +32,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""6d19c5a8-56af-4ef7-b5e6-1c3d84b71abb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Tap""
                 },
                 {
                     ""name"": ""ThrowFryingPan"",
@@ -40,7 +40,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""c329a27d-35d4-4762-9160-ad8998132ed0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Tap""
                 },
                 {
                     ""name"": ""Tenderizer"",
@@ -48,7 +48,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""04992acb-0812-4c6c-87a4-c4670af0fc77"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Tap""
                 }
             ],
             ""bindings"": [
