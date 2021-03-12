@@ -10591,10 +10591,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frying Pan
       objectReference: {fileID: 0}
-    - target: {fileID: 5913594417898970270, guid: 38e1548b8223842a3b557ec26762abe9, type: 3}
-      propertyPath: hoverCollisionLayers.m_Bits
-      value: 4160
-      objectReference: {fileID: 0}
     - target: {fileID: 5913594417898970271, guid: 38e1548b8223842a3b557ec26762abe9, type: 3}
       propertyPath: m_RootOrder
       value: 3
