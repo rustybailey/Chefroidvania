@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223758308567251737}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Patrol Locations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7223758308905974355}
   - component: {fileID: 7223758308905974354}
   - component: {fileID: 7223758308905974349}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 7223758309089589451}
   - component: {fileID: 7223758309089589449}
   - component: {fileID: 7223758309089589450}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Frog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7223758309282685673}
   - component: {fileID: 7223758309282685672}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Dust Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223758309893755965}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Location 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223758309978745369}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223758310258767028}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Location 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
