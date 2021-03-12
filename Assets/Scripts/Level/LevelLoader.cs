@@ -23,10 +23,6 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Application.platform != RuntimePlatform.WebGLPlayer && InputSystem.GetDevice<Keyboard>().escapeKey.isPressed)
-        {
-            QuitGame();
-        }
     }
 
     public void LoadMainMenu()
