@@ -6,13 +6,14 @@ public class Icicle : MonoBehaviour
 {
     [SerializeField] public LayerMask playerLayer;
     [SerializeField] public LayerMask groundLayer;
-    [SerializeField] public float sightDistance = 9f;
+    [SerializeField] public float sightDistance = 10f;
     [SerializeField] public Transform floorCheck;
     [SerializeField] public float floorCheckDistance = 1f;
 
 
     public Animator Animator { get; private set; }
-    public Collider2D Hitbox { get; private set; }
+    public Collider2D Collider { get; private set; }
+    public Rigidbody2D Rigidbody { get; private set; }
 
     public StateMachine StateMachine { get; private set; }
     public IcicleIdleState idleState;
@@ -29,7 +30,8 @@ public class Icicle : MonoBehaviour
     void Start()
     {
         Animator = GetComponent<Animator>();
-        Hitbox = GetComponent<Collider2D>();
+        Collider = GetComponent<Collider2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
         idleState = new IcicleIdleState(this, "idle");
         warningState = new IcicleWarningState(this, "warning");
         fallState = new IcicleFallState(this, "fall");
@@ -51,8 +53,8 @@ public class Icicle : MonoBehaviour
     void OnDrawGizmos()
     {
         //// Line of sight
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawRay(wallCheck.position, transform.right * sightDistance);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector3.down * sightDistance);
 
         //// Wall/edge detectors
         //Gizmos.color = Color.yellow;

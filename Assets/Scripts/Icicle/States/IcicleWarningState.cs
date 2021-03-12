@@ -11,7 +11,7 @@ public class IcicleWarningState : IcicleState
     public override void Enter()
     {
         base.Enter();
-        // TODO: Play shake SFX
+        AudioManager.instance.PlaySoundEffectAtPoint("IcicleShake", icicle.transform.position);
     }
 
     public override void LogicUpdate()

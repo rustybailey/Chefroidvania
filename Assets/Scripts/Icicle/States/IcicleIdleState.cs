@@ -20,10 +20,10 @@ public class IcicleIdleState : IcicleState
         base.LogicUpdate();
 
         // Look for player
-        //canSeePlayer = Physics2D.Raycast(icicle.wallCheck.position, icicle.transform.right, icicle.sightDistance, icicle.playerLayer);
-        //if (canSeePlayer)
-        //{
-        //    stateMachine.ChangeState(icicle.warningState);
-        //}
+        canSeePlayer = Physics2D.Raycast(icicle.transform.position, Vector3.down, icicle.sightDistance, icicle.playerLayer);
+        if (canSeePlayer)
+        {
+            stateMachine.ChangeState(icicle.warningState);
+        }
     }
 }

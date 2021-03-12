@@ -12,7 +12,10 @@ public class IcicleLandState : IcicleState
     {
         base.Enter();
 
-        // TODO: Play Crash SFX
+        AudioManager.instance.PlaySoundEffectAtPoint("IcicleCrash", icicle.transform.position);
+        icicle.Rigidbody.isKinematic = true;
+        icicle.Collider.isTrigger = false;
+        Object.Destroy(icicle.gameObject.GetComponent<DamageDealer>());
     }
 
     public override void LogicUpdate()

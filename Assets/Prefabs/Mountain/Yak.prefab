@@ -133,7 +133,7 @@ MonoBehaviour:
     m_Bits: 128
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4160
   sightDistance: 10
   wallCheck: {fileID: 1488849179}
   floorCheck: {fileID: 784997051}
