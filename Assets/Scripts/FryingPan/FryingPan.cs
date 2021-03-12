@@ -8,6 +8,7 @@ public class FryingPan : MonoBehaviour
     [SerializeField] float throwSpeed = 10.0f;
     [SerializeField] float throwDistance = 3.0f;
     [SerializeField] GameObject playerPlatform;
+    [SerializeField] LayerMask hoverCollisionLayers;
     #endregion
 
     #region Component Variables
@@ -104,7 +105,10 @@ public class FryingPan : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        HasCollided = true;
+        if (collision.IsTouchingLayers(hoverCollisionLayers))
+        {
+            HasCollided = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
