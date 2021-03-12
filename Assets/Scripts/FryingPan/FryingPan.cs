@@ -105,7 +105,8 @@ public class FryingPan : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.IsTouchingLayers(hoverCollisionLayers))
+        // @see https://answers.unity.com/questions/50279/check-if-layer-is-in-layermask.html
+        if (hoverCollisionLayers == (hoverCollisionLayers | (1 << collision.gameObject.layer)))
         {
             HasCollided = true;
         }

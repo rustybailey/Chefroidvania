@@ -11,7 +11,26 @@ public class InventoryEditor : Editor
         base.OnInspectorGUI();
 
         Inventory inventory = (Inventory)target;
-        if (GUILayout.Button("Acquire All Abilities"))
+
+        EditorGUILayout.LabelField("Acquire Ability");
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Frying Pan"))
+        {
+            inventory.AcquireFryingPan();
+        }
+
+        if (GUILayout.Button("Knives"))
+        {
+            inventory.AcquireKnives();
+        }
+
+        if (GUILayout.Button("Tenderizer"))
+        {
+            inventory.AcquireTenderizer();
+        }
+        EditorGUILayout.EndHorizontal();
+
+        if (GUILayout.Button("All Abilities"))
         {
             inventory.AcquireAllAbilities();
         }
