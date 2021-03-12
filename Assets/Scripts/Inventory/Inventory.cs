@@ -74,13 +74,6 @@ public class Inventory : MonoBehaviour
         AcquiredAbilities[abilityName] = true;
     }
 
-    public void AcquireAllAbilities()
-    {
-        AcquiredAbilities[Abilities.FRYING_PAN] = true;
-        AcquiredAbilities[Abilities.KNIVES] = true;
-        AcquiredAbilities[Abilities.TENDERIZER] = true;
-    }
-
     public bool HasAbility(string name)
     {
         return AcquiredAbilities.ContainsKey(name) && AcquiredAbilities[name] == true;
@@ -103,4 +96,28 @@ public class Inventory : MonoBehaviour
     {
         return AcquiredIngredients.Count == totalIngredients;
     }
+
+    #region DEBUG METHODS
+    public void AcquireAllAbilities()
+    {
+        AcquiredAbilities[Abilities.FRYING_PAN] = true;
+        AcquiredAbilities[Abilities.KNIVES] = true;
+        AcquiredAbilities[Abilities.TENDERIZER] = true;
+    }
+
+    public void AcquireFryingPan()
+    {
+        AcquiredAbilities[Abilities.FRYING_PAN] = true;
+    }
+
+    public void AcquireKnives()
+    {
+        AcquiredAbilities[Abilities.KNIVES] = true;
+    }
+
+    public void AcquireTenderizer()
+    {
+        AcquiredAbilities[Abilities.TENDERIZER] = true;
+    }
+    #endregion
 }
