@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949279595479583813, guid: 0d9502483253b7246b5919a942103667, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7949279595479583818, guid: 0d9502483253b7246b5919a942103667, type: 3}
       propertyPath: m_RootOrder
@@ -605,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949279595479583813, guid: 01e176a86b15037468e970e72bca94ec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7949279595479583818, guid: 01e176a86b15037468e970e72bca94ec, type: 3}
       propertyPath: m_RootOrder
@@ -830,7 +830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4124840211115637668, guid: f21f48d0da2b0bb4099dfa5da396e34e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6100166778377802369, guid: f21f48d0da2b0bb4099dfa5da396e34e, type: 3}
       propertyPath: m_RootOrder
@@ -1422,7 +1422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3296525329102074295, guid: 866e0852287e22642b11ea92ca89c7f9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866e0852287e22642b11ea92ca89c7f9, type: 3}
@@ -8690,7 +8690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989728144092190500, guid: 29ac7a0049246436383622529844ecb6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2989728144092190501, guid: 29ac7a0049246436383622529844ecb6, type: 3}
       propertyPath: m_RootOrder
@@ -9570,6 +9570,10 @@ PrefabInstance:
     - target: {fileID: 2541417762413689662, guid: 5cceb9af91fa9554db5158f653449504, type: 3}
       propertyPath: m_Name
       value: Icicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2541417762413689662, guid: 5cceb9af91fa9554db5158f653449504, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9152655841370745316, guid: 5cceb9af91fa9554db5158f653449504, type: 3}
       propertyPath: m_SortingLayer

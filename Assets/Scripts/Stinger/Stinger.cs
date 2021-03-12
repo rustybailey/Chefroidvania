@@ -41,6 +41,7 @@ public class Stinger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         destroyed = true;
+        AudioManager.instance.PlaySoundEffectAtPoint("ProjectileDestroy02", transform.position);
         animator.SetBool("destroy", true);
     }
 

@@ -71,6 +71,9 @@ TagManager:
   - name: Foreground Object
     uniqueID: 2873595169
     locked: 0
+  - name: Projectiles
+    uniqueID: 743741819
+    locked: 0
   - name: Player UI
     uniqueID: 1492751369
     locked: 0

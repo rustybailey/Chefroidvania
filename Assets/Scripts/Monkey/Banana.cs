@@ -37,6 +37,8 @@ public class Banana : MonoBehaviour
     private IEnumerator TriggerDestroy()
     {
         isBeingDestroyed = true;
+
+        AudioManager.instance.PlaySoundEffectAtPoint("ProjectileDestroy02", transform.position);
         animator.SetTrigger("destroy");
         yield return new WaitForSeconds(0.1f);
 
