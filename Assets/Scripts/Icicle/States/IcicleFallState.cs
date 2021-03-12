@@ -6,9 +6,9 @@ public class IcicleFallState : IcicleState
 {
     private float waitDuration = 1f;
     private float countDown;
-    private float initialFallSpeed = 4f;
+    private float initialFallSpeed = 6f;
     private float fallSpeed;
-    private float speedIncrease = .02f;
+    private float speedIncrease = 0f;
 
     public IcicleFallState(Icicle icicle, string animationBooleanName) : base(icicle, animationBooleanName)
     {
