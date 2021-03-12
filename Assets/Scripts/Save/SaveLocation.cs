@@ -47,6 +47,7 @@ public class SaveLocation : MonoBehaviour
     public void MovePlayerTo(Player player)
     {
         // Either move to the save position or the game object's position
-        player.transform.position = savePosition.position != null ? savePosition.position : transform.position;
+        var positionToUse = savePosition.position != null ? savePosition.position : transform.position;
+        player.transform.position = new Vector3(positionToUse.x, positionToUse.y, 0);
     }
 }
