@@ -364,6 +364,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - name: YakRun
+    audioClip: {fileID: 8300000, guid: 078ace3edad46524da3f9ac410ec6076, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
   - name: IcicleCrash
     audioClip: {fileID: 8300000, guid: 7753ed88f767f2b4ea82701eda41b777, type: 3}
     volume: 1

@@ -7,6 +7,7 @@ public class YakChargeState : YakState
     private float chargeDuration = 2f;
     private float countDown;
     private float chargeSpeed = 9f;
+    private GameObject yakRunSfx;
 
     public YakChargeState(Yak yak, string animationBooleanName) : base(yak, animationBooleanName)
     {
@@ -16,6 +17,13 @@ public class YakChargeState : YakState
     {
         base.Enter();
         countDown = chargeDuration;
+        yakRunSfx = AudioManager.instance.PlayLoopingSoundEffectAtPoint("YakRun", yak.transform.position);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        Object.Destroy(yakRunSfx);
     }
 
     public override void LogicUpdate()
@@ -37,6 +45,7 @@ public class YakChargeState : YakState
 
         // Charge (faster than the player)
         yak.transform.Translate(Vector3.right * chargeSpeed * Time.deltaTime);
+        yakRunSfx.transform.position = yak.transform.position;
 
         // If you hit the player show the attack animation
         if (yak.Hitbox.IsTouchingLayers(yak.playerLayer))
