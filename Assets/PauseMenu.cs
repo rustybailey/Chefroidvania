@@ -57,7 +57,6 @@ public class PauseMenu : MonoBehaviour
         inputManager.Player.Disable();
         EventSystem.current.firstSelectedGameObject = resumeButton;
         EventSystem.current.SetSelectedGameObject(resumeButton);
-
     }
 
     public void HidePauseMenu()
@@ -66,5 +65,12 @@ public class PauseMenu : MonoBehaviour
         canvas.enabled = false;
         inputManager.UI.Disable();
         inputManager.Player.Enable();
+
+        // Give the ending overlay back control
+        var endingOverlayYesButton = GameObject.Find("Yes Button");
+        EventSystem.current.firstSelectedGameObject = endingOverlayYesButton;
+        EventSystem.current.SetSelectedGameObject(endingOverlayYesButton);
+
+
     }
 }

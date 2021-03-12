@@ -8,10 +8,13 @@ public class EndingTrigger : MonoBehaviour
     [SerializeField] GameObject endingOverlay;
     [SerializeField] GameObject firstButton;
 
+    private Canvas endingOverlayCanvas;
+
     // Start is called before the first frame update
     void Awake()
     {
-        endingOverlay.SetActive(false);
+        endingOverlayCanvas = endingOverlay.GetComponent<Canvas>();
+        endingOverlayCanvas.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +27,7 @@ public class EndingTrigger : MonoBehaviour
 
     private IEnumerator HandleShowOverlay(Collider2D collision)
     {
-        endingOverlay.SetActive(true);
+        endingOverlayCanvas.enabled = true;
 
         yield return new WaitForEndOfFrame();
 

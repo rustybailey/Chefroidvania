@@ -27,6 +27,9 @@ public class Navigation : MonoBehaviour
         eventSystem = EventSystem.current;
         levelLoader = FindObjectOfType<LevelLoader>();
 
+        // TODO: The previous purpose of this was to hide the quit button if we were on web
+        // We'll need to figure out a way to reproduce this now that we're including Navigation
+        // on the parent game object and not the individual buttons
         if (gameObject.name == QUIT_BUTTON && Application.platform == RuntimePlatform.WebGLPlayer)
         {
             gameObject.SetActive(false);
@@ -104,7 +107,7 @@ public class Navigation : MonoBehaviour
     public void CloseEndingOverlay()
     {
         GameObject endingOverlay = GameObject.Find("Ending Overlay");
-        endingOverlay.SetActive(false);
+        endingOverlay.GetComponent<Canvas>().enabled = false;
 
         GameObject player = GameObject.Find("Player");
         InputManager inputManager = player.GetComponent<Player>().InputManager;
