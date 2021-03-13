@@ -99,6 +99,7 @@ public class Navigation : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1;
         audioManager.PlaySoundEffect("MenuSelect");
         menuCursorAnimator.SetTrigger("destroy");
         levelLoader.LoadMainMenu();
