@@ -112,6 +112,8 @@ public class Navigation : MonoBehaviour
 
         GameObject player = GameObject.Find("Player");
         InputManager inputManager = player.GetComponent<Player>().InputManager;
+        EventSystem.current.firstSelectedGameObject = null;
+        EventSystem.current.SetSelectedGameObject(null);
         inputManager.UI.Disable();
         inputManager.Player.Enable();
     }

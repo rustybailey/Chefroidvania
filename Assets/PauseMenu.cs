@@ -73,6 +73,11 @@ public class PauseMenu : MonoBehaviour
             EventSystem.current.firstSelectedGameObject = endingOverlayYesButton;
             EventSystem.current.SetSelectedGameObject(endingOverlayYesButton);
         }
+        else
+        {
+            EventSystem.current.firstSelectedGameObject = null;
+            EventSystem.current.SetSelectedGameObject(null);
+        }
 
 
     }
