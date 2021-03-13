@@ -12,6 +12,7 @@ public class PlayerSaveData
     public string[] acquiredAbilities;
     public string[] acquiredIngredients;
     public string[] acquiredHealthUpgrades;
+    public float[] refrigeratorLocation;
     #endregion
 
     public PlayerSaveData(Player player, string saveLocationName)
@@ -40,6 +41,21 @@ public class PlayerSaveData
         foreach (KeyValuePair<string, bool> acquiredAbility in inventory.AcquiredAbilities)
         {
             this.acquiredAbilities[i++] = acquiredAbility.Key;
+        }
+
+        if (acquiredIngredients.Length == 4)
+        {
+            var fridgeLocation = GameObject.Find("Refrigerator (Main World)").transform.position;
+            this.refrigeratorLocation = new float[]
+            {
+                fridgeLocation.x,
+                fridgeLocation.y,
+                0
+            };
+        }
+        else
+        {
+            this.refrigeratorLocation = new float[] { 0, 0, 0 };
         }
     }
 }
