@@ -67,9 +67,12 @@ public class PauseMenu : MonoBehaviour
         inputManager.Player.Enable();
 
         // Give the ending overlay back control
-        var endingOverlayYesButton = GameObject.Find("Yes Button");
-        EventSystem.current.firstSelectedGameObject = endingOverlayYesButton;
-        EventSystem.current.SetSelectedGameObject(endingOverlayYesButton);
+        if (GameObject.Find("Ending Overlay").GetComponent<Canvas>().enabled)
+        {
+            var endingOverlayYesButton = GameObject.Find("Yes Button");
+            EventSystem.current.firstSelectedGameObject = endingOverlayYesButton;
+            EventSystem.current.SetSelectedGameObject(endingOverlayYesButton);
+        }
 
 
     }
