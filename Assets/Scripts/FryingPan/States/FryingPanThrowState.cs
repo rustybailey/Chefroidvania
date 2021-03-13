@@ -19,7 +19,7 @@ public class FryingPanThrowState : FryingPanState
         target = new Vector3(fryingPan.transform.position.x + (fryingPan.GetThrowDistance() * fryingPan.FacingDirection), fryingPan.transform.position.y, fryingPan.transform.position.z);
 
         string[] sounds = { "SkilletThrow01", "SkilletThrow02", "SkilletThrow03" };
-        AudioManager.instance.PlayRandomSoundEffectAtPoint(sounds, fryingPan.transform.position);
+        AudioManager.instance.PlayRandomSoundEffect(sounds);
     }
 
     public override void LogicUpdate()

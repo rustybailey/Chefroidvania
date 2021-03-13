@@ -11,10 +11,13 @@ public class EndingTrigger : MonoBehaviour
     private Canvas endingOverlayCanvas;
 
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
+        // In win condition check's awake, the fridge is set to inactive,
+        // so these things don't get a chance to get initialized on Awake,
+        // so I changed it to onEnable
         endingOverlayCanvas = endingOverlay.GetComponent<Canvas>();
-        endingOverlayCanvas.enabled = false;
+        //endingOverlayCanvas.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

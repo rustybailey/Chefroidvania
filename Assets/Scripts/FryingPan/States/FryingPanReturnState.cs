@@ -17,7 +17,7 @@ public class FryingPanReturnState : FryingPanState
         playedCatchSound = false;
 
         string[] sounds = { "SkilletThrow01", "SkilletThrow02", "SkilletThrow03" };
-        AudioManager.instance.PlayRandomSoundEffectAtPoint(sounds, fryingPan.transform.position);
+        AudioManager.instance.PlayRandomSoundEffect(sounds);
     }
 
     public override void LogicUpdate()

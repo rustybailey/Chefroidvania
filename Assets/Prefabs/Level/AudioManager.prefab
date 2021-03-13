@@ -434,9 +434,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 46d4fbd750673134390c8992c04c7b34, type: 3}
     volume: 0.7
     pitch: 1
-    loop: 1
+    loop: 0
   - name: CreditsSuperFast
     audioClip: {fileID: 8300000, guid: 8af5f82b7806b6c4abf52c33a26f1686, type: 3}
     volume: 0.7
     pitch: 1
-    loop: 1
+    loop: 0
