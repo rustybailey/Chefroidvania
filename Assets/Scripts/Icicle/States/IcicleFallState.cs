@@ -16,7 +16,7 @@ public class IcicleFallState : IcicleState
         base.Enter();
 
         icicle.Rigidbody.isKinematic = false;
-        icicle.Rigidbody.gravityScale = 2;
+        icicle.Rigidbody.gravityScale = 2.5f;
         icicle.Rigidbody.mass = 100;
         countDown = waitDuration;
     }
