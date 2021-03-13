@@ -6,6 +6,7 @@ public class Totem : MonoBehaviour
 {
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] Transform arrowOrigin;
+    [SerializeField] public float startUpTime = 0f;
 
     public Animator Animator { get; private set; }
 

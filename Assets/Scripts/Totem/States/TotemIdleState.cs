@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TotemIdleState : TotemState
 {
-    private float countDown = 2f;
+    private float idleDuration = 2f;
+    private float countDown;
     private bool isInitialIdle = true;
 
     public TotemIdleState(Totem totem, string animationBooleanName) : base(totem, animationBooleanName)
@@ -15,9 +16,17 @@ public class TotemIdleState : TotemState
     {
         base.Enter();
         
-        // TODO: When we're laying out levels, we may want to be more planned rather than random
-        // If so, we should make the initialWait a SerializeField
-        countDown = isInitialIdle ? Random.Range(1f, 4f) : 2f;
+        // On start up, have a different idle time so that
+        // we don't have all totems shooting at the same time
+        // This first idle time will either come from the inspector or be a random time
+        if (isInitialIdle)
+        {
+            countDown = totem.startUpTime > 0 ? totem.startUpTime : Random.Range(1f, 4f);
+        }
+        else
+        {
+            countDown = idleDuration;
+        }
     }
 
     public override void LogicUpdate()
