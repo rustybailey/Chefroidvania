@@ -76,6 +76,13 @@ public class PlayerHealth : MonoBehaviour
 
         Time.timeScale = 1f;
 
+        // Return the frying pan so it's not all the way across the level when you respawn
+        if (!player.isHoldingFryingPan)
+        {
+            player.FryingPan.StateMachine.ChangeState(player.FryingPan.HiddenState);
+            player.isHoldingFryingPan = true;
+        }
+
         yield return new WaitForSecondsRealtime(.1f);
 
         PlayerSaveData playerSaveData = SaveSystem.LoadPlayer();
