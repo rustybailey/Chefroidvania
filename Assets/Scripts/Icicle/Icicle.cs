@@ -7,8 +7,6 @@ public class Icicle : MonoBehaviour
     [SerializeField] public LayerMask playerLayer;
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public float sightDistance = 10f;
-    [SerializeField] public Transform floorCheck;
-    [SerializeField] public float floorCheckDistance = 1f;
 
 
     public Animator Animator { get; private set; }
@@ -55,13 +53,6 @@ public class Icicle : MonoBehaviour
         //// Line of sight
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, Vector3.down * sightDistance);
-
-        //// Wall/edge detectors
-        //Gizmos.color = Color.yellow;
-        //// Wall (looking right)
-        //Gizmos.DrawRay(wallCheck.position, transform.right * wallCheckDistance);
-        //// Floor
-        //Gizmos.DrawRay(floorCheck.position, Vector3.down * floorCheckDistance);
     }
 #endif
 

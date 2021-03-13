@@ -15,14 +15,12 @@ public class IcicleLandState : IcicleState
         AudioManager.instance.PlaySoundEffectAtPoint("IcicleCrash", icicle.transform.position);
         icicle.Rigidbody.isKinematic = true;
         icicle.Collider.isTrigger = false;
-        Object.Destroy(icicle.gameObject.GetComponent<DamageDealer>());
+        Object.Destroy(icicle.gameObject.GetComponentInChildren<DamageDealer>());
+        icicle.gameObject.layer = LayerMask.NameToLayer("Platform");
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        // TODO: Is there even a way to exit this state?
-        // TODO: Take away damage dealer script after < 1 second
     }
 }

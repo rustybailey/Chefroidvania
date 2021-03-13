@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class IcicleFallState : IcicleState
 {
-    private float waitDuration = 1f;
+    private float waitDuration = .5f;
     private float countDown;
-    private float initialFallSpeed = 6f;
-    private float fallSpeed;
-    private float speedIncrease = 0f;
 
     public IcicleFallState(Icicle icicle, string animationBooleanName) : base(icicle, animationBooleanName)
     {
@@ -17,16 +14,11 @@ public class IcicleFallState : IcicleState
     public override void Enter()
     {
         base.Enter();
-        // Note: I tried to start the rigidbody as kinematic, switch to dynamic
-        // when falling, and then back to kinematic after landing.
-        // That worked, except when it hit the player and just sat
-        // on his head. So I went the manual route of just moving it downwards.
 
-        //icicle.Rigidbody.isKinematic = false;
-        //icicle.Rigidbody.gravityScale = 2;
-        //icicle.Rigidbody.mass = 100;
+        icicle.Rigidbody.isKinematic = false;
+        icicle.Rigidbody.gravityScale = 2;
+        icicle.Rigidbody.mass = 100;
         countDown = waitDuration;
-        fallSpeed = initialFallSpeed;
     }
 
     public override void LogicUpdate()
@@ -41,8 +33,5 @@ public class IcicleFallState : IcicleState
         {
             stateMachine.ChangeState(icicle.landState);
         }
-
-        fallSpeed += speedIncrease;
-        icicle.transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
     }
 }
