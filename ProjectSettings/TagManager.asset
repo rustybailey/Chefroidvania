@@ -56,6 +56,9 @@ TagManager:
   - name: Background Nearest
     uniqueID: 3482822879
     locked: 0
+  - name: Object Far
+    uniqueID: 1318291833
+    locked: 0
   - name: Platform
     uniqueID: 2966014043
     locked: 0
