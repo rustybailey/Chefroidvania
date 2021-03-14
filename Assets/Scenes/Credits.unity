@@ -782,7 +782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -3520}
+  m_AnchoredPosition: {x: 0, y: -3822}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024205565
@@ -1049,11 +1049,19 @@ MonoBehaviour:
 
     <size="84">Special Thanks</size>
 
-    Jenny Bailey
+    Adam
 
     Alyssa
 
-    Bardent'
+    Bardent
+
+    Jenny
+
+    Julie
+
+    Kolin
+
+    Spencer'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc7aad7d3dfeda54e9eb0fc81d00f183, type: 2}
   m_sharedMaterial: {fileID: 2215579948318162365, guid: fc7aad7d3dfeda54e9eb0fc81d00f183, type: 2}
@@ -1164,7 +1172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -3152}
+  m_AnchoredPosition: {x: 0, y: -3454}
   m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114543105
@@ -1966,7 +1974,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.5548096, y: -1367.5476}
+  m_Offset: {x: 2.5548096, y: -1502.493}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1977,5 +1985,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1617.2375, y: 3815.0977}
+  m_Size: {x: 1617.2375, y: 4084.9885}
   m_EdgeRadius: 0
