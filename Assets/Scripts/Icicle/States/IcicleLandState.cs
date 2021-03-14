@@ -13,7 +13,8 @@ public class IcicleLandState : IcicleState
         base.Enter();
 
         AudioManager.instance.PlaySoundEffectAtPoint("IcicleCrash", icicle.transform.position);
-        icicle.Rigidbody.isKinematic = true;
+        // Not putting it back to kinematic anymore; keeping it dynamic seems more desirable
+        //icicle.Rigidbody.isKinematic = true;
         icicle.Collider.isTrigger = false;
         Object.Destroy(icicle.gameObject.GetComponentInChildren<DamageDealer>());
         icicle.gameObject.layer = LayerMask.NameToLayer("Platform");
