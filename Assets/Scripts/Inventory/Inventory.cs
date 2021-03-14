@@ -97,6 +97,13 @@ public class Inventory : MonoBehaviour
         return AcquiredIngredients.Count == totalIngredients;
     }
 
+    public void EmptyBag()
+    {
+        AcquiredAbilities.Clear();
+        AcquiredHealthUpgrades.Clear();
+        AcquiredIngredients.Clear();
+}
+
     #region DEBUG METHODS
     public void AcquireAllAbilities()
     {

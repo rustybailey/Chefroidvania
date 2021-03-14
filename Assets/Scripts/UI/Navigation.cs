@@ -80,6 +80,10 @@ public class Navigation : MonoBehaviour
 
     public void StartNewGame()
     {
+        if (Inventory.instance)
+        {
+            Inventory.instance.EmptyBag();
+        }
         audioManager.PlaySoundEffect("MenuSelect");
         menuCursorAnimator.SetTrigger("destroy");
         levelLoader.LoadNextLevelWithTransition();
